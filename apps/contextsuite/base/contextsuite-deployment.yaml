@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/contextsuite:84e0e73
+          image: quicklookup/contextsuite:0475c07
           resources:
             requests:
               cpu: 100m
@@ -24,6 +24,11 @@ spec:
           ports:
             - containerPort: 3000
           env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: redis-password
             - name: PG_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
