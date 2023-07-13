@@ -29,11 +29,6 @@ spec:
                 secretKeyRef:
                   name: redis
                   key: redis-password
-            - name: PG_DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgresql-postgresql-ha-pgpool
-                  key: admin-password
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
