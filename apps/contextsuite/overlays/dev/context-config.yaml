@@ -7,7 +7,8 @@ data:
   GRAPHQL_SERVER_PATH: '/context'
   ZONE: 'dev_sbx'
   WKT_FOLDER: '/Users/stefanbaxter/Data/wkt_cache'
-  REDIS_URL: 'redis-headless.default.svc.cluster.local'
+  REDIS_URL: 'redis-master.default.svc.cluster.local'
+  LOCAL_REDIS: 'true'
 
   PG_DB_USER: 'postgres'
   PG_DB_HOST: 'git remote add origin https://github.com/smartdataHQ/deployment.git'
