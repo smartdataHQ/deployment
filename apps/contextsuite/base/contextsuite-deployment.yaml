@@ -27,32 +27,32 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: default.redis
+                  name: redis
                   key: redis-password
             - name: PG_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: default.postgresql-postgresql-ha-pgpool
+                  name: postgresql-postgresql-ha-pgpool
                   key: admin-password
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: default.postgresql-postgresql-ha-pgpool
+                  name: postgresql-postgresql-ha-pgpool
                   key: admin-password
             - name: NEO4J_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: default.neo4j-auth
+                  name: neo4j-auth
                   key: NEO4J_AUTH
             - name: CLICKHOUSE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: default.clickhouse
+                  name: clickhouse
                   key: admin-password
             - name: SOLR_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: default.solr
+                  name: solr
                   key: solr-password
             - name: FACEBOOK_APP_ID
               valueFrom:
