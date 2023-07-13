@@ -1,0 +1,5 @@
+resources:
+  - contextapi-deployment.yaml
+  - contextapi-service.yaml
+  - contextsuite-deployment.yaml
+  - contextsuite-service.yaml

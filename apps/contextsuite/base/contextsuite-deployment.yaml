@@ -1,0 +1,134 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contextsuite
+spec:
+  selector:
+    matchLabels:
+      app: contextsuite
+      tier: api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: contextsuite
+        tier: api
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/contextsuite:84e0e73
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: default.redis
+                  key: redis-password
+            - name: PG_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: default.postgresql-postgresql-ha-pgpool
+                  key: admin-password
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: default.postgresql-postgresql-ha-pgpool
+                  key: admin-password
+            - name: NEO4J_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: default.neo4j-auth
+                  key: NEO4J_AUTH
+            - name: CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: default.clickhouse
+                  key: admin-password
+            - name: SOLR_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: default.solr
+                  key: solr-password
+            - name: FACEBOOK_APP_ID
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: FACEBOOK_APP_ID
+            - name: FACEBOOK_APP_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: FACEBOOK_APP_SECRET
+            - name: GITHUB_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: GITHUB_KEY
+            - name: GITHUB_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: GITHUB_SECRET
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: GOOGLE_CLIENT_ID
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: GOOGLE_CLIENT_SECRET
+            - name: LINKEDIN_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: LINKEDIN_KEY
+            - name: LINKEDIN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: LINKEDIN_SECRET
+            - name: NEXT_PUBLIC_GRAPH_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: NEXT_PUBLIC_GRAPH_API_KEY
+            - name: NEXT_PUBLIC_MAPBOX_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: NEXT_PUBLIC_MAPBOX_API_TOKEN
+            - name: NEXTAUTH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: NEXTAUTH_SECRET
+            - name: SEGMENT_WRITE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: SEGMENT_WRITE_KEY
+            - name: SENTRY_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: SENTRY_AUTH_TOKEN
+            - name: TWITTER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: TWITTER_API_KEY
+            - name: TWITTER_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: TWITTER_API_SECRET
+          envFrom:
+            - configMapRef:
+                name: context-config

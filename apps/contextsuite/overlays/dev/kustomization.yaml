@@ -1,0 +1,5 @@
+bases:
+  - ../../base
+
+resources:
+  - context-config.yaml
