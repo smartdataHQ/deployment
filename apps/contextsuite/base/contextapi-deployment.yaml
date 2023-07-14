@@ -32,7 +32,7 @@ spec:
           - name: NEO4J_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: neo4j-auth
+                name: contextsuite
                 key: NEO4J_AUTH
           - name: CLICKHOUSE_PASSWORD
             valueFrom:
