@@ -5,6 +5,29 @@ We use Fleet (Rancher) to manage our Kubernetes clusters and Helm to deploy our 
 
 The Fleet service monitors this repo and deploys all services and applications that are mapped in Ranchder.
 
+### Index
+
+- [Systems involved and their roles](#systems-involved-and-their-roles)
+  - [Github](#github)
+  - [Rancher](#rancher)
+  - [Docker Hub](#docker-hub)
+- [Applications included in repo](#applications-included-in-repo)
+  - [Context Suite](#context-suite)
+    - [The Client Application](#the-client-application)
+    - [The Context API](#the-context-api)
+  - [Quick Lookup](#quick-lookup)
+    - [The Graph API](#the-graph-api)
+    - [The Bestlist](#the-bestlist)
+  - [Self Services Portal](#self-services-portal)
+  - [The GraphQL Playground](#the-graphql-playground)
+
+### IMPORTANT!
+**No secrets are stored in this repo. NONE AT ALL!**</br> 
+As this is a public repo, all secrets are stored in Rancher and injected into the cluster at deployment time.
+Before you commit any changes to this repo, make sure you have removed all secrets from the files you are changing.
+
+Refer to the [Rancher documentation](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/secrets#docusaurus_skipToContent_fallback) for how to add secrets to the cluster.
+
 ## Systems involved and their roles
 The following systems are involved in deploying Quick Lookup and Context Suite services.
 
@@ -30,9 +53,24 @@ We can have Github Actions updated these tags automatically when code is pushed 
 
 [Our DocerHub Repo](https://hub.docker.com/repository/docker/quicklookup/)
 
-## Solutions and Services supported by this repo
+# Applications included in repo
 
-### Context Suite
+## Context Suite
+
+### The Client Application
+
+### The Context API
+
+## Quick Lookup
+
+### The Graph API
+
+### The Bestlist 
+
+## Self Services Portal
+
+## The GraphQL Playground
+
 
 
 
