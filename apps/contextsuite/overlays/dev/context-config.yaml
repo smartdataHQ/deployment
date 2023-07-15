@@ -38,7 +38,7 @@ data:
   CLICKHOUSE_USER: 'default'
 
   # Required Services
-  NEXT_PUBLIC_STATS_API_ENDPOINTNEXTAUTH_URL: 'https://www.contextsuite.ai'
+  NEXTAUTH_URL: 'https://www.contextsuite.ai'
   NEXT_PUBLIC_GRAPH_API_URL: 'https://www.contextsuite.ai/graph'
   NEXT_PUBLIC_CONTEXT_API_ENDPOINT: 'https://www.contextsuite.ai/context'
   NEXT_PUBLIC_STATS_API_ENDPOINT: 'https://www.contextsuite.ai/stats'
