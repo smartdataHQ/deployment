@@ -28,6 +28,11 @@ Before you commit any changes to this repo, make sure you have removed all secre
 
 Refer to the [Rancher documentation](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/secrets#docusaurus_skipToContent_fallback) for how to add secrets to the cluster.
 
+### Also IMPORTANT!
+We separate deployment configuration from application code.</br>
+The only CI actions included in code repos are building, dockerizing the code and pushing the image to DockerHub.</br>
+All other deployment configuration is stored in this repo.
+
 ## Systems involved and their roles
 The following systems are involved in deploying Quick Lookup and Context Suite services.
 
