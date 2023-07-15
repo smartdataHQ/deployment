@@ -22,7 +22,7 @@ spec:
               cpu: 200m
               memory: 100Mi
           ports:
-            - containerPort: 3000
+            - containerPort: 8080
           env:
           - name: PG_DB_PASSWORD
             valueFrom:
