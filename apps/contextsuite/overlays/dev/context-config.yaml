@@ -13,7 +13,8 @@ data:
   # Postgres
   LIST_DB_NAME: 'list_db'
   DB_CLIENT: 'pg'
-  DB_HOST: 'postgresql-postgresql-ha-pgpool.default.svc.cluster.local'
+  # DB_HOST: 'postgresql-postgresql-ha-pgpool.default.svc.cluster.local'
+  DB_HOST: '192.168.50.125'
   DB_USER: 'postgres'
   DB_PORT: '5432'
   DB_NAME: 'ssp'
@@ -37,7 +38,7 @@ data:
   CLICKHOUSE_USER: 'default'
 
   # Required Services
-  NEXTAUTH_URL: 'https://www.contextsuite.ai'
+  NEXT_PUBLIC_STATS_API_ENDPOINTNEXTAUTH_URL: 'https://www.contextsuite.ai'
   NEXT_PUBLIC_GRAPH_API_URL: 'https://www.contextsuite.ai/graph'
   NEXT_PUBLIC_CONTEXT_API_ENDPOINT: 'https://www.contextsuite.ai/context'
   NEXT_PUBLIC_STATS_API_ENDPOINT: 'https://www.contextsuite.ai/stats'
