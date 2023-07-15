@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ssp-config
+data:
+  CLIENT_URL: 'http://localhost:3000'
+  PRODUCTION_DOMAIN: 'https://ssp.quicklookup.info'
+  SUPPORT_EMAIL: 'support@quicklookup.com'
+  INLINE_RUNTIME_CHUNK: 'true'
+  AWS_ACCESS_KEY_ID: ''
+  AWS_SECRET_ACCESS_KEY: ''
+  S3_REGION: ''
+  S3_BUCKET: ''
+  DB_USER: 'postgres'
+  DB_HOST: 'postgresql-postgresql-ha-pgpool.default.svc.cluster.local'
+  DB_CLIENT: 'pg'
+  DB_NAME: 'ssp'
+  DB_PORT: '5432'
+  ENABLE_API_LOGS: 'true'
+  STORE_EVENT_LOGS: 'true'
+  APP_NAME: 'Quick Lookup'

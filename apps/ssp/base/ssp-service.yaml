@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ssp
+  labels:
+    app: ssp
+    tier: api
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+  selector:
+    app: ssp
+    tier: api

@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ssp
+spec:
+  selector:
+    matchLabels:
+      app: ssp
+      tier: api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: ssp
+        tier: api
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/ssp:c13f7b2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 3000
+          env:
+          - name: PG_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgresql-postgresql-ha-pgpool
+                key: admin-password
+          - name: AZUREAD_AUTH_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: AZUREAD_AUTH_CLIENT_ID
+          - name: AZUREAD_AUTH_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: AZUREAD_AUTH_CLIENT_SECRET
+          - name: CRYPTO_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: CRYPTO_SECRET
+          - name: FACEBOOK_APP_ID
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: FACEBOOK_APP_ID
+          - name: FACEBOOK_APP_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: FACEBOOK_APP_SECRET
+          - name: GITHUB_KEY
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: GITHUB_KEY
+          - name: GITHUB_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: GITHUB_SECRET
+          - name: GOOGLE_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: GOOGLE_CLIENT_ID
+          - name: GOOGLE_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: GOOGLE_CLIENT_SECRET
+          - name: LINKEDIN_KEY
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: LINKEDIN_KEY
+          - name: LINKEDIN_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: LINKEDIN_SECRET
+          - name: MAILGUN_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: MAILGUN_API_KEY
+          - name: SESSION_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: SESSION_SECRET
+          - name: STRIPE_SECRET_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: STRIPE_SECRET_API_KEY
+          - name: TOKEN_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: TOKEN_SECRET
+          - name: TWITTER_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: TWITTER_API_KEY
+          - name: TWITTER_API_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: smart-data-social-auth
+                key: TWITTER_API_SECRET
+          envFrom:
+            - configMapRef:
+                name: ssp-config
