@@ -19,7 +19,7 @@ spec:
           image: quicklookup/contextsuite:7993cff
           resources:
             requests:
-              cpu: 200m
+              cpu: 500m
               memory: 100Mi
           ports:
             - containerPort: 3000
