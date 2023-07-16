@@ -42,7 +42,7 @@ metadata:
 
 spec:
     rules:
-        - host: graphql.quicklookup.info
+        - host: playground.contextsuite.ai
           http:
               paths:
                   - backend:
@@ -55,5 +55,5 @@ spec:
 
     tls:
         - hosts:
-              - graphql.quicklookup.com
-          secretName: altair-tls-secret
+              - playground.contextsuite.ai
+          secretName: contextsuite-ceert
