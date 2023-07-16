@@ -9,7 +9,7 @@ data:
   BACKEND_URL: 'https://api.quicklookup.com'
   FRONTEND_URL: 'https://app.quicklookup.com'
   S3_BUCKET: 'files.quicklookup.com'
-  CLIENT_URL: 'http://localhost:8080'
+  CLIENT_URL: 'https://admin.contextsuite.ai'
   PRODUCTION_DOMAIN: 'https://admin.contextsuite.ai'
   SUPPORT_EMAIL: 'support@quicklookup.com'
   INLINE_RUNTIME_CHUNK: 'true'
