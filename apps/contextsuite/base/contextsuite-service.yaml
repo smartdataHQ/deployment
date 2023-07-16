@@ -4,11 +4,11 @@ metadata:
   name: contextsuite
   labels:
     app: contextsuite
-    tier: api
+    tier: app
 spec:
   type: NodePort
   ports:
     - port: 3000
   selector:
     app: contextsuite
-    tier: api
+    tier: app
