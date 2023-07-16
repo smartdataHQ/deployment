@@ -23,6 +23,19 @@ spec:
               memory: 100Mi
           ports:
             - containerPort: 80
+          livenessProbe:
+            httpGet:
+              port: 80
+              path: /
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 80
+              path: /
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
           envFrom:
             - configMapRef:
                 name: playground-config
