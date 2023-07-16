@@ -25,4 +25,4 @@ spec:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: ssp-config
+                name: playground-config
