@@ -4,11 +4,11 @@ metadata:
   name: ssp
   labels:
     app: ssp
-    tier: api
+    tier: app
 spec:
   type: NodePort
   ports:
     - port: 8080
   selector:
     app: ssp
-    tier: api
+    tier: app

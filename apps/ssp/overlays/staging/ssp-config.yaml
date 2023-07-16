@@ -4,7 +4,7 @@ metadata:
   name: ssp-config
 data:
   CLIENT_URL: 'http://localhost:8080'
-  PRODUCTION_DOMAIN: 'https://ssp.quicklookup.info'
+  PRODUCTION_DOMAIN: 'https://ssp.contextsuite.ai'
   SUPPORT_EMAIL: 'support@quicklookup.com'
   INLINE_RUNTIME_CHUNK: 'true'
   DB_USER: 'postgres'
