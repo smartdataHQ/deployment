@@ -56,4 +56,4 @@ spec:
     tls:
         - hosts:
               - playground.contextsuite.ai
-          secretName: contextsuite-ceert
+          secretName: wild-contextsuite-ai
