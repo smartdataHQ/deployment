@@ -7,7 +7,6 @@ spec:
     matchLabels:
       app: contextsuite
       tier: app
-  replicas: 3
   template:
     metadata:
       labels:
@@ -135,3 +134,17 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextsuite-config
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: contextsuite
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: contextsuite
+  maxReplicas: 3
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 60
