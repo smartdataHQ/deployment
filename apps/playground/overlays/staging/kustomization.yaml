@@ -3,5 +3,5 @@ bases:
 
 resources:
   - playground-config.yaml
-#  - playground-ingress.yml
+  - playground-ingress.yml
 

@@ -53,7 +53,7 @@ spec:
                     path: /
                     pathType: Prefix
 
-    tls:
-        - hosts:
-              - playground.contextsuite.ai
-          secretName: wild-contextsuite-ai
+    #tls:
+    #    - hosts:
+    #          - playground.contextsuite.ai
+    #      secretName: wild-contextsuite-ai
