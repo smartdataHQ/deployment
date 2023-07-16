@@ -3,3 +3,4 @@ bases:
 
 resources:
   - ssp-config.yaml
+  - ssp-ingress.yml
