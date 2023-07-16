@@ -7,7 +7,6 @@ spec:
     matchLabels:
       app: playground
       tier: gui
-  replicas: 3
   template:
     metadata:
       labels:
@@ -39,3 +38,16 @@ spec:
           envFrom:
             - configMapRef:
                 name: playground-config
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: playground
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: playground
+  maxReplicas: 3
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 60
