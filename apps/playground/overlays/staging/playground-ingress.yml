@@ -45,10 +45,14 @@ spec:
         - host: graphql.quicklookup.info
           http:
               paths:
-                  - path: /(.*)
-                    backend:
-                        serviceName: playground
-                        servicePort: http
+                  - backend:
+                        service:
+                            name: playground
+                            port:
+                                number: 3000
+                    path: /
+                    pathType: Prefix
+
     tls:
         - hosts:
               - graphql.quicklookup.com
