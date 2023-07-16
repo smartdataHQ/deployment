@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: contextapi
   labels:
-    app: contextapi
+    app: contextsuite
     tier: api
 spec:
   type: NodePort
   ports:
     - port: 4001
   selector:
-    app: contextapi
+    app: contextsuite
     tier: api

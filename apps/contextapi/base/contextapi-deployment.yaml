@@ -5,13 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: contextapi
+      app: contextsuite
       tier: api
   replicas: 3
   template:
     metadata:
       labels:
-        app: contextapi
+        app: contextsuite
         tier: api
     spec:
       containers:
@@ -121,4 +121,4 @@ spec:
                 key: TWITTER_API_SECRET
           envFrom:
             - configMapRef:
-                name: context-config
+                name: contextapi-config
