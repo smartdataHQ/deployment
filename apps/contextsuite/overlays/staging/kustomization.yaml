@@ -3,3 +3,5 @@ bases:
 
 resources:
   - contextsuite-config.yaml
+  - contextsuite-cert.yaml
+  - contextsuite-ingress.yml
