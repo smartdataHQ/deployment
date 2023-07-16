@@ -23,6 +23,19 @@ spec:
               memory: 100Mi
           ports:
             - containerPort: 4001
+          livenessProbe:
+            httpGet:
+              port: 4001
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 4001
+              path: /api/status/ready
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
           env:
           - name: PG_DB_PASSWORD
             valueFrom:
