@@ -122,3 +122,16 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextapi-config
+          livenessProbe:
+            httpGet:
+              port: http
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: http
+              path: /api/status/ready
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
