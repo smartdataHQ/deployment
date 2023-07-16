@@ -18,6 +18,13 @@ spec:
                   number: 4001
             path: /stats
             pathType: Prefix
+          - backend:
+              service:
+                name: contextapi
+                port:
+                  number: 4001
+            path: /context
+            pathType: Prefix
     - host: www.contextsuite.ai
       http:
         paths:
@@ -27,6 +34,13 @@ spec:
                 port:
                   number: 3000
             path: /stats
+            pathType: Prefix
+          - backend:
+              service:
+                name: contextapi
+                port:
+                  number: 3000
+            path: /context
             pathType: Prefix
   tls:
     - hosts:
