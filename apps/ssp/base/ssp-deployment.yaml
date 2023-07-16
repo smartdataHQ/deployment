@@ -7,7 +7,6 @@ spec:
     matchLabels:
       app: ssp
       tier: app
-  replicas: 3
   template:
     metadata:
       labels:
@@ -130,3 +129,17 @@ spec:
           envFrom:
             - configMapRef:
                 name: ssp-config
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ssp
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ssp
+  maxReplicas: 3
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 60
