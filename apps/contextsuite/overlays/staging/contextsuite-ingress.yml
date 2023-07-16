@@ -7,11 +7,6 @@ metadata:
   name: contextsuite
   namespace: contextsuite
 spec:
-  defaultBackend:
-    service:
-      name: contextsuite
-      port:
-        number: 3000
   rules:
     - host: contextsuite.ai
       http:
