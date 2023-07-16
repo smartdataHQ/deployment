@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playground
+spec:
+  selector:
+    matchLabels:
+      app: playground
+      tier: gui
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: playground
+        tier: gui
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/playground:c42ea0b
+          resources:
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: ssp-config

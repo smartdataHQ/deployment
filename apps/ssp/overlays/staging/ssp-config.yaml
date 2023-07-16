@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: ssp-config
 data:
-  CLIENT_URL: 'http://localhost:3000'
+  CLIENT_URL: 'http://localhost:8080'
   PRODUCTION_DOMAIN: 'https://ssp.quicklookup.info'
   SUPPORT_EMAIL: 'support@quicklookup.com'
   INLINE_RUNTIME_CHUNK: 'true'
