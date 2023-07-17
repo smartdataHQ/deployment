@@ -40,7 +40,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: pg-pool
-                key: admin-password
+                key: password
           - name: AZUREAD_AUTH_CLIENT_ID
             valueFrom:
               secretKeyRef:
