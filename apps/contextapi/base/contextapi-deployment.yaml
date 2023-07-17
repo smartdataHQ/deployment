@@ -16,6 +16,10 @@ spec:
       containers:
         - name: node
           image: quicklookup/contextapi:fe9a8e9
+          resources:
+            requests:
+              cpu: 400m
+              memory: 400Mi
           ports:
             - containerPort: 4001
           livenessProbe:

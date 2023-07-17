@@ -16,6 +16,10 @@ spec:
       containers:
         - name: node
           image: quicklookup/playground:74db38b
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
           ports:
             - containerPort: 80
           livenessProbe:

@@ -16,6 +16,10 @@ spec:
       containers:
         - name: node
           image: quicklookup/ssp:a28747d
+          resources:
+            requests:
+              cpu: 300m
+              memory: 300Mi
           ports:
             - containerPort: 8080
           livenessProbe:

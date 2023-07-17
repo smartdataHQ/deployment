@@ -16,6 +16,10 @@ spec:
       containers:
         - name: node
           image: quicklookup/contextsuite:7993cff
+          resources:
+            requests:
+              cpu: 500m
+              memory: 500Mi
           ports:
             - containerPort: 3000
           livenessProbe:
