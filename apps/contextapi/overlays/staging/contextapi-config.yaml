@@ -37,35 +37,11 @@ data:
   CLICKHOUSE_CONNECTION: 'http://clickhouse.default.svc.cluster.local:8123'
   CLICKHOUSE_USER: 'default'
 
-  # Required Services
-  NEXTAUTH_URL: 'https://contextsuite.ai'
-  NEXT_PUBLIC_GRAPH_API_URL: 'https://contextsuite.ai/graph'
-  NEXT_PUBLIC_CONTEXT_API_ENDPOINT: 'https://contextsuite.ai/context'
-  NEXT_PUBLIC_STATS_API_ENDPOINT: 'https://contextsuite.ai/stats'
-
-  GRAPHQL_SERVER_PORT: '4001'
-  GRAPHQL_SERVER_PATH: '/context'
   WKT_FOLDER: '/Users/stefanbaxter/Data/wkt_cache'
 
   # NEXT_PUBLIC_GRAPH_API_KEY
-
-  # MAPBOX
-  NEXT_PUBLIC_MAPBOX_DARK_TILE_URL: 'https://api.mapbox.com/styles/v1/ingiatlason/cl4eglwhb000614ld9jgxs50r/tiles/256/{z}/{x}/{y}@2x?access_token='
-  NEXT_PUBLIC_MAPBOX_LIGHT_TILE_URL: 'https://api.mapbox.com/styles/v1/ingiatlason/cleie5zek005901pvxxblfo6a/tiles/256/{z}/{x}/{y}@2x?access_token='
 
   # Sentry
   SENTRY_ENVIRONMENT: 'contextsuite-prod'
   NEXT_PUBLIC_SENTRY_DSN: 'https://97964f08ea76422f830fba0618967fc4@o982223.ingest.sentry.io/5937160'
   SENTRY_DSN: 'https://97964f08ea76422f830fba0618967fc4@o982223.ingest.sentry.io/5937160'
-
-  # Authentication OAuth etc.
-  # FACEBOOK_APP_ID: ''
-  # FACEBOOK_APP_SECRET: ''
-  # TWITTER_API_KEY: ''
-  # TWITTER_API_SECRET: ''
-  # GOOGLE_CLIENT_ID: ''
-  # GOOGLE_CLIENT_SECRET: ''
-  # LINKEDIN_KEY: ''
-  # LINKEDIN_SECRET: ''
-  # GITHUB_KEY: ''
-  # GITHUB_SECRET: ''
