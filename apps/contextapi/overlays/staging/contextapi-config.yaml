@@ -38,10 +38,10 @@ data:
   CLICKHOUSE_USER: 'default'
 
   # Required Services
-  NEXTAUTH_URL: 'https://www.contextsuite.ai'
-  NEXT_PUBLIC_GRAPH_API_URL: 'https://www.contextsuite.ai/graph'
-  NEXT_PUBLIC_CONTEXT_API_ENDPOINT: 'https://www.contextsuite.ai/context'
-  NEXT_PUBLIC_STATS_API_ENDPOINT: 'https://www.contextsuite.ai/stats'
+  NEXTAUTH_URL: 'https://contextsuite.ai'
+  NEXT_PUBLIC_GRAPH_API_URL: 'https://contextsuite.ai/graph'
+  NEXT_PUBLIC_CONTEXT_API_ENDPOINT: 'https://contextsuite.ai/context'
+  NEXT_PUBLIC_STATS_API_ENDPOINT: 'https://contextsuite.ai/stats'
 
   GRAPHQL_SERVER_PORT: '4001'
   GRAPHQL_SERVER_PATH: '/context'
