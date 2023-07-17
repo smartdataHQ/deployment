@@ -7,8 +7,23 @@ metadata:
   name: contextsuite
   namespace: contextsuite
 spec:
+  defaultBackend:
+    service:
+      name: contextsuite
+      port:
+        number: 3000
   rules:
     - host: contextsuite.ai
+      http:
+        paths:
+          - backend:
+              service:
+                name: contextsuite
+                port:
+                  number: 3000
+            path: /
+            pathType: Prefix
+    - host: www.contextsuite.ai
       http:
         paths:
           - backend:
@@ -21,4 +36,5 @@ spec:
   tls:
     - hosts:
         - contextsuite.ai
+        - www.contextsuite.ai
       secretName: wild-contextsuite-ai-cert
