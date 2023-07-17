@@ -32,14 +32,14 @@ spec:
               service:
                 name: contextapi
                 port:
-                  number: 3000
+                  number: 4001
             path: /stats
             pathType: Prefix
           - backend:
               service:
                 name: contextapi
                 port:
-                  number: 3000
+                  number: 4001
             path: /context
             pathType: Prefix
   tls:
