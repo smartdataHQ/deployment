@@ -2,7 +2,6 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: contextsuite-config
-  # NO SECRETS SHOULD BE STORED IN CONFIGMAPS [See the docs](/README.md))
 data:
   ZONE: 'dev_sbx'
 
@@ -39,9 +38,9 @@ data:
 
   # Required Services
   NEXTAUTH_URL: 'https://www.contextsuite.ai'
-  NEXT_PUBLIC_GRAPH_API_URL: 'https://www.contextsuite.ai/graph'
-  NEXT_PUBLIC_CONTEXT_API_ENDPOINT: 'https://www.contextsuite.ai/context'
-  NEXT_PUBLIC_STATS_API_ENDPOINT: 'https://www.contextsuite.ai/stats'
+  REACT_APP_GRAPH_API_URL: "https://contextsuite.ai/graph"
+  REACT_APP_CONTEXT_API_ENDPOINT: "https://contextsuite.ai/context"
+  REACT_APP_STATS_API_ENDPOINT: "https://contextsuite.ai/stats"
 
   GRAPHQL_SERVER_PORT: '4001'
   GRAPHQL_SERVER_PATH: '/context'
@@ -50,8 +49,8 @@ data:
   # NEXT_PUBLIC_GRAPH_API_KEY
 
   # MAPBOX
-  NEXT_PUBLIC_MAPBOX_DARK_TILE_URL: 'https://api.mapbox.com/styles/v1/ingiatlason/cl4eglwhb000614ld9jgxs50r/tiles/256/{z}/{x}/{y}@2x?access_token='
-  NEXT_PUBLIC_MAPBOX_LIGHT_TILE_URL: 'https://api.mapbox.com/styles/v1/ingiatlason/cleie5zek005901pvxxblfo6a/tiles/256/{z}/{x}/{y}@2x?access_token='
+  REACT_APP_MAPBOX_DARK_TILE_URL: 'https://api.mapbox.com/styles/v1/ingiatlason/cl4eglwhb000614ld9jgxs50r/tiles/256/{z}/{x}/{y}@2x?access_token='
+  REACT_APP_MAPBOX_LIGHT_TILE_URL: 'https://api.mapbox.com/styles/v1/ingiatlason/cleie5zek005901pvxxblfo6a/tiles/256/{z}/{x}/{y}@2x?access_token='
 
   # Sentry
   SENTRY_ENVIRONMENT: 'contextsuite-prod'

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/contextsuite:8469fa1
+          image: quicklookup/contextsuite:e5fc1a5
           resources:
             requests:
               cpu: 500m
@@ -101,11 +101,11 @@ spec:
                 secretKeyRef:
                   name: contextsuite
                   key: NEXT_PUBLIC_GRAPH_API_KEY
-            - name: NEXT_PUBLIC_MAPBOX_API_TOKEN
+            - name: REACT_APP_MAPBOX_API_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: contextsuite
-                  key: NEXT_PUBLIC_MAPBOX_API_TOKEN
+                  key: REACT_APP_MAPBOX_API_TOKEN
             - name: NEXTAUTH_SECRET
               valueFrom:
                 secretKeyRef:
