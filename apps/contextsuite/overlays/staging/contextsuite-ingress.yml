@@ -18,18 +18,7 @@ spec:
                   number: 3000
             path: /
             pathType: Prefix
-    - host: www.contextsuite.ai
-      http:
-        paths:
-          - backend:
-              service:
-                name: contextsuite
-                port:
-                  number: 3000
-            path: /
-            pathType: Prefix
   tls:
     - hosts:
         - contextsuite.ai
-        - www.contextsuite.ai
       secretName: wild-contextsuite-ai-cert
