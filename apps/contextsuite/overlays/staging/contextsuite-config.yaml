@@ -13,7 +13,7 @@ data:
   # Postgres
   LIST_DB_NAME: 'list_db'
   DB_CLIENT: 'pg'
-  DB_HOST: 'postgresql-postgresql-ha-pgpool.default.svc.cluster.local'
+  DB_HOST: 'postgresql-postgresql-ha-pgpool.default'
   # DB_HOST: '192.168.50.125'
   DB_USER: 'postgres'
   DB_PORT: '5432'

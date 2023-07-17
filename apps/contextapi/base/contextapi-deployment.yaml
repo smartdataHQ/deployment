@@ -36,11 +36,11 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
           env:
-          - name: PG_DB_PASSWORD
+          - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: postgresql-postgresql-ha-pgpool
-                key: admin-password
+                key: password
           - name: NEO4J_PASSWORD
             valueFrom:
               secretKeyRef:
