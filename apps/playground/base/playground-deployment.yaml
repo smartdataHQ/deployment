@@ -16,10 +16,6 @@ spec:
       containers:
         - name: node
           image: quicklookup/playground:74db38b
-          resources:
-            requests:
-              cpu: 200m
-              memory: 100Mi
           ports:
             - containerPort: 80
           livenessProbe:
@@ -49,5 +45,5 @@ spec:
     kind: Deployment
     name: playground
   maxReplicas: 3
-  minReplicas: 1
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60

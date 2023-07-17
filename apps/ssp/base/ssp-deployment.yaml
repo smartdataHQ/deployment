@@ -16,10 +16,6 @@ spec:
       containers:
         - name: node
           image: quicklookup/ssp:3281363
-          resources:
-            requests:
-              cpu: 200m
-              memory: 100Mi
           ports:
             - containerPort: 8080
           livenessProbe:
@@ -141,5 +137,5 @@ spec:
     kind: Deployment
     name: ssp
   maxReplicas: 3
-  minReplicas: 1
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60

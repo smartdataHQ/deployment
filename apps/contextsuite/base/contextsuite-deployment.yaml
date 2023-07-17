@@ -16,10 +16,6 @@ spec:
       containers:
         - name: node
           image: quicklookup/contextsuite:7993cff
-          resources:
-            requests:
-              cpu: 500m
-              memory: 100Mi
           ports:
             - containerPort: 3000
           livenessProbe:
@@ -146,5 +142,5 @@ spec:
     kind: Deployment
     name: contextsuite
   maxReplicas: 3
-  minReplicas: 1
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60

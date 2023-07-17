@@ -16,10 +16,6 @@ spec:
       containers:
         - name: node
           image: quicklookup/contextapi:fe9a8e9
-          resources:
-            requests:
-              cpu: 100m
-              memory: 100Mi
           ports:
             - containerPort: 4001
           livenessProbe:
@@ -146,5 +142,5 @@ spec:
     kind: Deployment
     name: contextapi
   maxReplicas: 3
-  minReplicas: 1
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60
