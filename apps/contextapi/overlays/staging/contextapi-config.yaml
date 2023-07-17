@@ -37,6 +37,8 @@ data:
   CLICKHOUSE_CONNECTION: 'http://clickhouse.default:8123'
   CLICKHOUSE_USER: 'default'
 
+  GRAPHQL_SERVER_PORT: '4001'
+  GRAPHQL_SERVER_PATH: '/context'
   WKT_FOLDER: '/Users/stefanbaxter/Data/wkt_cache'
 
   # NEXT_PUBLIC_GRAPH_API_KEY
