@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/ssp:3281363
+          image: quicklookup/ssp:a28747d
           ports:
             - containerPort: 8080
           livenessProbe:
