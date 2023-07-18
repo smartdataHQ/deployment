@@ -3,4 +3,4 @@ bases:
 
 resources:
   - contextapi-config.yaml
-#  - contextapi-ingress.yml
+  - contextapi-ingress.yml
