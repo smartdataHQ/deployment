@@ -18,8 +18,8 @@ spec:
           image: quicklookup/playground:74db38b
           resources:
             requests:
-              cpu: 200m
-              memory: 200Mi
+              cpu: 100m
+              memory: 100Mi
           ports:
             - containerPort: 80
           livenessProbe:
@@ -48,6 +48,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: playground
-  maxReplicas: 3
-  minReplicas: 2
+  maxReplicas: 8
+  minReplicas: 1
   targetCPUUtilizationPercentage: 60

@@ -18,8 +18,8 @@ spec:
           image: quicklookup/contextsuite:f1adc7d
           resources:
             requests:
-              cpu: 500m
-              memory: 500Mi
+              cpu: 200m
+              memory: 200Mi
           ports:
             - containerPort: 3000
           livenessProbe:
@@ -145,6 +145,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: contextsuite
-  maxReplicas: 6
-  minReplicas: 3
+  maxReplicas: 8
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60

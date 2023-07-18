@@ -18,8 +18,8 @@ spec:
           image: quicklookup/contextapi:fe9a8e9
           resources:
             requests:
-              cpu: 500m
-              memory: 400Mi
+              cpu: 200m
+              memory: 200Mi
           ports:
             - containerPort: 4001
           livenessProbe:
@@ -70,6 +70,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: contextapi
-  maxReplicas: 6
-  minReplicas: 3
+  maxReplicas: 8
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60

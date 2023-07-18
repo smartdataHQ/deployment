@@ -18,8 +18,8 @@ spec:
           image: quicklookup/ssp:a62ffbc
           resources:
             requests:
-              cpu: 300m
-              memory: 300Mi
+              cpu: 200m
+              memory: 200Mi
           ports:
             - containerPort: 8080
           livenessProbe:
@@ -140,6 +140,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: ssp
-  maxReplicas: 3
-  minReplicas: 2
+  maxReplicas: 8
+  minReplicas: 1
   targetCPUUtilizationPercentage: 60
