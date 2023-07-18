@@ -18,7 +18,7 @@ spec:
           image: quicklookup/contextapi:fe9a8e9
           resources:
             requests:
-              cpu: 400m
+              cpu: 500m
               memory: 400Mi
           ports:
             - containerPort: 4001
