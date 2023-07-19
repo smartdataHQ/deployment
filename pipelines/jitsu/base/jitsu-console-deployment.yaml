@@ -18,6 +18,10 @@ spec:
           image: jitsucom/console:latest
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
           envFrom:
             - configMapRef:
                 name: jitsu-config
