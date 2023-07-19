@@ -7,7 +7,6 @@ data:
   ROTOR_URL: "http://rotor"
   BULKER_URL: "http://bulker"
   BULKER_AUTH_KEY: "${BULKER_PASSWORD:-4ba41958f341469993fd8ea1c0c932f0}"
-  DATABASE_URL: "postgresql://postgres:jitsuPass@postgresql-postgresql-ha-pgpool.default:5432/jitsu"
   REDIS_URL: "redis://redis-master.default:6379"
   TEST_CREDENTIALS_SHOW_LOGIN: "true"
   NEXTAUTH_URL: "http://jitsu.contextsuite.ai/"

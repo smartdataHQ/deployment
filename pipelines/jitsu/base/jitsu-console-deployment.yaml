@@ -36,6 +36,11 @@ spec:
                 secretKeyRef:
                   name: jitsu-secrets
                   key: TEST_CREDENTIALS
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: jitsu-secrets
+                  key: DATABASE_URL
             - name: GITHUB_CLIENT_ID
               valueFrom:
                 secretKeyRef:
