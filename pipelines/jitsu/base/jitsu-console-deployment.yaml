@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jitsu-console-console
+  name: jitsu-console
 spec:
   selector:
     matchLabels:
-      app: jitsu-console-console
+      app: jitsu-console
       tier: pipelines
   template:
     metadata:
       labels:
-        app: jitsu-console-console
+        app: jitsu-console
         tier: pipelines
     spec:
       containers:
@@ -56,12 +56,12 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: jitsu-console-console
+  name: jitsu-console
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: jitsu-console-console
+    name: jitsu-console
   maxReplicas: 8
   minReplicas: 2
   targetCPUUtilizationPercentage: 60
