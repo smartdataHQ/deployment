@@ -1,0 +1,3 @@
+resources:
+  - jitsu-console-deployment.yaml
+  - jitsu-console-service.yaml

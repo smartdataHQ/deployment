@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jitsu-console-console
+  labels:
+    app: jitsu-console-console
+    tier: api
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+  selector:
+    app: jitsu-console-console
+    tier: api
