@@ -6,12 +6,12 @@ spec:
   selector:
     matchLabels:
       app: jitsu-console
-      tier: pipelines
+      tier: ingress
   template:
     metadata:
       labels:
         app: jitsu-console
-        tier: pipelines
+        tier: ingress
     spec:
       containers:
         - name: node
