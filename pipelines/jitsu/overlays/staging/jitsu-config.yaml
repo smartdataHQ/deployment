@@ -4,7 +4,6 @@ metadata:
   name: jitsu-config
   # NO SECRETS SHOULD BE STORED IN CONFIGMAPS [See the docs](/README.md))
 data:
-  # EE_CONNECTION: "http://jitsu.contextsuite.ai/"
   ROTOR_URL: "http://jitsu-rotor:3401"
   BULKER_URL: "http://jitsu-bulker:3042"
   GLOBAL_HASH_SECRET: "dea42a58-acf4-45af-85bb-e77e94bd5025"
@@ -17,6 +16,5 @@ data:
   KAFKA_BOOTSTRAP_SERVERS: "kafka.default:9092"
   KAFKA_MAX_MINUTES_IN_QUEUE: "600"
   BULKER_AUTH_TOKENS: "dea42a58-acf4-45af-85bb-e77e94bd5025"
-
-  # https://github.com/jitsucom/bulker/blob/main/.docs/server-config.md
+  BULKER_CONFIG_SOURCE: "redis"
   BULKER_PASSWORD: "4ba41958f341469993fd8ea1c0c932f0"
