@@ -25,6 +25,17 @@ spec:
           envFrom:
             - configMapRef:
                 name: jitsu-config
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-postgresql-ha-pgpool
+                  key: password
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: jitsu-secrets
+                  key: DATABASE_URL
 
 ---
 apiVersion: autoscaling/v1
