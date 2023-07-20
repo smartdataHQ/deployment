@@ -1,3 +1,7 @@
 resources:
   - jitsu-console-deployment.yaml
   - jitsu-console-service.yaml
+  - jitsu-bulker-deployment.yaml
+  - jitsu-bulker-service.yaml
+  - jitsu-rotor-deployment.yaml
+  - jitsu-rotor-service.yaml

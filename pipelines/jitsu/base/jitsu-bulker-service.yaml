@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jitsu-console
+  name: jitsu-bulker
   labels:
-    app: jitsu-console
+    app: jitsu-bulker
     tier: ingress
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 3000
+    - port: 3042
   selector:
-    app: jitsu-console
+    app: jitsu-bulker
     tier: ingress
