@@ -19,7 +19,7 @@ spec:
           resources:
             requests:
               cpu: 200m
-              memory: 200Mi
+              memory: 600Mi
           ports:
             - containerPort: 8080
           livenessProbe:
@@ -141,5 +141,5 @@ spec:
     kind: Deployment
     name: ssp
   maxReplicas: 8
-  minReplicas: 1
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60
