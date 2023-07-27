@@ -10,7 +10,7 @@ data:
   BULKER_AUTH_KEY: "dea42a58-acf4-45af-85bb-e77e94bd5025"
   REDIS_URL: "redis://redis-master.default:6379"
   TEST_CREDENTIALS_SHOW_LOGIN: "true"
-  NEXTAUTH_URL: "http://jitsu.contextsuite.ai/"
+  NEXTAUTH_URL: "https://jitsu.contextsuite.com/"
   UPDATE_DB: "true"
   # BULKER_KAFKA_BOOTSTRAP_SERVERS: "kafka.default:9092"
   KAFKA_BOOTSTRAP_SERVERS: "kafka.default:9092"
