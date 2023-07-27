@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/contextapi:c3caabb
+          image: quicklookup/contextapi:660824b
           resources:
             requests:
               cpu: 200m
