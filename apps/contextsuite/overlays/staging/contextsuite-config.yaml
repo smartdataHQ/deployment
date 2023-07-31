@@ -44,7 +44,7 @@ data:
 
   GRAPHQL_SERVER_PORT: '4001'
   GRAPHQL_SERVER_PATH: '/context'
-  WKT_FOLDER: '/Users/stefanbaxter/Data/wkt_cache'
+  WKT_FOLDER: '/mnt/cdn/wkt_cache'
 
   # NEXT_PUBLIC_GRAPH_API_KEY
 
