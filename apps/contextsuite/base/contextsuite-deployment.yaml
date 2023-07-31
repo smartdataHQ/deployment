@@ -27,7 +27,7 @@ spec:
           ports:
             - containerPort: 3000
           volumeMounts:
-            - mountPath: "/media/cdn"
+            - mountPath: "/mnt/cdn"
               name: cdn
           livenessProbe:
             httpGet:
