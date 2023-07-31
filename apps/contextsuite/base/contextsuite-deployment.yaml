@@ -13,6 +13,10 @@ spec:
         app: contextsuite
         tier: app
     spec:
+      volumes:
+        - name: cdn
+          persistentVolumeClaim:
+            claimName: contextsuite-pvc
       containers:
         - name: node
           image: quicklookup/contextsuite:2d9aa1b
@@ -137,10 +141,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextsuite-config
-      volumes:
-        - name: cdn
-          persistentVolumeClaim:
-            claimName: contextsuite-pv
 
 ---
 apiVersion: autoscaling/v1

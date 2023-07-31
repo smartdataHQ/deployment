@@ -1,4 +1,5 @@
 resources:
   - contextsuite-pv.yaml
+  - contextsuite-pvc.yaml
   - contextsuite-deployment.yaml
   - contextsuite-service.yaml
