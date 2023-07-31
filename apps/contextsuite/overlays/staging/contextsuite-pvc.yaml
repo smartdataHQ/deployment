@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: contexsuite-cdn-claim
+  name: contexsuite-cdn-rom
 spec:
   storageClassName: longhorn
   accessModes:
-    - ReadWriteMany
+    - ReadOnlyMany
   resources:
     requests:
       storage: 10Gi
