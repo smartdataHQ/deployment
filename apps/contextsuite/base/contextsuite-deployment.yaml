@@ -16,7 +16,7 @@ spec:
       volumes:
         - name: cdn
           persistentVolumeClaim:
-              claimName: contexsuite-pvc
+              claimName: contexsuite-cdn-claim
       containers:
         - name: node
           image: quicklookup/contextsuite:2d9aa1b

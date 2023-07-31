@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: contexsuite-pvc
+  name: contexsuite-cdn-claim
 spec:
   storageClassName: longhorn
   accessModes:
