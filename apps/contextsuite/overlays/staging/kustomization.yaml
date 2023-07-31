@@ -4,6 +4,4 @@ bases:
 resources:
   - contextsuite-config.yaml
   - contextsuite-ingress.yml
-  - contextsuite-pv.yaml
-  - contextsuite-pvc.yaml
 # - contextsuite-cert.yaml

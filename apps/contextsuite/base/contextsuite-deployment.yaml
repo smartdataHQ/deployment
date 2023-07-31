@@ -13,10 +13,6 @@ spec:
         app: contextsuite
         tier: app
     spec:
-      volumes:
-        - name: cdn
-          persistentVolumeClaim:
-            claimName: contextsuite-pvc
       containers:
         - name: node
           image: quicklookup/contextsuite:2d9aa1b
@@ -26,9 +22,6 @@ spec:
               memory: 200Mi
           ports:
             - containerPort: 3000
-          volumeMounts:
-            - mountPath: "/mnt/cdn"
-              name: cdn
           livenessProbe:
             httpGet:
               port: 3000
