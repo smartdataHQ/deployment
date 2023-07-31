@@ -16,7 +16,7 @@ spec:
       volumes:
         - name: cdn
           persistentVolumeClaim:
-              claimName: contexsuite-cdn-rom
+              claimName: contexsuite-cdn-rwo
       containers:
         - name: node
           image: quicklookup/contextsuite:2d9aa1b
