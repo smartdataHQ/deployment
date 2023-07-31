@@ -26,6 +26,9 @@ spec:
               memory: 200Mi
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - mountPath: /media/cdn
+              name: cdn
           livenessProbe:
             httpGet:
               port: 3000
