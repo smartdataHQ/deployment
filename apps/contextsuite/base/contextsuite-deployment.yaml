@@ -16,9 +16,6 @@ spec:
       containers:
         - name: node
           image: quicklookup/contextsuite:9b6b5cd
-          volumeMounts:
-            - mountPath: /media/cdn
-              name: cdn
           resources:
             requests:
               cpu: 200m
