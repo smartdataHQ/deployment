@@ -134,7 +134,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextsuite-config
-
+      volumes:
+        - name: cdn
+          persistentVolumeClaim:
+            claimName: contexsuite-cdn-rwm-pvc
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
