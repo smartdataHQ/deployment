@@ -17,7 +17,7 @@ spec:
         - name: node
           image: quicklookup/contextsuite:9b6b5cd
           volumeMounts:
-            - mountPath: "/media/cdn/"
+            - mountPath: /media/cdn
               name: cdn
           resources:
             requests:
