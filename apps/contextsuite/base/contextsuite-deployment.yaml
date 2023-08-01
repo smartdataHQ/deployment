@@ -22,6 +22,8 @@ spec:
               memory: 200Mi
           ports:
             - containerPort: 3000
+          command:
+            ["sh", "-c", "mkdir /mount/cdd | chown nextjs:nextjs /mount/cdn"]
           livenessProbe:
             httpGet:
               port: 3000
