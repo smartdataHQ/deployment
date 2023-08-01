@@ -23,7 +23,7 @@ spec:
           ports:
             - containerPort: 3000
           command:
-            ["sh", "-c", "mkdir /media/cdn | chown nextjs:nextjs /media/cdn"]
+            ["sh", "-c", "mkdir /tmp/cdn | chown 1001:1001 /tmp/cdn"]
           livenessProbe:
             httpGet:
               port: 3000
