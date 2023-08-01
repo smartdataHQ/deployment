@@ -4,5 +4,5 @@ metadata:
   name: playground-config
 data:
   ENVIRONMENT: production
-  DOMAIN: contextsuite.ai
-  GRAPH_ENDPOINT: https://contextsuite.ai/context
+  DOMAIN: contextsuite.com
+  GRAPH_ENDPOINT: https://app.contextsuite.com/context

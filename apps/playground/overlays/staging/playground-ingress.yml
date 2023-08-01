@@ -42,7 +42,7 @@ metadata:
 
 spec:
     rules:
-        - host: playground.contextsuite.ai
+        - host: playground.contextsuite.com
           http:
               paths:
                   - backend:
@@ -55,5 +55,5 @@ spec:
 
     tls:
         - hosts:
-              - playground.contextsuite.ai
-          secretName: wild-contextsuiteai-cert
+              - playground.contextsuite.com
+          secretName: wild-contextsuite-com-cert

@@ -37,7 +37,7 @@ data:
   CLICKHOUSE_USER: 'default'
 
   # Required Services
-  NEXTAUTH_URL: 'https://contextsuite.ai'
+  NEXTAUTH_URL: 'https://app.contextsuite.com'
   REACT_APP_GRAPH_API_URL: "/graph"
   REACT_APP_CONTEXT_API_ENDPOINT: "/context"
   REACT_APP_STATS_API_ENDPOINT: "/stats"

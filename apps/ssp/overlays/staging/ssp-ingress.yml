@@ -6,7 +6,7 @@ metadata:
         ingress.kubernetes.io/ssl-redirect: "true"
         kubernetes.io/ingress.class: nginx
         # nginx.ingress.kubernetes.io/rewrite-target: /$1
-        external-dns.alpha.kubernetes.io/hostname: admin.contextsuite.ai
+        external-dns.alpha.kubernetes.io/hostname: admin.contextsuite.com
         nginx.ingress.kubernetes.io/enable-cors: "true"
         # nginx.ingress.kubernetes.io/cors-allow-origin: "https://admin.contextsuite.ai"
 
@@ -44,7 +44,7 @@ metadata:
 
 spec:
     rules:
-        - host: admin.contextsuite.ai
+        - host: admin.contextsuite.com
           http:
               paths:
                   - backend:
@@ -57,5 +57,5 @@ spec:
 
     tls:
         - hosts:
-              - admin.contextsuite.ai
-          secretName: wild-contextsuiteai-cert
+              - admin.contextsuite.com
+          secretName: wild-contextsuite-com-cert
