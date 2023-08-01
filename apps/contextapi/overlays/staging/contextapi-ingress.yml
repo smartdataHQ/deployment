@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   annotations:
     field.cattle.io/publicEndpoints: >-
-      [{"addresses":["192.168.50.125","192.168.50.159","192.168.50.66"],"port":443,"protocol":"HTTPS","serviceName":"contextsuite:contextsuite","ingressName":"contextsuite:contextsuite","hostname":"app.contextsuite.com","path":"/","allNodes":false}]
+      [{"addresses":["192.168.50.125","192.168.50.159","192.168.50.66"],"port":443,"protocol":"HTTPS","serviceName":"contextapi:contextapi","ingressName":"contextapi:contextapi","hostname":"app.contextsuite.com","path":"/","allNodes":false}]
   name: contextapi
-  namespace: contextsuite
 spec:
 spec:
   rules:
