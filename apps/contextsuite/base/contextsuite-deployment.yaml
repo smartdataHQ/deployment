@@ -137,7 +137,7 @@ spec:
       volumes:
         - name: cdn
           persistentVolumeClaim:
-            claimName: contexsuite-cdn-rwm-pvc
+            claimName: contexsuite-cdn-nfs
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

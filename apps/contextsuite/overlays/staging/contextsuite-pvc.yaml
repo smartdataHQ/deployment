@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: contexsuite-cdn-rwm-pvc
+  name: contexsuite-cdn-nfs
 spec:
-  storageClassName: longhorn
+  storageClassName: nfs
   accessModes:
     - ReadWriteMany
   resources:
