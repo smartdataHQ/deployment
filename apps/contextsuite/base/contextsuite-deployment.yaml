@@ -22,11 +22,6 @@ spec:
               memory: 200Mi
           ports:
             - containerPort: 3000
-          command:
-            - /bin/sh
-            - -c
-            - |
-              mkdir /tmp/cdn
           livenessProbe:
             httpGet:
               port: 3000
