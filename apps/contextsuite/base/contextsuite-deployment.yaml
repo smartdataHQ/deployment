@@ -22,7 +22,7 @@ spec:
               memory: 200Mi
           volumeMounts:
             - mountPath: /cdn
-              name: contexsuite-cdn-rwm-pvc
+              name: cdn
           ports:
             - containerPort: 3000
           livenessProbe:
