@@ -20,9 +20,6 @@ spec:
             requests:
               cpu: 200m
               memory: 200Mi
-          volumeMounts:
-            - mountPath: /cdn
-              name: cdn
           ports:
             - containerPort: 3000
           livenessProbe:
