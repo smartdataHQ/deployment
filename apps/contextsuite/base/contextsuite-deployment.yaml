@@ -23,7 +23,7 @@ spec:
           ports:
             - containerPort: 3000
           command:
-            ["sh", "-c", "mkdir /tmp/cdn; chmod 777 /tmp/cdn"]
+            ["sh", "-c", "mkdir /tmp/cdn"]
           livenessProbe:
             httpGet:
               port: 3000
