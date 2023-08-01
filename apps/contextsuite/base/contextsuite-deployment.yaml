@@ -16,6 +16,9 @@ spec:
       containers:
         - name: node
           image: quicklookup/contextsuite:9b6b5cd
+          volumeMounts:
+            - mountPath: "/media/cdn/"
+              name: cdn
           resources:
             requests:
               cpu: 200m
@@ -134,7 +137,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextsuite-config
-
+      volumes:
+        - name: cdn
+          persistentVolumeClaim:
+            claimName: contexsuite-cdn-rwm-pvc
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
