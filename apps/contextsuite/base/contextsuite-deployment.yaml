@@ -20,6 +20,9 @@ spec:
             requests:
               cpu: 200m
               memory: 200Mi
+          volumeMounts:
+            - mountPath: /cdn
+              name: cdn
           ports:
             - containerPort: 3000
           livenessProbe:
@@ -136,8 +139,8 @@ spec:
                 name: contextsuite-config
       volumes:
         - name: cdn
-          persistentVolumeClaim:
-            claimName: contexsuite-cdn-rwm-pvc
+          hostPath:
+            path: /data/cdn
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
