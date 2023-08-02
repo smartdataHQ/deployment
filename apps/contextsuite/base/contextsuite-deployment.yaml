@@ -15,11 +15,14 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/contextsuite:e5c6bbc
+          image: quicklookup/contextsuite:d8e8673
           resources:
             requests:
               cpu: 200m
               memory: 200Mi
+          volumeMounts:
+            - mountPath: /cdn
+              name: cdn
           ports:
             - containerPort: 3000
           livenessProbe:
@@ -134,7 +137,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextsuite-config
-
+      volumes:
+        - name: cdn
+          hostPath:
+            path: /data/cdn
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

@@ -15,11 +15,14 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/contextapi:7477160
+          image: quicklookup/contextapi:baa16d3
           resources:
             requests:
               cpu: 200m
               memory: 200Mi
+          volumeMounts:
+            - mountPath: /cdn
+              name: cdn
           ports:
             - containerPort: 4001
           livenessProbe:
@@ -59,6 +62,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextapi-config
+      volumes:
+        - name: cdn
+          hostPath:
+            path: /data/cdn
 
 ---
 apiVersion: autoscaling/v1
