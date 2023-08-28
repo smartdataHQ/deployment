@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/playground:60102e3
+          image: quicklookup/playground:d0265e4
           resources:
             requests:
               cpu: 100m
