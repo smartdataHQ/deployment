@@ -134,6 +134,11 @@ spec:
                 secretKeyRef:
                   name: contextsuite
                   key: TWITTER_API_SECRET
+            - name: REACT_APP_JITSU_WRITE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: contextsuite
+                  key: REACT_APP_JITSU_WRITE_KEY
           envFrom:
             - configMapRef:
                 name: contextsuite-config

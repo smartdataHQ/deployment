@@ -57,6 +57,7 @@ data:
   NEXT_PUBLIC_SENTRY_DSN: 'https://97964f08ea76422f830fba0618967fc4@o982223.ingest.sentry.io/5937160'
   SENTRY_DSN: 'https://97964f08ea76422f830fba0618967fc4@o982223.ingest.sentry.io/5937160'
 
+  REACT_APP_JITSU_DEPLOY_DOMAIN: 'events.contextsuite.com'
   # Authentication OAuth etc.
   # FACEBOOK_APP_ID: ''
   # FACEBOOK_APP_SECRET: ''
