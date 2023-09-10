@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qlingress-config
+  # NO SECRETS SHOULD BE STORED IN CONFIGMAPS [See the docs](/README.md))
+data:
+  GID_ROOT: 'https://the.gid.is' # 1. GID_ROOT (for to calculate UUIDs)
+  CDN_PREFIX: '' # 2. CDN_DATA_DIR (for importer to find files that are automatically synced from S3)
+
+  LOCAL_DATA_ROOT: '/data/qlingress'
+  BIBLE_ROOT: '/data/qlingress/raw/bible' # 3. BIBLE_ROOT (for importer to find local files for QL import)
+  RAW_DATA_DIR: '/data/qlingress/raw' # 4. RAW_DATA_DIR (for importer to find local files for QL import (Other than Bible))
+  NLP_DATA_DIR: '/data/qlingress/raw/nlp' # 5. NLP_DATA_DIR (for importer to find local files for NLP import)
+  COOKED_DATA_DIR: '/data/qlingress/cooked' # 6. COOKED_DATA_DIR (for importer to find JSON files that have been prepared for Neo4J import)
+
+  S3_BUCKET: context-suite
+  MAKE_S3_COPY: False
+
+  NEO4J_CONNECTION: 'neo4j://neo4j.default:7687'
+  NEO4J_USER: 'admin'
+  NEO4J_DATABASE: 'contextsuite'
+  NEO4J_BATCH_METHOD: 'http' # 'local filesystem' or 'http'
+
+  CLICKHOUSE_CONNECTION: 'clickhouse.default'
+  CLICKHOUSE_USER: 'default'
+
+  SOLR_CONNECTION: 'http://solr.default:8983/solr/quicklookup'
+
+  QLER_HTTP_ADDRESS: '0.0.0.0'
+  QLER_HTTP_PORT: 8088
+  QLER_HTTP_ROOT: '/data/qlingress'

@@ -30,7 +30,7 @@ data:
   SOLR_PATH: '/solr/quicklookup'
   SOLR_CORE: 'quicklookup'
   SOLR_COLLECTION: 'quicklookup'
-  SOLR_HOST: 'solr.default.svc.cluster.local'
+  SOLR_HOST: 'solr.default'
   SOLR_PROTOCALL: 'http'
 
   # Clickhouse

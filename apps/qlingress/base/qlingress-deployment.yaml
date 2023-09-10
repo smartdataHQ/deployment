@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qlingress
+spec:
+  selector:
+    matchLabels:
+      app: qlingress
+      tier: api
+  template:
+    metadata:
+      labels:
+        app: qlingress
+        tier: api
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/qlingress:1.0.0
+          uid: 0
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+          resources:
+            requests:
+              cpu: 200m
+              memory: 800Mi
+          volumeMounts:
+            - mountPath: /data
+              name: data
+          ports:
+            - containerPort: 8088
+          livenessProbe:
+            httpGet:
+              port: 8088
+              path: /status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8088
+              path: /status/ready
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+          env:
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgresql-postgresql-ha-pgpool
+                key: password
+          - name: NEO4J_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: contextsuite
+                key: NEO4J_PASSWORD
+          - name: CLICKHOUSE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: clickhouse
+                key: admin-password
+          - name: SOLR_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: solr
+                key: solr-password
+          envFrom:
+            - configMapRef:
+                name: qlingress-config
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+              claimName: qlingress-cdn-rwo-pvc
