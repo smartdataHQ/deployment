@@ -20,9 +20,6 @@ spec:
             requests:
               cpu: 200m
               memory: 200Mi
-          volumeMounts:
-            - mountPath: /cdn
-              name: cdn
           ports:
             - containerPort: 8088
           livenessProbe:
@@ -63,11 +60,7 @@ spec:
             - configMapRef:
                 name: ctx-config
       imagePullSecrets:
-        - name: deckerhub
-      volumes:
-        - name: cdn
-          hostPath:
-            path: /data/cdn
+        - name: dockerlock
 
 ---
 apiVersion: autoscaling/v1
