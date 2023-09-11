@@ -134,7 +134,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: ssp-config
-
+      imagePullSecrets:
+        - name: dockerlock
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

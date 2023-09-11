@@ -62,6 +62,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: contextapi-config
+      imagePullSecrets:
+        - name: dockerlock
       volumes:
         - name: cdn
           hostPath:

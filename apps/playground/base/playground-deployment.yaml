@@ -38,6 +38,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: playground-config
+      imagePullSecrets:
+        - name: dockerlock
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
