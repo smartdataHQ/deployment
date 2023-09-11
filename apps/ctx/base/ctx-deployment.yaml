@@ -62,6 +62,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: ctx-config
+      imagePullSecrets:
+        - name: deckerhub
       volumes:
         - name: cdn
           hostPath:
