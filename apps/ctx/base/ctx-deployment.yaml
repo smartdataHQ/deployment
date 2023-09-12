@@ -35,6 +35,12 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 2
+          env:
+          - name: OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: ctx-config
+                key: OPENAI_API_KEY
           envFrom:
             - configMapRef:
                 name: ctx-config
