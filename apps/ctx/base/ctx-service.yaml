@@ -6,7 +6,7 @@ metadata:
     app: ctx
     tier: api
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 8088
   selector:
