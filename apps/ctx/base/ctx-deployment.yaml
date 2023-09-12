@@ -35,27 +35,6 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 2
-          env:
-          - name: DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: postgresql-postgresql-ha-pgpool
-                key: password
-          - name: NEO4J_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: contextsuite
-                key: NEO4J_AUTH
-          - name: CLICKHOUSE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: clickhouse
-                key: admin-password
-          - name: SOLR_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: solr
-                key: solr-password
           envFrom:
             - configMapRef:
                 name: ctx-config
