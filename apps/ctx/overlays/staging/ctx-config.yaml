@@ -4,6 +4,5 @@ metadata:
   name: ctx-config
   # NO SECRETS SHOULD BE STORED IN CONFIGMAPS [See the docs](/README.md))
 data:
-  OPENAI_API_KEY: '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'
   OPENAI_LLM: 'gpt-4'
 
