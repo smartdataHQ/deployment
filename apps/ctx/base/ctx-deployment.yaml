@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/ctx:1.0.7
+          image: quicklookup/ctx:1.0.9
           resources:
             requests:
               cpu: 200m
