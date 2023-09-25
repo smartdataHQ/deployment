@@ -56,4 +56,4 @@ spec:
     tls:
         - hosts:
               - playground.contextsuite.com
-          secretName: wild-contextsuite-com-cert
+          secretName: star-contextsuite-com

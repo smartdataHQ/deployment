@@ -31,4 +31,4 @@ spec:
   tls:
     - hosts:
         - app.contextsuite.com
-      secretName: wild-contextsuite-com-cert
+      secretName: star-contextsuite-com

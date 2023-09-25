@@ -58,4 +58,4 @@ spec:
     tls:
         - hosts:
               - admin.contextsuite.com
-          secretName: wild-contextsuite-com-cert
+          secretName: star-contextsuite-com
