@@ -47,3 +47,4 @@ data:
   SENTRY_ENVIRONMENT: 'contextsuite-prod'
   NEXT_PUBLIC_SENTRY_DSN: 'https://97964f08ea76422f830fba0618967fc4@o982223.ingest.sentry.io/5937160'
   SENTRY_DSN: 'https://97964f08ea76422f830fba0618967fc4@o982223.ingest.sentry.io/5937160'
+  HASH_SECRET: 'context-suite'
