@@ -23,3 +23,4 @@ data:
   STORE_EVENT_LOGS: 'true'
   APP_NAME: 'Context Suite Admin'
   REACT_APP_JITSU_DEPLOY_DOMAIN: 'events.contextsuite.com'
+  HASH_SECRET: 'context-suite'
