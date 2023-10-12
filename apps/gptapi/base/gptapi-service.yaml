@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gptapi
+  labels:
+    app: gptapi
+    tier: api
+spec:
+  type: NodePort
+  ports:
+    - port: 8000
+  selector:
+    app: gptapi
+    tier: api
