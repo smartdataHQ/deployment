@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ctxin-config
+  # NO SECRETS SHOULD BE STORED IN CONFIGMAPS [See the docs](/README.md))
+data:
+  # Kafka
+  KAFKA_HOST: localhost
+  KAFKA_PORT: 9092
+  KAFKA_TOPIC: captured
+  KAFKA_TEST_TOPIC: captured_test
+
+  # Redis
+  REDIS_URL: 'redis-master.default'
+  LOCAL_REDIS: 'true'
+
+  # Postgres
+  LIST_DB_NAME: 'list_db'
+  DB_CLIENT: 'pg'
+  DB_HOST: 'postgresql-postgresql-ha-pgpool.default'
+  DB_USER: 'postgres'
+  DB_PORT: '5432'
+  DB_NAME: 'ssp'
+  DB_SSL: 'false'

@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: ctxpipe-config
 data:
+  ## Kafka
   KAFKA_HOST: localhost
   KAFKA_PORT: 9092
   KAFKA_TOPIC: captured
@@ -13,6 +14,7 @@ data:
   REDIS_PORT: 6379
   REDIS_DB: 0
 
+  ## Postgres
   POSTGRES_HOST: localhost
   POSTGRES_PORT: 5432
   POSTGRES_DB: ssp
