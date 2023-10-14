@@ -6,19 +6,18 @@ spec:
   selector:
     matchLabels:
       app: ctxpipe
-      tier: etl
+      tier: api
   template:
     metadata:
       labels:
         app: ctxpipe
-        tier: etl
+        tier: api
     spec:
       containers:
         - name: node
           image: quicklookup/pipelines:8886a96
           ports:
             - containerPort: 9999
-            - containerPort: 3030
           env:
           - name: POSTGRES_PASSWORD
             valueFrom:
