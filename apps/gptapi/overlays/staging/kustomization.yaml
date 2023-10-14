@@ -1,6 +1,0 @@
-bases:
-  - ../../base
-
-resources:
-  - gptapi-config.yaml
-  - gptapi-ingress.yml
