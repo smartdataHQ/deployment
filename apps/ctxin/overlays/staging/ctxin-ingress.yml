@@ -12,21 +12,7 @@ spec:
                 name: ctxin
                 port:
                   number: 8088
-            path: /stats
-            pathType: Prefix
-          - backend:
-              service:
-                name: ctxin
-                port:
-                  number: 8088
-            path: /context
-            pathType: Prefix
-          - backend:
-              service:
-                name: ctxin
-                port:
-                  number: 8088
-            path: /graph
+            path: /
             pathType: Prefix
   tls:
     - hosts:
