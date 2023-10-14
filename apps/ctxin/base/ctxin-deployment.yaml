@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/ctxin:a16bcbe
+          image: quicklookup/ctxin:94c6e56
           resources:
             requests:
               cpu: 200m
