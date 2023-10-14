@@ -34,11 +34,6 @@ spec:
               secretKeyRef:
                 name: ctxpipe
                 key: SYN_IS_SNOWFLAKE_PASSWORD
-          - name: REDIS_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: ctxpipe
-                key: REDIS_PASSWORD
           - name: POSTGRES_USER
             valueFrom:
               secretKeyRef:
