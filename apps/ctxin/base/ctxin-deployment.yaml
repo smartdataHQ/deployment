@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctxin
+spec:
+  selector:
+    matchLabels:
+      app: ctxin
+      tier: api
+  template:
+    metadata:
+      labels:
+        app: ctxin
+        tier: api
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/ctxin:fd493a3
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+          ports:
+            - containerPort: 8088
+          livenessProbe:
+            httpGet:
+              port: 8088
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8088
+              path: /api/status/ready
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-postgresql-ha-pgpool
+                  key: password
+          envFrom:
+            - configMapRef:
+                name: ctxin-config
+      imagePullSecrets:
+        - name: dockerlock
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ctxin
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ctxin
+  maxReplicas: 8
+  minReplicas: 4
+  targetCPUUtilizationPercentage: 60
