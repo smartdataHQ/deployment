@@ -8,7 +8,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 8088
+    - port: 9999 3030
   selector:
     app: pipelines
     tier: ingress
+
