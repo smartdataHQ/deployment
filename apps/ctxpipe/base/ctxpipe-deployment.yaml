@@ -18,6 +18,7 @@ spec:
           image: quicklookup/ctxpipe:5e07ce7
           ports:
             - containerPort: 9999
+            - containerPort: 3030
           env:
           - name: POSTGRES_PASSWORD
             valueFrom:
