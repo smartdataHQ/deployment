@@ -35,15 +35,6 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 2
-          env:
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgresql-postgresql-ha-pgpool
-                  key: password
-          envFrom:
-            - configMapRef:
-                name: ctxin-config
       imagePullSecrets:
         - name: dockerlock
 
