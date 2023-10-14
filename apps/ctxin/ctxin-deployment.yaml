@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctxin
+spec:
+  selector:
+    matchLabels:
+      app: ctxin
+      tier: api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: ctxin
+        tier: api
+    spec:
+      containers:
+      - name: ctxin
+        image: quicklookup/ctxin:94c6e56
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 8088
