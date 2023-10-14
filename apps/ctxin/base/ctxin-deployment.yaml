@@ -59,4 +59,4 @@ spec:
     name: ctxin
   maxReplicas: 8
   minReplicas: 4
-  targetCPUUtilizationPercentage: 60
+  targetCPUUtilizationPercentage: 80
