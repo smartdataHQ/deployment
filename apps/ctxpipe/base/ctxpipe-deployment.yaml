@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/pipelines:8886a96
+          image: quicklookup/ctxpipe:5e07ce7
           ports:
             - containerPort: 9999
           env:

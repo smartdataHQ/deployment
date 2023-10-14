@@ -2,4 +2,4 @@ bases:
   - ../../base
 
 resources:
-  - pipelines-config.yaml
+  - ctxpipe-config.yaml
