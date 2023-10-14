@@ -6,12 +6,12 @@ spec:
   selector:
     matchLabels:
       app: pipelines
-      tier: ingress
+      tier: etl
   template:
     metadata:
       labels:
         app: pipelines
-        tier: ingress
+        tier: etl
     spec:
       containers:
         - name: node
