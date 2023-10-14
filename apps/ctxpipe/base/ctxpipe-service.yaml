@@ -9,7 +9,6 @@ spec:
   type: ClusterIP
   ports:
     - port: 9999
-    - port: 3030
   selector:
     app: ctxpipe
     tier: api
