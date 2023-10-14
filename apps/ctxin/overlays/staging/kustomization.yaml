@@ -3,4 +3,3 @@ bases:
 
 resources:
   - ctxin-config.yaml
-  - ctxin-ingress.yml
