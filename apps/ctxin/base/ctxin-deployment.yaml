@@ -46,7 +46,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: ssp
+    name: ctxin
   maxReplicas: 8
   minReplicas: 2
   targetCPUUtilizationPercentage: 60
