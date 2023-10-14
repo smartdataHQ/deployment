@@ -1,3 +1,0 @@
-resources:
-  - pipelines-deployment.yaml
-  - pipelines-service.yaml

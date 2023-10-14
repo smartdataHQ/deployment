@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pipelines
+  name: ctxpipe
 spec:
   selector:
     matchLabels:
-      app: pipelines
+      app: ctxpipe
       tier: etl
   template:
     metadata:
       labels:
-        app: pipelines
+        app: ctxpipe
         tier: etl
     spec:
       containers:
@@ -23,30 +23,31 @@ spec:
           - name: POSTGRES_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: pipelines-config
+                name: ctxpipe
                 key: POSTGRES_PASSWORD
           - name: CLICKHOUSE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: pipelines-config
+                name: ctxpipe
                 key: CLICKHOUSE_PASSWORD
           - name: SYN_IS_SNOWFLAKE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: pipelines-config
-                key: SYN_IS_SNOWFLAKE_PASSWORD
-          - name: POSTGRES_USER
-            valueFrom:
-              secretKeyRef:
-                name: pipelines-config
+                name: ctxpipe
                 key: SYN_IS_SNOWFLAKE_PASSWORD
           - name: REDIS_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: pipelines-config
+                name: ctxpipe
                 key: REDIS_PASSWORD
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: ctxpipe
+                key: POSTGRES_USER
           envFrom:
             - configMapRef:
-                name: pipelines-config
+                name: ctxpipe-config
+
       imagePullSecrets:
         - name: dockerlock

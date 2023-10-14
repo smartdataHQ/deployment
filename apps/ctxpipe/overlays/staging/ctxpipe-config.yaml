@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pipelines-config
+  name: ctxpipe-config
 data:
   KAFKA_HOST: localhost
   KAFKA_PORT: 9092
