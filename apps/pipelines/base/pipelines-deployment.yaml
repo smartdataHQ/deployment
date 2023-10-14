@@ -16,28 +16,8 @@ spec:
       containers:
         - name: node
           image: quicklookup/pipelines:8886a96
-          resources:
-            requests:
-              cpu: 200m
-              memory: 200Mi
           ports:
-            - containerPort: 8088
-          volumeMounts:
-          - name: pipedata
-            mountPath: /pipedata
-          livenessProbe:
-            httpGet:
-              port: 8088
-              path: /api/status/alive
-            initialDelaySeconds: 5
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              port: 8088
-              path: /api/status/ready
-            initialDelaySeconds: 5
-            periodSeconds: 10
-            timeoutSeconds: 2
+            - containerPort: 9999 3030
           env:
           - name: POSTGRES_PASSWORD
             valueFrom:
@@ -67,9 +47,5 @@ spec:
           envFrom:
             - configMapRef:
                 name: pipelines-config
-          volumes:
-          - name: pipedata
-            persistentVolumeClaim:
-              claimName: pipelines-pvc
       imagePullSecrets:
         - name: dockerlock
