@@ -1,3 +1,0 @@
-resources:
-  - ctxpipe-deployment.yaml
-  - ctxpipe-service.yaml
