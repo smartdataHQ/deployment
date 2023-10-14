@@ -4,5 +4,20 @@ metadata:
   name: ctx-config
   # NO SECRETS SHOULD BE STORED IN CONFIGMAPS [See the docs](/README.md))
 data:
-  OPENAI_LLM: 'gpt-4'
+  OPENAI_LLM: 'Azure'
+  KAFKA_HOST: localhost
+  KAFKA_PORT: 9092
+  KAFKA_TOPIC: ctx
+  KAFKA_TEST_TOPIC: ctx_test
 
+  ## Redis
+  REDIS_HOST: localhost
+  REDIS_PORT: 6379
+  REDIS_DB: 0
+  REDIS_PASSWORD: ''
+
+  POSTGRES_HOST: 192.168.50.125
+  POSTGRES_PORT: 5432
+  POSTGRES_DB: ssp
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: qx5bYTumas
