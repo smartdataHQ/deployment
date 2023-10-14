@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pipelines
+spec:
+  selector:
+    matchLabels:
+      app: pipelines
+      tier: ingress
+  template:
+    metadata:
+      labels:
+        app: pipelines
+        tier: ingress
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/pipelines:1.0.12
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+          ports:
+            - containerPort: 8088
+          volumeMounts:
+          - name: pipedata
+            mountPath: /pipedata
+          livenessProbe:
+            httpGet:
+              port: 8088
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8088
+              path: /api/status/ready
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+          env:
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: pipelines-config
+                key: POSTGRES_PASSWORD
+          - name: CLICKHOUSE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: pipelines-config
+                key: CLICKHOUSE_PASSWORD
+          - name: SYN_IS_SNOWFLAKE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: pipelines-config
+                key: SYN_IS_SNOWFLAKE_PASSWORD
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: pipelines-config
+                key: SYN_IS_SNOWFLAKE_PASSWORD
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: pipelines-config
+                key: REDIS_PASSWORD
+          envFrom:
+            - configMapRef:
+                name: pipelines-config
+          volumes:
+          - name: pipedata
+            persistentVolumeClaim:
+              claimName: pipelines-pvc
+      imagePullSecrets:
+        - name: dockerlock
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: pipelines
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pipelines
+  maxReplicas: 4
+  minReplicas: 2
+  targetCPUUtilizationPercentage: 60
