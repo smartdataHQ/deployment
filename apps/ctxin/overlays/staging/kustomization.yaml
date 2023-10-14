@@ -1,6 +1,0 @@
-bases:
-  - ../../base
-
-resources:
-  - ctxin-config.yaml
-  - ctxin-ingress.yml

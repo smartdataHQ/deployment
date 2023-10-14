@@ -1,3 +1,0 @@
-resources:
-  - ctxin-deployment.yaml
-  - ctxin-service.yaml
