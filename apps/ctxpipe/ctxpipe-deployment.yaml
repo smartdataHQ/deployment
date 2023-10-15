@@ -22,8 +22,10 @@ spec:
             cpu: 100m
             memory: 100Mi
         volumeMounts:
-          - mountPath: /data
-            name: pipedrive
+          - name: pipedrive
+            mountPath: /process
+          - name: pipedb
+            mountPath: /pipedb
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
@@ -43,8 +45,20 @@ spec:
         - name: dockerlock
       volumes:
         - name: pipedrive
+        - name: pipedb
           hostPath:
             path: /data/ctxpipe
+
+---
+volumeClaimTemplates:
+- metadata:
+    name: pipedrive
+  spec:
+    accessModes: [ "ReadWriteOnce" ]
+    storageClassName: "longhorn"
+    resources:
+      requests:
+        storage: 20Gi
 
 ---
 apiVersion: autoscaling/v1
