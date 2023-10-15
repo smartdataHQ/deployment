@@ -25,13 +25,14 @@ spec:
         - containerPort: 8088
         livenessProbe:
           httpGet:
-            port: 4001
+            port: 8088
             path: /api/status/alive
           initialDelaySeconds: 5
           periodSeconds: 5
         readinessProbe:
           httpGet:
-            port: 4001
+            port: 8088
+            port: 8088
             path: /api/status/ready
           initialDelaySeconds: 5
           periodSeconds: 10
