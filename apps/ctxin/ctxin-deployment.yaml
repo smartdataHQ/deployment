@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ctxin
-        image: quicklookup/ctxin:64d27ca
+        image: quicklookup/ctxin:0f8a247
         resources:
           requests:
             cpu: 100m
@@ -59,6 +59,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: ctxin
-  maxReplicas: 4
+  maxReplicas: 1
   minReplicas: 1
   targetCPUUtilizationPercentage: 60
