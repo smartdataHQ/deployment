@@ -23,5 +23,15 @@ spec:
             memory: 100Mi
         ports:
         - containerPort: 8088
+        env:
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgresql-postgresql-ha-pgpool
+                key: password
+        envFrom:
+          - configMapRef:
+              name: ctxin-config
+
       imagePullSecrets:
         - name: dockerlock
