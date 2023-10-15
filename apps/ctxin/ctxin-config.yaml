@@ -4,7 +4,7 @@ metadata:
   name: ctxin-config
 data:
   ## Kafka
-  KAFKA_BOOTSTRAP_SERVERS: 'kafka.default'
+  KAFKA_HOST: 'kafka.default'
   KAFKA_PORT: '9092'
 
   ## Redis
