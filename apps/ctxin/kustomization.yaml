@@ -2,3 +2,4 @@ bases:
   - ctxin-deployment.yaml
   - ctxin-config.yaml
   - ctxin-service.yaml
+  - ctxin-ingress.yaml
