@@ -27,15 +27,15 @@ spec:
           httpGet:
             port: 8088
             path: /api/status/alive
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 10
+          periodSeconds: 30
         readinessProbe:
           httpGet:
             port: 8088
             path: /api/status/ready
           initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 2
+          periodSeconds: 5
+          timeoutSeconds: 1
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
@@ -48,3 +48,18 @@ spec:
 
       imagePullSecrets:
         - name: dockerlock
+
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ctxin
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ctxin
+  maxReplicas: 4
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 60
