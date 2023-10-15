@@ -18,3 +18,5 @@ data:
   POSTGRES_PORT: '5432'
   POSTGRES_DB: 'ssp'
   POSTGRES_USER: 'postgres'
+
+  ENV: 'prod'
