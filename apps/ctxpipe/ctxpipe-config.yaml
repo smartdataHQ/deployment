@@ -33,5 +33,5 @@ data:
   SYN_IS_SNOWFLAKE_PASSWORD: 'snowLock2023'
   SYN_IS_SNOWFLAKE_ACCOUNT: 'rg83886.eu-west-1'
 
-  SQL_PATH: '/data/local_data'
-  RAW_DATA_PATH: '/data/raw_data'
+  DB_PATH: '/pipedrive'
+  RAW_PATH: '/pipedrive/raw_data'

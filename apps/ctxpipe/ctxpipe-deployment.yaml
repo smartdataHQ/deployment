@@ -22,8 +22,8 @@ spec:
             cpu: 100m
             memory: 100Mi
         volumeMounts:
-          - name: pipedb
-            mountPath: /pipedb
+          - name: pipedrive
+            mountPath: /pipedrive
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
@@ -42,6 +42,6 @@ spec:
       imagePullSecrets:
         - name: dockerlock
       volumes:
-        - name: pipedb
+        - name: pipedrive
           hostPath:
-            path: /data/ctxpipe
+            path: /data/pipedrive
