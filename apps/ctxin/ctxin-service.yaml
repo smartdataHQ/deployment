@@ -8,7 +8,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 4001
+    - port: 8088
   selector:
     app: ctxin
     tier: api
