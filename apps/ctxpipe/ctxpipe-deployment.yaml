@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ctxpipe
-        image: quicklookup/ctxpipe:5775e64
+        image: quicklookup/ctxpipe:214e89a
         resources:
           requests:
             cpu: 100m
