@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ctxin
-        image: quicklookup/ctxin:483b987
+        image: quicklookup/ctxin:fa84a94
         resources:
           requests:
             cpu: 100m
