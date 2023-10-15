@@ -1,0 +1,4 @@
+bases:
+  - ctxpipe-deployment.yaml
+  - ctxpipe-config.yaml
+  - ctxpipe-service.yaml
