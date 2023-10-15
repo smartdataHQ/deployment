@@ -12,6 +12,7 @@ data:
   REDIS_PORT: '6379'
   REDIS_DB: '0'
   REDIS_LOCAL: 'true'
+  REDIS_PASSWORD: '_'
 
   ## Postgres
   POSTGRES_HOST: 'postgresql-postgresql-ha-pgpool.default'
