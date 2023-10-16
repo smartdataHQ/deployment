@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctxpipe
+spec:
+  selector:
+    matchLabels:
+      app: ctxpipe
+      tier: api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: ctxpipe
+        tier: api
+    spec:
+      containers:
+      - name: ctxpipe
+        image: quicklookup/ctxpipe:b975b51
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+          - name: pipedrive
+            mountPath: /pipedrive
+        env:
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgresql-postgresql-ha-pgpool
+                key: password
+          - name: CLICKHOUSE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: clickhouse
+                key: admin-password
+        envFrom:
+          - configMapRef:
+              name: ctxpipe-config
+
+      imagePullSecrets:
+        - name: dockerlock
+      volumes:
+        - name: pipedrive
+          hostPath:
+            path: /data/pipedrive

@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ctx
+  name: ctxin
   labels:
-    app: ctx
+    app: ctxin
     tier: api
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 8088
   selector:
-    app: ctx
+    app: ctxin
     tier: api

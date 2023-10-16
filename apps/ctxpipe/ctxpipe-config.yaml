@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ctxpipe-config
+data:
+  #Kafka
+  KAFKA_HOST: 'kafka.default'
+  KAFKA_PORT: '9092'
+
+  ## Redis
+  REDIS_HOST: 'redis-master.default'
+  REDIS_PORT: '6379'
+  REDIS_DB: '0'
+  REDIS_LOCAL: 'true'
+  REDIS_PASSWORD: '_'
+
+  ## Postgres
+  POSTGRES_HOST: 'postgresql-postgresql-ha-pgpool.default'
+  POSTGRES_PORT: '5432'
+  POSTGRES_DB: 'ssp'
+  POSTGRES_USER: 'postgres'
+
+  ENV: 'prod'
+
+  ## Clickhouse
+  CLICKHOUSE_HOST: 'clickhouse.default'
+  CLICKHOUSE_PORT: '8123'
+  CLICKHOUSE_DB: 'semantic'
+  CLICKHOUSE_USER: 'default'
+
+  # Other
+  # Sýn
+  SYN_IS_SNOWFLAKE_USER: 'stefan'
+  SYN_IS_SNOWFLAKE_PASSWORD: 'snowLock2023'
+  SYN_IS_SNOWFLAKE_ACCOUNT: 'rg83886.eu-west-1'
+
+  DB_PATH: '/pipedrive'
+  RAW_PATH: '/pipedrive/raw_data'
