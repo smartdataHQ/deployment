@@ -2,8 +2,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    job-name: is-syn-segment-in
-  name: is-syn-segment-in
+    job-name: is-syn-segment-in2
+  name: is-syn-segment-in2
   namespace: solutions
 spec:
   backoffLimit: 6
