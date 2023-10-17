@@ -28,6 +28,12 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           env:
+            - name: $PIPELINE
+              value: python -m bytewax.run -p4 'pipelines/flows/json_kafka_ingress:get_flow("xZN8!E6d4aXns2ty", batch_size=10000, kafka_batch_size=5000, timeout=1200, table="semantic.sem_events")' -r /pipedrive/syn.is.status/
+            - name: $RECOVERY_DIR
+              value: /pipedrive/syn.is.status
+            - name: $RECOVERY_INIT
+              value: python -m bytewax.recovery /pipedrive/syn.is.status 4
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
