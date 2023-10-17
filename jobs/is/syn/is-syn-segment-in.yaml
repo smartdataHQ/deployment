@@ -19,7 +19,7 @@ spec:
       containers:
         - image: quicklookup/ctxpipe:f4a410a
           imagePullPolicy: Always
-          name: is-syn-segment-in-0
+          name: is-syn-segment-in-1
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
