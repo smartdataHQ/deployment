@@ -2,8 +2,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    job-name: is-syn-segment-in
-  name: is-syn-segment-in
+    job-name: is-syn-seg-in
+  name: is-syn-seg-in
   namespace: ingress
 spec:
   backoffLimit: 2
@@ -13,13 +13,13 @@ spec:
   template:
     metadata:
       labels:
-        job-name: is-syn-segment-in
+        job-name: is-syn-seg-in
       namespace: ingress
     spec:
       containers:
         - image: quicklookup/ctxpipe:b5d4ff0
           imagePullPolicy: Always
-          name: is-syn-segment-in-0
+          name: is-syn-seg-in-0
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
@@ -46,7 +46,7 @@ spec:
                   key: admin-password
           volumeMounts:
             - mountPath: /pipedrive
-              name: is-syn-segment-in-pvc
+              name: is-syn-seg-in-pvc
       dnsPolicy: ClusterFirst
       imagePullSecrets:
         - name: dockerlock
@@ -54,20 +54,20 @@ spec:
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
       volumes:
-        - name: is-syn-segment-in-pvc
+        - name: is-syn-seg-in-pvc
           persistentVolumeClaim:
-            claimName: is-syn-segment-in-pvc
+            claimName: is-syn-seg-in-pvc
 
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: is-syn-segment-in
+  name: is-syn-seg-in
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: is-syn-segment-in
+    name: is-syn-seg-in
   maxReplicas: 1
   minReplicas: 1
   targetCPUUtilizationPercentage: 60
