@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: is-syn-seg-in-pvc
+  name: is-syn-segment-in-pvc
   namespace: ingress
 spec:
   accessModes:

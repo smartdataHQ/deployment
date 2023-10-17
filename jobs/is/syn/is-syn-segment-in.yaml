@@ -2,24 +2,24 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    job-name: is-syn-seg-in
-  name: is-syn-seg-in
-  namespace: ingress
+    job-name: is-syn-segment-in
+  name: is-syn-segment-in
+  namespace: solutions
 spec:
-  backoffLimit: 2
+  backoffLimit: 6
   completions: 1
   parallelism: 1
   suspend: false
   template:
     metadata:
       labels:
-        job-name: is-syn-seg-in
+        job-name: is-syn-segment-in
       namespace: ingress
     spec:
       containers:
-        - image: quicklookup/ctxpipe:b5d4ff0
+        - image: quicklookup/ctxpipe:c3cdfde
           imagePullPolicy: Always
-          name: is-syn-seg-in-0
+          name: is-syn-segment-in-0
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
@@ -28,12 +28,6 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           env:
-            - name: $PIPELINE
-              value: python -m bytewax.run -p4 'pipelines/flows/json_kafka_ingress:get_flow("xZN8!E6d4aXns2ty", batch_size=10000, kafka_batch_size=5000, timeout=1200, table="semantic.sem_events")' -r /pipedrive/syn.is.status/
-            - name: $RECOVERY_DIR
-              value: /pipedrive/syn.is.status
-            - name: $RECOVERY_INIT
-              value: python -m bytewax.recovery /pipedrive/syn.is.status 4
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -46,7 +40,7 @@ spec:
                   key: admin-password
           volumeMounts:
             - mountPath: /pipedrive
-              name: is-syn-seg-in-pvc
+              name: is-syn-segment-in
       dnsPolicy: ClusterFirst
       imagePullSecrets:
         - name: dockerlock
@@ -54,20 +48,6 @@ spec:
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
       volumes:
-        - name: is-syn-seg-in-pvc
+        - name: is-syn-segment-in
           persistentVolumeClaim:
-            claimName: is-syn-seg-in-pvc
-
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: is-syn-seg-in
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: is-syn-seg-in
-  maxReplicas: 1
-  minReplicas: 1
-  targetCPUUtilizationPercentage: 60
+            claimName: is-syn-segment-in
