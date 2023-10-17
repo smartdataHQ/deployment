@@ -50,4 +50,4 @@ spec:
       volumes:
         - name: is-syn-segment-in
           persistentVolumeClaim:
-            claimName: is-syn-segment-in
+            claimName: is-syn-segment-in-pvc
