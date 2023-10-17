@@ -29,9 +29,9 @@ spec:
           terminationMessagePolicy: File
           env:
             - name: $RECOVERY_DIR
-              value: /pipedrive/syn.is.status
+              value: "/pipedrive/syn.is.status"
             - name: $RECOVERY_INIT
-              value: python -m bytewax.recovery /pipedrive/syn.is.status 4
+              value: "python -m bytewax.recovery /pipedrive/syn.is.status 4"
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
