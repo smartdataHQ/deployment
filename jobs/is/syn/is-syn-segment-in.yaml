@@ -4,7 +4,7 @@ metadata:
   labels:
     job-name: is-syn-segment-in
   name: is-syn-segment-in
-  namespace: solutions
+  namespace: ingress
 spec:
   backoffLimit: 2
   completions: 1
