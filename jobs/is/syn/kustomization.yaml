@@ -1,0 +1,3 @@
+resources:
+  - is-syn-segment-in.yaml
+  - is-syn-segment-in-pvc.yaml
