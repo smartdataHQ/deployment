@@ -17,7 +17,7 @@ spec:
       namespace: ingress
     spec:
       containers:
-        - image: quicklookup/ctxpipe:9c64bf4
+        - image: quicklookup/ctxpipe:5f27dac
           imagePullPolicy: Always
           name: is-syn-segment-in
           securityContext:
