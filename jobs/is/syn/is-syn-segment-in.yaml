@@ -6,10 +6,7 @@ metadata:
   name: is-syn-segment-in
   namespace: solutions
 spec:
-  backoffLimit: 200
-  completions: 1
   parallelism: 1
-  suspend: false
   template:
     metadata:
       labels:
