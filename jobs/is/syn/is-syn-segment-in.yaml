@@ -28,13 +28,13 @@ spec:
             - name: WRITE_KEY
               value: xZN8!E6d4aXns2ty
             - name: BATCH_SIZE
-              value: xZN8!E6d4aXns2ty
+              value: 1000
             - name: KAFKA_BATCH_SIZE
-              value: "500"
+              value: 500
             - name: TIMEOUT
-              value: "120"
+              value: 120
             - name: TABLE
-              value: "120"
+              value: semantic.sem_events
             - name: RESUME_DIR
               value: /pipedrive/syn.is.status/
             - name: RECOVERY_DIR
