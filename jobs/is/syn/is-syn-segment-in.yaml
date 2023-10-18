@@ -6,14 +6,13 @@ metadata:
   name: is-syn-segment-in
   namespace: solutions
 spec:
-  backoffLimit: 200
   completions: 1
   parallelism: 1
   suspend: false
   template:
     metadata:
       labels:
-        job-name: is-syn-segment-in
+        job-name: is-syn-seg-in
       namespace: ingress
     spec:
       containers:
