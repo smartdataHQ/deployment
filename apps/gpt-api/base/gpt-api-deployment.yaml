@@ -20,9 +20,6 @@ spec:
             requests:
               cpu: 200m
               memory: 200Mi
-          volumeMounts:
-            - mountPath: /tmp
-              name: tmp
           ports:
             - containerPort: 8000
           livenessProbe:
@@ -62,10 +59,15 @@ spec:
           envFrom:
             - configMapRef:
                 name: gpt-api-config
+          volumeMounts:
+            - mountPath: /tmp
+              name: gpt-api-pvc
       imagePullSecrets:
         - name: dockerlock
       volumes:
-        - name: tmp
+        - name: gpt-api-pvc
+          persistentVolumeClaim:
+            claimName: gpt-api-pvc
 
 
 ---
