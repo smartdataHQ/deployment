@@ -58,7 +58,7 @@ spec:
                 key: FRESHDESK_API_KEY
           envFrom:
             - configMapRef:
-                name: gpt-config
+                name: gpt-api-config
       imagePullSecrets:
         - name: dockerlock
 
