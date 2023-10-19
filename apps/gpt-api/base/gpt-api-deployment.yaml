@@ -20,6 +20,9 @@ spec:
             requests:
               cpu: 200m
               memory: 200Mi
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp
           ports:
             - containerPort: 8000
           livenessProbe:
@@ -61,6 +64,8 @@ spec:
                 name: gpt-api-config
       imagePullSecrets:
         - name: dockerlock
+      volumes:
+        - name: tmp
 
 
 ---
