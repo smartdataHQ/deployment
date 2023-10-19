@@ -61,13 +61,13 @@ spec:
                 name: gpt-api-config
           volumeMounts:
             - mountPath: /cache
-              name: gpt-api-pvc
+              name: cache
       imagePullSecrets:
         - name: dockerlock
       volumes:
-        - name: gpt-api-pvc
-          persistentVolumeClaim:
-            claimName: gpt-api-pvc
+        - name: cache
+          hostPath:
+            path: /data/cache
 
 ---
 apiVersion: autoscaling/v1
