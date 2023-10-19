@@ -20,54 +20,37 @@ spec:
             requests:
               cpu: 200m
               memory: 200Mi
-          volumeMounts:
-            - mountPath: /cdn
-              name: cdn
           ports:
-            - containerPort: 4001
+            - containerPort: 8088
           livenessProbe:
             httpGet:
-              port: 4001
+              port: 8088
               path: /api/status/alive
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
-              port: 4001
+              port: 8088
               path: /api/status/ready
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 2
           env:
-          - name: DB_PASSWORD
+          - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
             valueFrom:
               secretKeyRef:
-                name: postgresql-postgresql-ha-pgpool
-                key: password
-          - name: NEO4J_PASSWORD
+                name: llm
+                key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+          - name: AZURE_OPENAI_API_KEY_gpt-4
             valueFrom:
               secretKeyRef:
-                name: contextsuite
-                key: NEO4J_AUTH
-          - name: CLICKHOUSE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: clickhouse
-                key: admin-password
-          - name: SOLR_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: solr
-                key: solr-password
+                name: llm
+                key: AZURE_OPENAI_API_KEY_gpt-4
           envFrom:
             - configMapRef:
                 name: ctxllm-config
       imagePullSecrets:
         - name: dockerlock
-      volumes:
-        - name: cdn
-          hostPath:
-            path: /data/cdn
 
 ---
 apiVersion: autoscaling/v1
