@@ -60,7 +60,7 @@ spec:
             - configMapRef:
                 name: gpt-api-config
           volumeMounts:
-            - mountPath: /tmp
+            - mountPath: /cache
               name: gpt-api-pvc
       imagePullSecrets:
         - name: dockerlock
@@ -68,7 +68,6 @@ spec:
         - name: gpt-api-pvc
           persistentVolumeClaim:
             claimName: gpt-api-pvc
-
 
 ---
 apiVersion: autoscaling/v1
