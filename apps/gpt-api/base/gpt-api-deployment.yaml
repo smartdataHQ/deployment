@@ -38,33 +38,30 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 10
             timeoutSeconds: 2
-        env:
-          - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
-            valueFrom:
-              secretKeyRef:
-                name: llm
-                key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
-          - name: AZURE_OPENAI_API_KEY_gpt-4
-            valueFrom:
-              secretKeyRef:
-                name: llm
-                key: AZURE_OPENAI_API_KEY_gpt-4
-          - name: OPENAI_API_KEY
-            valueFrom:
-              secretKeyRef:
-                name: llm
-                key: OPENAI_API_KEY
-          - name: FRESHDESK_API_KEY
-            valueFrom:
-              secretKeyRef:
-                name: llm
-                key: FRESHDESK_API_KEY
+          env:
+            - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+            - name: AZURE_OPENAI_API_KEY_gpt-4
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: AZURE_OPENAI_API_KEY_gpt-4
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: OPENAI_API_KEY
+            - name: FRESHDESK_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: FRESHDESK_API_KEY
           envFrom:
             - configMapRef:
                 name: gpt-api-config
-          volumeMounts:
-            - mountPath: /cache
-              name: cache
       imagePullSecrets:
         - name: dockerlock
       volumes:
