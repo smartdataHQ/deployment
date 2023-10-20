@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpt-chat
+spec:
+  selector:
+    matchLabels:
+      app: gpt-chat
+      tier: api
+  template:
+    metadata:
+      labels:
+        app: gpt-chat
+        tier: api
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/gpt-chat:e396dc8
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              port: 3000
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 3000
+              path: /api/status/ready
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 2
+          env:
+            - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+            - name: AZURE_OPENAI_API_KEY_gpt-4
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: AZURE_OPENAI_API_KEY_gpt-4
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: OPENAI_API_KEY
+            - name: FRESHDESK_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: FRESHDESK_API_KEY
+          envFrom:
+            - configMapRef:
+                name: gpt-chat-config
+      imagePullSecrets:
+        - name: dockerlock
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: gpt-chat
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: gpt-chat
+  maxReplicas: 2
+  minReplicas: 8
+  targetCPUUtilizationPercentage: 60
