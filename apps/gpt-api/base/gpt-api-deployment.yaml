@@ -41,11 +41,11 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
           env:
-            - name: AZURE_OPENAI_API_KEY_gpt_3.5_turbo
+            - name: AZURE_OPENAI_API_KEY_gpt_3_5_turbo
               valueFrom:
                 secretKeyRef:
                   name: llm
-                  key: AZURE_OPENAI_API_KEY_gpt_3.5_turbo
+                  key: AZURE_OPENAI_API_KEY_gpt_3_5_turbo
             - name: AZURE_OPENAI_API_KEY_gpt_4
               valueFrom:
                 secretKeyRef:
