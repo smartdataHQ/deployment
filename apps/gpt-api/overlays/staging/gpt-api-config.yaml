@@ -4,6 +4,7 @@ metadata:
   name: gpt-api-config
   # NO SECRETS SHOULD BE STORED IN CONFIGMAPS [See the docs](/README.md))
 data:
+  DEFAULT_LLM_MODEL: "Azure"
   OPENAI_LLM: "gpt-4"
   OPENAI_LLM_STREAM_ANSWER: "gpt-4"
   AZURE_OPENAI_API_TYPE: "azure"
