@@ -27,27 +27,40 @@ spec:
             mountPath: /cache
           ports:
             - containerPort: 8000
-          env:
-            - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
-              valueFrom:
-                secretKeyRef:
-                  name: llm
-                  key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
-            - name: AZURE_OPENAI_API_KEY_gpt-4
-              valueFrom:
-                secretKeyRef:
-                  name: llm
-                  key: AZURE_OPENAI_API_KEY_gpt-4
-            - name: OPENAI_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: llm
-                  key: OPENAI_API_KEY
-            - name: FRESHDESK_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: llm
-                  key: FRESHDESK_API_KEY
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8000
+              path: /api/status/ready
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 2
+        env:
+          - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+          - name: AZURE_OPENAI_API_KEY_gpt-4
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: AZURE_OPENAI_API_KEY_gpt-4
+          - name: OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: OPENAI_API_KEY
+          - name: FRESHDESK_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: FRESHDESK_API_KEY
           envFrom:
             - configMapRef:
                 name: gpt-api-config
