@@ -35,7 +35,10 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 10
             timeoutSeconds: 2
-          env:
+          volumeMounts:
+          - name: ephemeral
+            mountPath: "/cache"
+        env:
           - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
             valueFrom:
               secretKeyRef:
@@ -65,10 +68,9 @@ spec:
       imagePullSecrets:
         - name: dockerlock
       volumes:
-        - name: cache
-          hostPath:
-            path: /data/cache
-
+        - name: ephemeral
+          emptyDir:
+            sizeLimit: 5Gi
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
