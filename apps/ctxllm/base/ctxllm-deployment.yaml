@@ -36,16 +36,16 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
           env:
-          - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+          - name: AZURE_OPENAI_API_KEY_gpt_3_5-turbo
             valueFrom:
               secretKeyRef:
                 name: llm
-                key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
-          - name: AZURE_OPENAI_API_KEY_gpt-4
+                key: AZURE_OPENAI_API_KEY_gpt_3_5-turbo
+          - name: AZURE_OPENAI_API_KEY_gpt_4
             valueFrom:
               secretKeyRef:
                 name: llm
-                key: AZURE_OPENAI_API_KEY_gpt-4
+                key: AZURE_OPENAI_API_KEY_gpt_4
           envFrom:
             - configMapRef:
                 name: ctxllm-config
