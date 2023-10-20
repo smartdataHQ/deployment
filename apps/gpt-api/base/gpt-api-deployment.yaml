@@ -22,7 +22,7 @@ spec:
               memory: 200Mi
           volumeMounts:
           - name: ephemeral
-            mountPath: "/cache"
+            mountPath: /usr/local/share/fonts
           ports:
             - containerPort: 8000
           env:
