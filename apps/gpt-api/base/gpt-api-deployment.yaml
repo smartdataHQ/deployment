@@ -15,14 +15,16 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/gpt-api:af8fe1a
+          image: quicklookup/gpt-api:274fcbc
           resources:
             requests:
               cpu: 200m
               memory: 200Mi
           volumeMounts:
-          - name: ephemeral
-            mountPath: "/cache"
+          - name: ephemerala
+            mountPath: /usr/local/share/fonts
+          - name: ephemeralb
+            mountPath: /cache
           ports:
             - containerPort: 8000
           env:
@@ -52,7 +54,10 @@ spec:
       imagePullSecrets:
         - name: dockerlock
       volumes:
-        - name: ephemeral
+        - name: ephemerala
+          emptyDir:
+            sizeLimit: 5Gi
+        - name: ephemeralb
           emptyDir:
             sizeLimit: 5Gi
 ---
