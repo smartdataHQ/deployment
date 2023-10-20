@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctxllm
+spec:
+  selector:
+    matchLabels:
+      app: ctxllm
+      tier: api
+  template:
+    metadata:
+      labels:
+        app: ctxllm
+        tier: api
+    spec:
+      containers:
+        - name: node
+          image: quicklookup/ctxllm:c9cc880
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+          ports:
+            - containerPort: 8088
+          livenessProbe:
+            httpGet:
+              port: 8088
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8088
+              path: /api/status/ready
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+          env:
+          - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+          - name: AZURE_OPENAI_API_KEY_gpt-4
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: AZURE_OPENAI_API_KEY_gpt-4
+          envFrom:
+            - configMapRef:
+                name: ctxllm-config
+      imagePullSecrets:
+        - name: dockerlock
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ctxllm
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ctxllm
+  maxReplicas: 4
+  minReplicas: 2
+  targetCPUUtilizationPercentage: 60
