@@ -2,8 +2,9 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: syn-bytewax
+  namespace: ingress
   labels:
-    jobgroup: bytewax
+    job-group: bytewax
 spec:
   template:
     metadata:
