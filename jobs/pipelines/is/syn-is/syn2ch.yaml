@@ -7,6 +7,8 @@ spec:
   - name: syn2ch
     image: quicklookup/ctxpipe:9616a9b
     env:
+      - name: RECOVERY_DIR
+        value: '/pipedrive/syn2ch'
       - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
