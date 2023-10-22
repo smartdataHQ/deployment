@@ -1,54 +1,43 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ctxllm
+  name: gpt-chat
 spec:
   selector:
     matchLabels:
-      app: ctxllm
+      app: gpt-chat
       tier: api
   template:
     metadata:
       labels:
-        app: ctxllm
+        app: gpt-chat
         tier: api
     spec:
       containers:
         - name: node
-          image: quicklookup/ctxllm:c9cc880
+          image: quicklookup/gpt-chat:26ebfe1
           resources:
             requests:
               cpu: 200m
               memory: 200Mi
           ports:
-            - containerPort: 8088
+            - containerPort: 3000
           livenessProbe:
             httpGet:
-              port: 8088
+              port: 3000
               path: /api/status/alive
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
-              port: 8088
+              port: 3000
               path: /api/status/ready
-            initialDelaySeconds: 5
+            initialDelaySeconds: 15
             periodSeconds: 10
             timeoutSeconds: 2
-          env:
-          - name: AZURE_OPENAI_API_KEY_gpt_3_5-turbo
-            valueFrom:
-              secretKeyRef:
-                name: llm
-                key: AZURE_OPENAI_API_KEY_gpt_3_5-turbo
-          - name: AZURE_OPENAI_API_KEY_gpt_4
-            valueFrom:
-              secretKeyRef:
-                name: llm
-                key: AZURE_OPENAI_API_KEY_gpt_4
           envFrom:
             - configMapRef:
-                name: ctxllm-config
+                name: gpt-chat-config
       imagePullSecrets:
         - name: dockerlock
 
@@ -56,12 +45,12 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: ctxllm
+  name: gpt-chat
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: ctxllm
-  maxReplicas: 4
-  minReplicas: 2
+    name: gpt-chat
+  maxReplicas: 2
+  minReplicas: 8
   targetCPUUtilizationPercentage: 60

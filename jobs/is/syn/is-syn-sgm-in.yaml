@@ -2,21 +2,21 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    job-name: is-syn-segment-in
-  name: is-syn-segment-in
-  namespace: solutions
+    job-name: is-syn-sgm-in
+  name: is-syn-sgm-in
+  namespace: ingress
 spec:
   parallelism: 1
   template:
     metadata:
       labels:
-        job-name: is-syn-segment-in
+        job-name: is-syn-sgm-in
       namespace: ingress
     spec:
       containers:
-        - image: quicklookup/ctxpipe:4fbf599
+        - image: quicklookup/ctxpipe:9616a9b
           imagePullPolicy: Always
-          name: is-syn-segment-in
+          name: is-syn-sgm-in
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
@@ -60,7 +60,7 @@ spec:
       dnsPolicy: ClusterFirst
       imagePullSecrets:
         - name: dockerlock
-      restartPolicy: Never
+      restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
       volumes:
