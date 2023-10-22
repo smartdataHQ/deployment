@@ -8,10 +8,6 @@ spec:
       app: gpt-chat
       tier: web
   template:
-    metadata:
-      labels:
-        app: gpt-chat
-        tier: web
     spec:
       containers:
         - name: node
