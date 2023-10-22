@@ -1,6 +1,0 @@
-bases:
-  - ../../base
-
-resources:
-  - gpt-chat-config.yaml
-  - gpt-chat-ingress.yml
