@@ -1,17 +1,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: syn-bytewax
+  name: syn-is-seg2ch
   namespace: ingress
   labels:
     job-group: bytewax
 spec:
   template:
     metadata:
-      name: bytewaxjob
+      name: syn-is-seg2ch
     spec:
       containers:
-      - name: syn-bytewax
+      - name: syn-is-seg2ch
         image: quicklookup/ctxpipe:9616a9b
         env:
         - name: POSTGRES_PASSWORD
