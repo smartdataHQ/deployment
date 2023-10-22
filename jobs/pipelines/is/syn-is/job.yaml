@@ -13,6 +13,8 @@ spec:
     spec:
       containers:
       - name: c
-        image: devopscube/kubernetes-job-demo:latest
+        image: quicklookup/ctxpipe:9616a9b
         args: ["100"]
       restartPolicy: Always
+      imagePullSecrets:
+        - name: dockerlock
