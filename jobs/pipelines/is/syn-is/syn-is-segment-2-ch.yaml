@@ -13,7 +13,6 @@ spec:
       containers:
       - name: syn-bytewax
         image: quicklookup/ctxpipe:9616a9b
-        args: ["entytrypoint.sh"]
       restartPolicy: Never
       imagePullSecrets:
         - name: dockerlock
