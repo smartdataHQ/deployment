@@ -7,7 +7,6 @@ metadata:
   namespace: ingress
 spec:
   parallelism: 1
-  suspend: false
   template:
     metadata:
       labels:
