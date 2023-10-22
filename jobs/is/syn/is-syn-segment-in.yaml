@@ -60,7 +60,7 @@ spec:
       dnsPolicy: ClusterFirst
       imagePullSecrets:
         - name: dockerlock
-      restartPolicy: Never
+      restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
       volumes:
