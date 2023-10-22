@@ -1,12 +1,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  namespace: ingress
+  name: syn-segpipe-ingress
 spec:
+  selector:
+    matchLabels:
+      app: syn-segpipe-ingress
+      tier: bytewax
   template:
     metadata:
       labels:
-        job-name: syn-segpipe-ingress
+        app: syn-segpipe-ingress
+        tier: bytewax
     spec:
       containers:
         - name: syn-segpipe-ingress
@@ -29,11 +34,9 @@ spec:
                 secretKeyRef:
                   name: snowflake
                   key: SYN_IS_SNOWFLAKE_PASSWORD
-
           volumeMounts:
             - mountPath: /pipedrive
               name: is-syn-segment-disc
-      restartPolicy: Never
       volumes:
         - name: is-syn-segment-disc
           persistentVolumeClaim:
