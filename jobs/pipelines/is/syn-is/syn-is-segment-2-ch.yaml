@@ -14,21 +14,20 @@ spec:
       - name: syn-bytewax
         image: quicklookup/ctxpipe:9616a9b
         env:
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: postgresql-postgresql-ha-pgpool
-                key: password
-          - name: CLICKHOUSE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: clickhouse
-                key: admin-password
-          - name: SYN_IS_SNOWFLAKE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: snowflake
-                key: SYN_IS_SNOWFLAKE_PASSWORD
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgresql-postgresql-ha-pgpool
+              key: password
+        - name: CLICKHOUSE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: clickhouse
+              key: admin-password
+        - name: SYN_IS_SNOWFLAKE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: snowflake
+              key: SYN_IS_SNOWFLAKE_PASSWORD
       imagePullSecrets:
         - name: dockerlock
-      restartPolicy: Always
