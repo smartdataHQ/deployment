@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: gpt-chat
   labels:
-      app: gpt-chat
-      tier: web
+    app: gpt-chat
+    tier: web
 spec:
   type: NodePort
   ports:
