@@ -7,7 +7,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: syn-is-seg2ch
+      name: synisseg2ch
       labels:
         jobgroup: bytewax
     spec:
