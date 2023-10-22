@@ -1,2 +1,3 @@
 resources:
   - syn2ch.yaml
+  - is-syn-segment-in-pvc.yaml
