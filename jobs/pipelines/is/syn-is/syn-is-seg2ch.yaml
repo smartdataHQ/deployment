@@ -4,7 +4,7 @@ metadata:
   name: syn-is-seg2ch
   namespace: ingress
   labels:
-    job-group: bytewax
+    tier: bytewax
 spec:
   template:
     metadata:
