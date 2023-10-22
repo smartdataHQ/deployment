@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nova2ch
+spec:
+  containers:
+  - name: nova2ch
+    image: quicklookup/qlingress:1.0.1
+    env:
+      - name: CLICKHOUSE_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: clickhouse
+            key: admin-password
+    volumeMounts:
+      - mountPath: /data
+        name: is-nova-pvc-disc
+    securityContext:
+      capabilities:
+        add:
+          - NET_ADMIN
+  dnsPolicy: ClusterFirst
+  volumes:
+    - name: is-nova-pvc-disc
+      persistentVolumeClaim:
+        claimName: is-nova-pvc
+  imagePullSecrets:
+    - name: dockerlock
