@@ -22,5 +22,12 @@ spec:
           secretKeyRef:
             name: snowflake
             key: SYN_IS_SNOWFLAKE_PASSWORD
+    volumeMounts:
+      - mountPath: /pipedrive
+        name: is-syn-segment-disc
+  volumes:
+    - name: is-syn-segment-disc
+      persistentVolumeClaim:
+        claimName: is-syn-segment-in-pvc
   imagePullSecrets:
     - name: dockerlock
