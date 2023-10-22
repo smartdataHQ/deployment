@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: nova2ch
-    image: quicklookup/qlingress:1.0.5
+    image: quicklookup/qlingress:1.0.6
     env:
       - name: CLICKHOUSE_PASSWORD
         valueFrom:
