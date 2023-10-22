@@ -2,8 +2,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    job-name: is-syn-segment-in
-  name: is-syn-segment-in
+    job-name: is-syn-sgm-in
+  name: is-syn-sgm-in
   namespace: solutions
 spec:
   parallelism: 1
@@ -11,13 +11,13 @@ spec:
   template:
     metadata:
       labels:
-        job-name: is-syn-segment-in
+        job-name: is-syn-sgm-in
       namespace: ingress
     spec:
       containers:
         - image: quicklookup/ctxpipe:9616a9b
           imagePullPolicy: Always
-          name: is-syn-segment-in
+          name: is-syn-sgm-in
           securityContext:
             allowPrivilegeEscalation: false
             privileged: false
