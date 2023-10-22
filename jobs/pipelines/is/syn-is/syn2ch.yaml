@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: syn2ch
+spec:
+  containers:
+  - name: syn2ch
+    image: quicklookup/ctxpipe:9616a9b
+  imagePullSecrets:
+    - name: dockerlock
