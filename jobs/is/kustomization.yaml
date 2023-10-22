@@ -1,3 +1,0 @@
-resources:
-  - is-syn-segment-in-pvc.yaml
-  - syn-segpipe-ingress.yaml
