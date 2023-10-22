@@ -2,12 +2,10 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: is-syn-segment-in-pvc
-  namespace: ingress
 spec:
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: '30Gi'
-  storageClassName: longhorn
-  volumeMode: Filesystem
