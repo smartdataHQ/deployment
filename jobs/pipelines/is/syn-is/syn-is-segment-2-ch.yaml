@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: syn-bytewax
+  labels:
+    jobgroup: bytewax
+spec:
+  template:
+    metadata:
+      name: bytewaxjob
+    spec:
+      containers:
+      - name: syn-bytewax
+        image: quicklookup/ctxpipe:9616a9b
+        args: ["entytrypoint.sh"]
+      restartPolicy: Never
