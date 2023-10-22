@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/gpt-api:274fcbc
+          image: quicklookup/gpt-api:1cb2b56
           resources:
             requests:
               cpu: 200m
@@ -27,17 +27,30 @@ spec:
             mountPath: /cache
           ports:
             - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /api/status/alive
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8000
+              path: /api/status/ready
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 2
           env:
-            - name: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
+            - name: AZURE_OPENAI_API_KEY_gpt_3_5_turbo
               valueFrom:
                 secretKeyRef:
                   name: llm
-                  key: AZURE_OPENAI_API_KEY_gpt-3.5-turbo
-            - name: AZURE_OPENAI_API_KEY_gpt-4
+                  key: AZURE_OPENAI_API_KEY_gpt_3_5_turbo
+            - name: AZURE_OPENAI_API_KEY_gpt_4
               valueFrom:
                 secretKeyRef:
                   name: llm
-                  key: AZURE_OPENAI_API_KEY_gpt-4
+                  key: AZURE_OPENAI_API_KEY_gpt_4
             - name: OPENAI_API_KEY
               valueFrom:
                 secretKeyRef:
