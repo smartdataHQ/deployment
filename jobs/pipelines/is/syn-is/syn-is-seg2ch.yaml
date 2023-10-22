@@ -12,7 +12,7 @@ spec:
         jobgroup: bytewax
     spec:
       containers:
-      - name: syn-is-seg2ch
+      - name: syn2
         image: quicklookup/ctxpipe:9616a9b
       restartPolicy: Always
       imagePullSecrets:
