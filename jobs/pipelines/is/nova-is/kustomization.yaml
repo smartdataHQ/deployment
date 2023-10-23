@@ -1,0 +1,3 @@
+resources:
+  - nova2ch.yaml
+  - is-nova-pvc.yaml
