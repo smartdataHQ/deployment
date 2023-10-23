@@ -7,6 +7,14 @@ spec:
   - name: syn2ch
     image: quicklookup/ctxpipe:9616a9b
     env:
+      - name: TIMEOUT
+        value: '60'
+      - name: KAFKA_BATCH_SIZE
+        value: '2500'
+      - name: BATCH_SIZE
+        value: '5000'
+      - name: WRITE_KEY
+        value: 'xZN8!E6d4aXns2ty'
       - name: RECOVERY_DIR
         value: '/pipedrive/syn2ch'
       - name: RECOVERY_INIT
