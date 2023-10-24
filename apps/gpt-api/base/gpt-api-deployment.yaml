@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/gpt-api:c8ec4d1
+          image: quicklookup/gpt-api:8a1149f
           resources:
             requests:
               cpu: 200m
@@ -83,6 +83,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: gpt-api
-  maxReplicas: 1
-  minReplicas: 1
+  maxReplicas: 4
+  minReplicas: 2
   targetCPUUtilizationPercentage: 60
