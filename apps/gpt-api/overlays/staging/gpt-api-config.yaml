@@ -23,3 +23,4 @@ data:
   FRESHCHAT_CHANNEL_ID: 6b7f496a-6113-4eb2-8c3c-45dad65add9e
   FRESHCHAT_USER_ID: ae803355-bbcc-46b7-ae1e-873ced00b2a7
   FRESHDESK_API_KEY: JCzzr8nDrN6nxHnULQ17
+  FRESHDESk_BASE_URL: https://qlib.freshdesk.com
