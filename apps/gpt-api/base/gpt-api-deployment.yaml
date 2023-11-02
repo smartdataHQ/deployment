@@ -61,6 +61,21 @@ spec:
                 secretKeyRef:
                   name: llm
                   key: FRESHDESK_API_KEY
+            - name: CHAT_FRESHDESK_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: CHAT_FRESHDESK_API_KEY
+            - name: BOKUN_PROD_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: BOKUN_PROD_API_KEY
+            - name: FRESHCHAT_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: FRESHCHAT_API_TOKEN
           envFrom:
             - configMapRef:
                 name: gpt-api-config
