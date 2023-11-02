@@ -3,13 +3,13 @@ kind: ConfigMap
 metadata:
   name: ctxllm-config
 data:
-  DEFAULT_LLM_MODEL: Azure
-  AZURE_OPENAI_API_TYPE: azure
-  AZURE_OPENAI_API_VERSION: 2023-05-15
-  AZURE_OPENAI_API_BASE_gpt-3.5-turbo: https://smartdatagpt4.openai.azure.com/
-  AZURE_DEPLOYMENT_NAME_gpt-3.5-turbo: GTP-Thor35
+  DEFAULT_LLM_MODEL: 'Azure'
+  AZURE_OPENAI_API_TYPE: 'azure'
+  AZURE_OPENAI_API_VERSION: '2023-05-15'
+  AZURE_OPENAI_API_BASE_gpt_3_5_turbo: 'https://smartdatagpt4.openai.azure.com'
+  AZURE_DEPLOYMENT_NAME_gpt_3_5_turbo: 'GTP-Thor35'
 
-  AZURE_OPENAI_API_BASE_gpt-4: https://smartdatagpt4.openai.azure.com/
-  AZURE_DEPLOYMENT_NAME_gpt-4: GPT-Thor
+  AZURE_OPENAI_API_BASE_gpt_4: 'https://smartdatagpt4.openai.azure.com/'
+  AZURE_DEPLOYMENT_NAME_gpt_4: 'GPT-Thor'
 
-  OPENAI_LLM_COMBINED_EXTRACTION_PROMPT: gpt-4
+  OPENAI_LLM_COMBINED_EXTRACTION_PROMPT: 'gpt-4'
