@@ -4,7 +4,6 @@ metadata:
   name: n8n
   labels:
     app: n8n
-    tier: ingress
 spec:
   type: ClusterIP
   ports:
