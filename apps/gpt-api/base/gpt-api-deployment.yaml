@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/gpt-api:35ee028
+          image: quicklookup/gpt-api:990064d
           resources:
             requests:
               cpu: 200m
@@ -41,7 +41,7 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
           env:
-            - name: AZURE_OPENAI_API_KEY_gpt_3_5_turbo
+            - name: AZURE_OPENAI_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: llm
