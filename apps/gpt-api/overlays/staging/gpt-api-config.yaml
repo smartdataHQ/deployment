@@ -17,7 +17,7 @@ data:
   AZURE_DEPLOYMENT_NAME_gpt_4_32k: 'Uber-Thor'
 
   ENV: 'prod'
-  REDIS_URL: 'redis-master.default'  
+  REDIS_URL: 'redis://redis-master.default:6379'  
   FRESHDESK_BASE_URL: 'https://qlib.freshdesk.com'
   FRESHCHAT_BASE_URL: 'https://qlib-8d186c83dec914b16978526.freshchat.com'
 
