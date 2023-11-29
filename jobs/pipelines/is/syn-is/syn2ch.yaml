@@ -6,14 +6,9 @@ metadata:
   labels:
     job-name: syn2ch-pipeline
   name: syn2ch-pipeline
+  namespace: ingress
 spec:
-  selector:
-    matchLabels:
-      job-name: syn2ch-pipeline
   template:
-    metadata:
-      labels:
-        job-name: syn2ch-pipeline
     spec:
       containers:
         - env:
@@ -71,3 +66,7 @@ spec:
         - hostPath:
             path: /data/pipedrive
           name: pipedrive
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
