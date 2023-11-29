@@ -8,7 +8,13 @@ metadata:
   name: syn2ch-pipeline
   namespace: ingress
 spec:
+  selector:
+    matchLabels:
+      job-name: syn2ch-pipeline
   template:
+    metadata:
+      labels:
+        job-name: syn2ch-pipeline
     spec:
       containers:
         - env:
