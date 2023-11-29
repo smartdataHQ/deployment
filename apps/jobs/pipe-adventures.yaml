@@ -1,0 +1,56 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    field.cattle.io/description: stores semantic events for Arctic Adventures
+  labels:
+    job-name: adventures-pipeline
+  name: adventures-pipeline
+  namespace: solutions
+spec:
+  selector:
+    matchLabels:
+      controller-uid: 34593f41-5062-4562-81b1-06da90ed53e0
+  suspend: false
+  template:
+    metadata:
+      labels:
+        job-name: adventures-pipeline
+      namespace: solutions
+    spec:
+      containers:
+        - env:
+            - name: CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: admin-password
+                  name: clickhouse
+                  optional: false
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: postgresql-postgresql-ha-pgpool
+                  optional: false
+            - name: SYN_IS_SNOWFLAKE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: SYN_IS_SNOWFLAKE_PASSWORD
+                  name: customer
+                  optional: false
+          envFrom:
+            - configMapRef:
+                name: ctxpipe-config
+          image: quicklookup/ctxpipe:39cc0dd
+          imagePullPolicy: IfNotPresent
+          name: pipe-adventures-0
+          volumeMounts:
+            - mountPath: /pipedrive
+              name: pipedrive
+      imagePullSecrets:
+        - name: dockerlock
+      restartPolicy: Never
+      volumes:
+        - hostPath:
+            path: /data/pipedrive
+          name: pipedrive
