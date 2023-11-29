@@ -36,7 +36,7 @@ spec:
       - name: SYN_IS_SNOWFLAKE_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: customer
+            name: snowflake
             key: SYN_IS_SNOWFLAKE_PASSWORD
     volumeMounts:
       - mountPath: /pipedrive
