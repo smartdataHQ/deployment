@@ -52,6 +52,8 @@ spec:
                 name: ctxpipe-config
           image: quicklookup/ctxpipe:39cc0dd
           imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
           name: pipe-adventures-0
           volumeMounts:
             - mountPath: /pipedrive

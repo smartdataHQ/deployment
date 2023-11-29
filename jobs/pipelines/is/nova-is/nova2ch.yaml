@@ -51,6 +51,8 @@ spec:
             - configMapRef:
                 name: ctxpipe-config
           image: quicklookup/ctxpipe:9616a9b
+          command:
+            - /bin/sh
           imagePullPolicy: IfNotPresent
           name: pipe-adventures-0
           volumeMounts:
