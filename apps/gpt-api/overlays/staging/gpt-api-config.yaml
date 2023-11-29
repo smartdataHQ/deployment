@@ -18,7 +18,8 @@ data:
 
   ENV: 'prod'
   REDIS_URL: 'redis://redis-master.default:6379'  
-  FRESHDESK_BASE_URL: 'https://qlib.freshdesk.com'
+  FRESHDESK_BASE_URL: 'https://arcticadventures.freshdesk.com'
+  FRESHDESK_OUTBOUND_EMAIL_ID: '29000003343'
   FRESHCHAT_BASE_URL: 'https://qlib-8d186c83dec914b16978526.freshchat.com'
 
   FRESHCHAT_CONVERSATION_ID: '84b5235a-49eb-428b-ab25-cdcb5dee85f2'
