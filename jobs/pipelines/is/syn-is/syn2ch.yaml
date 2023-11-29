@@ -22,8 +22,6 @@ spec:
             value: '8640'
           - name: TABLE
             value: 'semantic.sem_events'
-          - name: WRITE_KEY
-            value: 'xZN8!E6d4aXns2ty'
           - name: RECOVERY_DIR
             value: '/pipedrive/syn2ch'
           - name: RECOVERY_INIT
@@ -41,6 +39,12 @@ spec:
               secretKeyRef:
                 key: password
                 name: postgresql-postgresql-ha-pgpool
+                optional: false
+          - name: WRITE_KEY
+            valueFrom:
+              secretKeyRef:
+                key: SYN_IS_WRITE_KEY
+                name: customer
                 optional: false
           - name: SYN_IS_SNOWFLAKE_PASSWORD
             valueFrom:
