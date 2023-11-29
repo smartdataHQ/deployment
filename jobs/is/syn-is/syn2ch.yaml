@@ -20,7 +20,7 @@ spec:
       - name: RECOVERY_INIT
         value: python -m bytewax.recovery /pipedrive/syn2ch/ 2
       - name: DB_PATH
-        value: /pipedrive/databases
+        value: /pipedrive/db
       - name: RECOVERY_DIR
         value: '/pipedrive/syn2ch'
       - name: POSTGRES_PASSWORD
