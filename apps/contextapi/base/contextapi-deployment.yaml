@@ -53,7 +53,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: clickhouse
-                key: admin-password
+                key: nexus-password
           - name: SOLR_PASSWORD
             valueFrom:
               secretKeyRef:
