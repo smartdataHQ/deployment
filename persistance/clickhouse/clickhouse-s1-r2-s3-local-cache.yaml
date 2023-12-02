@@ -6,7 +6,7 @@ spec:
   troubleshoot: "yes"
   defaults:
     templates:
-        podTemplate: clickhouse-pod-A
+        podTemplate: clickhouse-pod
   configuration:
     files:
       config.d/storage_config.xml: |-
