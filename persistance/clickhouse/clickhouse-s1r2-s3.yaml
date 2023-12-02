@@ -27,7 +27,7 @@ spec:
                 <type>cache</type>
                 <disk>s3</disk>
                 <path>/var/lib/clickhouse/disks/s3_cache/</path>
-                <max_size>10Gi</max_size>
+                <max_size>300Gi</max_size>
               </s3_cache>
             </disks>
             <policies>
@@ -76,20 +76,20 @@ spec:
               hostPath:
                 path: /data/clickhouse/persistence
                 type: DirectoryOrCreate
-          env:
-            - name: AWS_ACCESS_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: clickhouse
-                  key: access_key_id
-            - name: AWS_SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: clickhouse
-                  key: secret_access_key
           containers:
             - name: clickhouse-pod
               image: clickhouse/clickhouse-server:23.10.5
               volumeMounts:
                 - mountPath: /var/lib/clickhouse
                   name: local-path
+              env:
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: clickhouse
+                      key: access_key_id
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: clickhouse
+                      key: secret_access_key
