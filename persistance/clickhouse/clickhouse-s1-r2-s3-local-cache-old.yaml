@@ -29,6 +29,15 @@ spec:
       - name: clickhouse-pod
         generateName: "chs3-{chi}-{cluster}-{host}"
         spec:
+          affinity:
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                      - key: "disktype"
+                        operator: In
+                        values:
+                          - "ssd"
             podAntiAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
                 - labelSelector:
