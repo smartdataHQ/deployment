@@ -8,6 +8,10 @@ spec:
     templates:
         podTemplate: clickhouse-pod
   configuration:
+    users:
+      default/networks/ip:
+        - "::/0"
+      default/password_sha256_hex: "da39a3ee5e6b4b0d3255bfef95601890afd80709"
     files:
       config.d/storage_config.xml: |-
         <clickhouse>
