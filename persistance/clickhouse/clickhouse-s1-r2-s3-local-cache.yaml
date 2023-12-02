@@ -5,14 +5,14 @@ metadata:
 spec:
   troubleshoot: "yes"
   defaults:
+    templates:
+      podTemplate: clickhouse-pod
   configuration:
     clusters:
       - name: chs3
         layout:
           shardsCount: 1
           replicasCount: 1
-        templates:
-          podTemplate: clickhouse-pod
     zookeeper:
       nodes:
         - host: zookeeper
@@ -25,22 +25,23 @@ spec:
       - name: clickhouse-pod
         generateName: "{chi}-{cluster}-{host}"
         spec:
-            podAntiAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                - labelSelector:
-                    matchExpressions:
-                      - key: "clickhouse.altinity.com/app"
-                        operator: In
-                        values:
-                          - "chop"
-                  topologyKey: "kubernetes.io/hostname"
-            volumes:
-              - name: local
-                hostPath:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: "clickhouse.altinity.com/app"
+                      operator: In
+                      values:
+                        - "chop"
+                topologyKey: "kubernetes.io/hostname"
+          volumes:
+            - name: local-path
+              hostPath:
                 path: /data/clickhouse/persistence
-            containers:
-              - name: clickhouse-pod
-                image: clickhouse/clickhouse-server:23.10.5
-                volumeMounts:
-                  - mountPath: /var/lib/clickhouse
-                    name: local
+                type: DirectoryOrCreate
+          containers:
+            - name: clickhouse-pod
+              image: clickhouse/clickhouse-server:23.10.5
+              volumeMounts:
+                - mountPath: /var/lib/clickhouse
+                  name: local-path
