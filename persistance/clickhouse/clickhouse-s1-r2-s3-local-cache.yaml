@@ -67,7 +67,7 @@ spec:
                     operator: In
                     values:
                     - "chop"
-                topologyKey: topology.kubernetes.io/zone
+                topologyKey: "topology.kubernetes.io/zone"
           volumes:
             - name: local-path
               hostPath:
