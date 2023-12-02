@@ -61,13 +61,15 @@ spec:
           affinity:
             podAntiAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
-              - labelSelector:
-                  matchExpressions:
-                  - key: "clickhouse.altinity.com/cluster"
-                    operator: In
-                    values:
-                    - "ctxs3"
-                topologyKey: "topology.kubernetes.io/zone"
+              - weight: 100
+                podAffinityTerm:
+                  labelSelector:
+                    matchExpressions:
+                    - key: "clickhouse.altinity.com/cluster"
+                      operator: In
+                      values:
+                      - "ctxs3"
+                  topologyKey: "topology.kubernetes.io/zone"
           volumes:
             - name: local-path
               hostPath:
