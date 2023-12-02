@@ -1,2 +1,2 @@
 resources:
-  - clickhouse-s1-r2-s3-local-cache.yaml
+  - clickhouse-s1r2-s3.yaml
