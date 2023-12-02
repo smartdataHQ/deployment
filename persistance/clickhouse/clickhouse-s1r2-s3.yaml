@@ -17,7 +17,7 @@ spec:
             <disks>
               <s3>              
                 <type>s3</type>
-                <endpoint>https://cxs-ch-backup.s3.eu-west-1.amazonaws.com/chs3/</endpoint>
+                <endpoint>https://chs3data.s3.eu-west-1.amazonaws.com/ctx-s3/</endpoint>
                 <region>eu-west-1</region>
                 <access_key_id from_env="AWS_ACCESS_KEY_ID"/>
                 <secret_access_key from_env="AWS_SECRET_ACCESS_KEY"/>
