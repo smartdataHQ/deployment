@@ -19,7 +19,7 @@ spec:
           port: 2181
       session_timeout_ms: 30000
       operation_timeout_ms: 10000
-      root: "/persistence/chs3"
+      root: "/chs3"
   templates:
     podTemplates:
       - name: clickhouse-pod
