@@ -13,8 +13,8 @@ spec:
             name: clickhouse
             key: admin-password
     volumeMounts:
-      - mountPath: /data
-        name: is-nova-pvc-disc
+      - mountPath: /pipedrive
+        name: pipedrive
     securityContext:
       readOnlyRootFilesystem: false
       runAsUser: 0
@@ -23,8 +23,8 @@ spec:
           - NET_ADMIN
   dnsPolicy: ClusterFirst
   volumes:
-    - name: is-nova-pvc-disc
-      persistentVolumeClaim:
-        claimName: is-nova-pvc
+    - hostPath:
+        path: /data/pipedrive
+      name: pipedrive
   imagePullSecrets:
     - name: dockerlock
