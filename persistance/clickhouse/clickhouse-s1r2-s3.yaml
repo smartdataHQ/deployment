@@ -42,7 +42,7 @@ spec:
           </storage_configuration>        
         </clickhouse>
     clusters:
-      - name: ctx-s3
+      - name: ctxs3
         layout:
           shardsCount: 1
           replicasCount: 3
