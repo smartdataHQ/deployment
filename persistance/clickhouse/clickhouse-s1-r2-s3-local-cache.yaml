@@ -16,15 +16,15 @@ spec:
               <s3>
                 <type>s3</type>
                 <endpoint>https://cxs-ch-backup.s3.eu-west-1.amazonaws.com/chs3/</endpoint>
-                <use_environment_credentials>true</use_environment_credentials>
                 <region>eu-west-1</region>
+                <use_environment_credentials>true</use_environment_credentials>
                 <metadata_path>/var/lib/clickhouse/disks/s3/</metadata_path>
               </s3>
               <s3_cache>
                 <type>cache</type>
                 <disk>s3</disk>
                 <path>/var/lib/clickhouse/disks/s3_cache/</path>
-                <max_size>300Gi</max_size>
+                <max_size>10Gi</max_size>
               </s3_cache>
             </disks>
             <policies>
@@ -45,10 +45,7 @@ spec:
           replicasCount: 1
           replicas:
             - templates:
-                podTemplate: clickhouse-pod-A
-            - templates:
-                podTemplate: clickhouse-pod-B
-
+                podTemplate: clickhouse-pod
     zookeeper:
       nodes:
         - host: zookeeper
@@ -58,7 +55,7 @@ spec:
       root: "/chs3"
   templates:
     podTemplates:
-      - name: clickhouse-pod-A
+      - name: clickhouse-pod
         generateName: "{chi}-{cluster}-{host}"
         spec:
           affinity:
@@ -73,32 +70,6 @@ spec:
                           values:
                             - "chop"
                     topologyKey: topology.kubernetes.io/zone
-          volumes:
-            - name: local-path
-              hostPath:
-                path: /data/clickhouse/persistence
-                type: DirectoryOrCreate
-          containers:
-            - name: clickhouse-pod
-              image: clickhouse/clickhouse-server:23.10.5
-              volumeMounts:
-                - mountPath: /var/lib/clickhouse
-                  name: local-path
-      - name: clickhouse-pod-B
-        generateName: "{chi}-{cluster}-{host}"
-        spec:
-          affinity:
-            podAntiAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-              - weight: 100
-                podAffinityTerm:
-                  labelSelector:
-                    matchExpressions:
-                    - key: "clickhouse.altinity.com/app"
-                      operator: In
-                      values:
-                      - "chop"
-                  topologyKey: topology.kubernetes.io/zone
           volumes:
             - name: local-path
               hostPath:
