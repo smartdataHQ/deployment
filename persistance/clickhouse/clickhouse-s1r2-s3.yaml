@@ -45,7 +45,7 @@ spec:
       - name: ctx-s3
         layout:
           shardsCount: 1
-          replicasCount: 2
+          replicasCount: 3
     zookeeper:
       nodes:
         - host: zookeeper
