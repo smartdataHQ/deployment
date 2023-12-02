@@ -1,7 +1,7 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "chs3"
+  name: "ch"
 spec:
   troubleshoot: "yes"
   defaults:
@@ -39,7 +39,7 @@ spec:
           </storage_configuration>        
         </clickhouse>
     clusters:
-      - name: chs3
+      - name: ctx-s3
         layout:
           shardsCount: 1
           replicasCount: 1
