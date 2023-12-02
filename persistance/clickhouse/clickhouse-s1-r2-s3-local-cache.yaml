@@ -61,17 +61,18 @@ spec:
       - name: clickhouse-pod-A
         generateName: "{chi}-{cluster}-{host}"
         spec:
-          podAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              - weight: 100
-                podAffinityTerm:
-                  labelSelector:
-                    matchExpressions:
-                      - key: "clickhouse.altinity.com/app"
-                        operator: In
-                        values:
-                          - "chop"
-                  topologyKey: topology.kubernetes.io/zone
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - weight: 100
+                  podAffinityTerm:
+                    labelSelector:
+                      matchExpressions:
+                        - key: "clickhouse.altinity.com/app"
+                          operator: In
+                          values:
+                            - "chop"
+                    topologyKey: topology.kubernetes.io/zone
           volumes:
             - name: local-path
               hostPath:
@@ -86,17 +87,18 @@ spec:
       - name: clickhouse-pod-B
         generateName: "{chi}-{cluster}-{host}"
         spec:
-          podAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              - weight: 100
-                podAffinityTerm:
-                  labelSelector:
-                    matchExpressions:
-                      - key: "clickhouse.altinity.com/app"
-                        operator: In
-                        values:
-                          - "chop"
-                  topologyKey: topology.kubernetes.io/zone
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - weight: 100
+                  podAffinityTerm:
+                    labelSelector:
+                      matchExpressions:
+                        - key: "clickhouse.altinity.com/app"
+                          operator: In
+                          values:
+                            - "chop"
+                    topologyKey: topology.kubernetes.io/zone
           volumes:
             - name: local-path
               hostPath:
