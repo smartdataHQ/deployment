@@ -63,10 +63,10 @@ spec:
               requiredDuringSchedulingIgnoredDuringExecution:
               - labelSelector:
                   matchExpressions:
-                  - key: "clickhouse.altinity.com/app"
+                  - key: "clickhouse.altinity.com/cluster"
                     operator: In
                     values:
-                    - "chop"
+                    - "ctxs3"
                 topologyKey: "topology.kubernetes.io/zone"
           volumes:
             - name: local-path
