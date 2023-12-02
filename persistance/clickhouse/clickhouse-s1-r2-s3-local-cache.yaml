@@ -61,15 +61,13 @@ spec:
           affinity:
             podAntiAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
-                - weight: 100
-                  podAffinityTerm:
-                    labelSelector:
-                      matchExpressions:
-                        - key: "clickhouse.altinity.com/app"
-                          operator: In
-                          values:
-                            - "chop"
-                    topologyKey: topology.kubernetes.io/zone
+              - labelSelector:
+                  matchExpressions:
+                  - key: "clickhouse.altinity.com/app"
+                    operator: In
+                    values:
+                    - "chop"
+                topologyKey: topology.kubernetes.io/zone
           volumes:
             - name: local-path
               hostPath:
