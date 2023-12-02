@@ -34,13 +34,13 @@ spec:
                         values:
                           - "chop"
                   topologyKey: "kubernetes.io/hostname"
-        containers:
-          - name: clickhouse-pod
-            image: clickhouse/clickhouse-server:23.11
-            volumeMounts:
-              - mountPath: /var/lib/clickhouse
-                name: local
-        volumes:
-          - name: local
-            hostPath:
-            path: /data/clickhouse/persistence
+            volumes:
+              - name: local
+                hostPath:
+                path: /data/clickhouse/persistence
+            containers:
+              - name: clickhouse-pod
+                image: clickhouse/clickhouse-server:23.11
+                volumeMounts:
+                  - mountPath: /var/lib/clickhouse
+                    name: local
