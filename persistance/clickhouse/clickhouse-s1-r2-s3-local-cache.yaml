@@ -39,10 +39,10 @@ spec:
           </storage_configuration>        
         </clickhouse>
     clusters:
-      - name: ch-s3
+      - name: chs3
         layout:
           shardsCount: 1
-          replicasCount: 3
+          replicasCount: 1
           replicas:
             - templates:
                 podTemplate: clickhouse-pod-A
