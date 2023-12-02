@@ -11,7 +11,7 @@ spec:
     users:
       default/networks/ip:
         - "::/0"
-      default/password_sha256_hex: "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+      default/password_sha256_hex: "2b02a9cfa819b25e5e08c19c86ab89c58da3a958b003bed64f118160872a7bf3"
     files:
       config.d/storage_config.xml: |-
         <clickhouse>
