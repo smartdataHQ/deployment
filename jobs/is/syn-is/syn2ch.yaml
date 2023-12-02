@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: syn2ch
-    image: quicklookup/ctxpipe:9616a9b
+    image: quicklookup/ctxpipe:a91b834
     env:
       - name: TIMEOUT
         value: '60'
