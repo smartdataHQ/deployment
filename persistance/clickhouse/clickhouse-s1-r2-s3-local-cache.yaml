@@ -16,6 +16,7 @@ spec:
               <s3>
                 <type>s3</type>
                 <endpoint>https://cxs-ch-backup.s3.eu-west-1.amazonaws.com/chs3/</endpoint>
+                <use_environment_credentials>true</use_environment_credentials>
                 <region>eu-west-1</region>
                 <metadata_path>/var/lib/clickhouse/disks/s3/</metadata_path>
               </s3>
@@ -68,7 +69,6 @@ spec:
                       operator: In
                       values:
                         - "chop"
-                topologyKey: "kubernetes.io/hostname"
           volumes:
             - name: local-path
               hostPath:
@@ -91,7 +91,6 @@ spec:
                       operator: In
                       values:
                         - "chop"
-                topologyKey: "kubernetes.io/hostname"
           volumes:
             - name: local-path
               hostPath:
