@@ -40,7 +40,7 @@ spec:
             volumeMounts:
               - mountPath: /var/lib/clickhouse
                 name: local
-    volumes:
-      - name: local
-        hostPath:
-        path: /data/clickhouse/persistence
+        volumes:
+          - name: local
+            hostPath:
+            path: /data/clickhouse/persistence
