@@ -15,11 +15,11 @@ spec:
           replicasCount: 1
     zookeeper:
       nodes:
-        - host: zookeeper-0.default
+        - host: zookeeper-0
           port: 2181
-        - host: zookeeper-1.default
+        - host: zookeeper-1
           port: 2181
-        - host: zookeeper-2.default
+        - host: zookeeper-2
           port: 2181
       session_timeout_ms: 30000
       operation_timeout_ms: 10000
