@@ -5,7 +5,7 @@ metadata:
 spec:
   troubleshoot: "yes"
   defaults:
-    - templates:
+    templates:
         podTemplate: clickhouse-pod-A
   configuration:
     files:
