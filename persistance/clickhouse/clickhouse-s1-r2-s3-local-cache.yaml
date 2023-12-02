@@ -39,7 +39,7 @@ spec:
           </storage_configuration>        
         </clickhouse>
     clusters:
-      - name: chs3
+      - name: ch-s3
         layout:
           shardsCount: 1
           replicasCount: 3
@@ -63,7 +63,7 @@ spec:
         spec:
           affinity:
             podAntiAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
+              requiredDuringSchedulingIgnoredDuringExecution:
                 - weight: 100
                   podAffinityTerm:
                     labelSelector:
@@ -89,7 +89,7 @@ spec:
         spec:
           affinity:
             podAntiAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
+              requiredDuringSchedulingIgnoredDuringExecution:
               - weight: 100
                 podAffinityTerm:
                   labelSelector:
