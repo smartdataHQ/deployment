@@ -27,7 +27,7 @@ spec:
   templates:
     podTemplates:
       - name: clickhouse-pod
-        generateName: "chs3-{chi}-{cluster}-{host}"
+        generateName: "{chi}-{cluster}-{host}"
         spec:
             podAntiAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
