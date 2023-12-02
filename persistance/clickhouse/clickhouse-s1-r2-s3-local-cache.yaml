@@ -40,7 +40,7 @@ spec:
                 path: /data/clickhouse/persistence
             containers:
               - name: clickhouse-pod
-                image: clickhouse/clickhouse-server:23.11
+                image: clickhouse/clickhouse-server:23.10.5
                 volumeMounts:
                   - mountPath: /var/lib/clickhouse
                     name: local
