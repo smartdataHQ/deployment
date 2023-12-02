@@ -5,14 +5,14 @@ metadata:
 spec:
   troubleshoot: "yes"
   defaults:
-    templates:
-      podTemplate: clickhouse-pod
   configuration:
     clusters:
       - name: chs3
         layout:
           shardsCount: 1
           replicasCount: 1
+        templates:
+          podTemplate: clickhouse-pod
     zookeeper:
       nodes:
         - host: zookeeper
