@@ -7,8 +7,6 @@ spec:
   defaults:
     - templates:
         podTemplate: clickhouse-pod-A
-    - templates:
-        podTemplate: clickhouse-pod-B
   configuration:
     files:
       config.d/storage_config.xml: |-
@@ -46,6 +44,12 @@ spec:
         layout:
           shardsCount: 1
           replicasCount: 3
+          replicas:
+            - templates:
+                podTemplate: clickhouse-pod-A
+            - templates:
+                podTemplate: clickhouse-pod-B
+
     zookeeper:
       nodes:
         - host: zookeeper
