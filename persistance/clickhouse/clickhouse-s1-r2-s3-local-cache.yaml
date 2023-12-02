@@ -38,14 +38,9 @@ spec:
           - name: clickhouse-pod
             image: clickhouse/clickhouse-server:23.11
             volumeMounts:
-              - name: local-system
-                mountPath: /var/log/clickhouse-server
-              - name: local-data
-                mountPath: /var/lib/clickhouse
-        volumes:
-          - name: local-system
-            hostPath:
-            path: /data/clickhouse/persistence/clickhouse
-          - name: local-data
-            hostPath:
-            path: /data/clickhouse/persistence/data
+              - mountPath: /var/lib/clickhouse
+                name: local
+    volumes:
+      - name: local
+        hostPath:
+        path: /data/clickhouse/persistence
