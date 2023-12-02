@@ -45,10 +45,7 @@ spec:
       - name: ctx-s3
         layout:
           shardsCount: 1
-          replicasCount: 3
-          replicas:
-            - templates:
-                podTemplate: clickhouse-pod
+          replicasCount: 2
     zookeeper:
       nodes:
         - host: zookeeper
