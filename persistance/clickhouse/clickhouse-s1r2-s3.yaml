@@ -1,7 +1,7 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "clickhouse"
+  name: "ch-cxs"
 spec:
   troubleshoot: "yes"
   defaults:
@@ -16,20 +16,34 @@ spec:
         <clickhouse>
           <storage_configuration>
             <disks>
-              <default>
+              <s3>
                 <type>s3</type>
                 <endpoint>https://chs3data.s3.eu-west-1.amazonaws.com/ctx-s3/</endpoint>
                 <region>eu-west-1</region>
                 <access_key_id from_env="AWS_ACCESS_KEY_ID"/>
                 <secret_access_key from_env="AWS_SECRET_ACCESS_KEY"/>
                 <metadata_path>/var/lib/clickhouse/disks/s3-metadata/</metadata_path>
-                <cache_enabled>true</cache_enabled>
-                <data_cache_enabled>true</data_cache_enabled>
-                <enable_filesystem_cache>true</enable_filesystem_cache>
-                <max_cache_size>300Gi</max_cache_size>
-                <cache_path>/var/lib/clickhouse/disks/s3-cache/</cache_path>
-              </default>        
+              </s3>        
+              <cache>
+                  <type>cache</type>
+                  <disk>s3</disk>
+                  <path>/var/lib/clickhouse/disks/s3-cache/</path>
+                  <max_size>300Gi</max_size>
+              </cache>        
             </disks>
+            <policies>
+              <s3tiered>
+                  <volumes>
+                      <default>
+                          <disk>default</disk>
+                          <max_data_part_size_bytes>50000000000</max_data_part_size_bytes>         
+                      </default>
+                      <s3cached>
+                          <disk>cache</disk>                          
+                      </s3cached>
+                  </volumes>
+              </s3tiered>
+            </policies>        
           </storage_configuration>        
         </clickhouse>
     clusters:
@@ -62,7 +76,7 @@ spec:
           volumes:
             - name: local-path
               hostPath:
-                path: /data/clickhouse/persistence/ctxs3
+                path: /data/clickhouse/persistence/cxss3
                 type: DirectoryOrCreate
           containers:
             - name: clickhouse-pod
