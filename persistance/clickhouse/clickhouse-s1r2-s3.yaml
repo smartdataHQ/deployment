@@ -61,7 +61,7 @@ spec:
   templates:
     podTemplates:
       - name: clickhouse-pod
-        generateName: "{chi}-{cluster}-{host}"
+        generateName: "{chi}-{node}"
         spec:
           affinity:
             podAntiAffinity:
