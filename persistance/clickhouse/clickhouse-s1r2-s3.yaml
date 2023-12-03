@@ -11,22 +11,10 @@ spec:
   configuration:
     users:
       default/password_sha256_hex: "2b02a9cfa819b25e5e08c19c86ab89c58da3a958b003bed64f118160872a7bf3"
-      default/networks/ip: "::/0"
     files:
       config.d/ipv4_only.xml: |
         <clickhouse>
-           <listen_host replace="true">0.0.0.0</listen_host>
-        </clickhouse>
-      config.d/admin.xml: |
-        <clickhouse>
-          <users>
-            <admin>
-              <password from_env="CLICKHOUSE_PASSWORD"/>
-              <networks>
-                <ip>::/0</ip>
-              </networks>        
-            </admin>
-          </users>
+           <listen_host replace="true">::/0</listen_host>
         </clickhouse>
       config.d/storage_config.xml: |-
         <clickhouse>
