@@ -1,7 +1,7 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "chddata"
+  name: "clickhouse"
 spec:
   troubleshoot: "yes"
   defaults:
@@ -22,18 +22,18 @@ spec:
                 <region>eu-west-1</region>
                 <access_key_id from_env="AWS_ACCESS_KEY_ID"/>
                 <secret_access_key from_env="AWS_SECRET_ACCESS_KEY"/>
-                <metadata_path>/var/lib/clickhouse/disks/s3/</metadata_path>
+                <metadata_path>/var/lib/clickhouse/disks/s3-metadata/</metadata_path>
                 <cache_enabled>true</cache_enabled>
                 <data_cache_enabled>true</data_cache_enabled>
                 <enable_filesystem_cache>true</enable_filesystem_cache>
-                <max_cache_size>50Gi</max_cache_size>
-                <cache_path>/var/lib/clickhouse/disks/s3/cache/</cache_path>
+                <max_cache_size>300Gi</max_cache_size>
+                <cache_path>/var/lib/clickhouse/disks/s3-cache/</cache_path>
               </default>        
             </disks>
           </storage_configuration>        
         </clickhouse>
     clusters:
-      - name: ctxs3
+      - name: cxss3
         layout:
           shardsCount: 1
           replicasCount: 3
@@ -43,7 +43,7 @@ spec:
           port: 2181
       session_timeout_ms: 30000
       operation_timeout_ms: 10000
-      root: "/ctxs3"
+      root: "/cxss3"
   templates:
     podTemplates:
       - name: clickhouse-pod
@@ -83,7 +83,7 @@ spec:
                       key: secret_access_key
     serviceTemplates:
       - name: chi-service-template
-        generateName: "ch-lb-{chi}"
+        generateName: "{chi}-lb"
         spec:
           ports:
             - name: http
