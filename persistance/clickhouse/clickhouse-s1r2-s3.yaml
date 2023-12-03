@@ -53,7 +53,7 @@ spec:
           replicasCount: 3
     zookeeper:
       nodes:
-        - host: zookeeper
+        - host: clickhouse-keeper
           port: 2181
       session_timeout_ms: 30000
       operation_timeout_ms: 10000
