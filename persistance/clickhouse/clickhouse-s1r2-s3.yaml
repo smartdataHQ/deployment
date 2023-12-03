@@ -83,7 +83,7 @@ spec:
                       key: secret_access_key
     serviceTemplates:
       - name: chi-service-template
-        generateName: "clickhouse-{chi}"
+        generateName: "ch-lb-{chi}"
         spec:
           ports:
             - name: http
@@ -91,4 +91,5 @@ spec:
             - name: tcp
               port: 9000
           type: LoadBalancer
+          loadBalancerIP: 192.168.50.68
           externalTrafficPolicy: Cluster
