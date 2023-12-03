@@ -1,7 +1,7 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "chdb"
+  name: "chddata"
 spec:
   troubleshoot: "yes"
   defaults:
@@ -43,7 +43,7 @@ spec:
           port: 2181
       session_timeout_ms: 30000
       operation_timeout_ms: 10000
-      root: "/chs3"
+      root: "/ctxs3"
   templates:
     podTemplates:
       - name: clickhouse-pod
@@ -62,13 +62,13 @@ spec:
           volumes:
             - name: local-path
               hostPath:
-                path: /data/clickhouse/persistence/
+                path: /data/clickhouse/persistence/ctxs3
                 type: DirectoryOrCreate
           containers:
             - name: clickhouse-pod
               image: clickhouse/clickhouse-server:23.10.5
               volumeMounts:
-                - mountPath: /var/lib/clickhouse/chs3
+                - mountPath: /var/lib/clickhouse
                   name: local-path
               env:
                 - name: AWS_ACCESS_KEY_ID
