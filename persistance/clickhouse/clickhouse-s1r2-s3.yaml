@@ -16,6 +16,14 @@ spec:
         <clickhouse>
            <listen_host replace="true">0.0.0.0</listen_host>
         </clickhouse>
+      config.d/users.xml: |
+        <clickhouse>
+          <users>
+            <default>
+              <password from_env="CLICKHOUSE_PASSWORD"/>
+            </default>
+          </users>
+        </clickhouse>
       config.d/storage_config.xml: |-
         <clickhouse>
           <storage_configuration>
@@ -89,6 +97,11 @@ spec:
                 - mountPath: /var/lib/clickhouse
                   name: local-path
               env:
+                - name: CLICKHOUSE_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: clickhouse
+                      key: password
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
