@@ -1,2 +1,3 @@
 resources:
   - clickhouse-s1r2-s3.yaml
+  - ch-lb.yaml
