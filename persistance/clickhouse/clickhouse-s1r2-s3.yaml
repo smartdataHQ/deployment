@@ -19,9 +19,9 @@ spec:
       config.d/users.xml: |
         <clickhouse>
           <users>
-            <default>
+            <admin>
               <password from_env="CLICKHOUSE_PASSWORD"/>
-            </default>
+            </admin>
           </users>
         </clickhouse>
       config.d/storage_config.xml: |-
