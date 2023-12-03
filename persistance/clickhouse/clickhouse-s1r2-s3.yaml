@@ -85,11 +85,6 @@ spec:
                 - mountPath: /var/lib/clickhouse
                   name: local-path
               env:
-                - name: CLICKHOUSE_PASSWORD
-                  valueFrom:
-                    secretKeyRef:
-                      name: clickhouse
-                      key: admin-password
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
