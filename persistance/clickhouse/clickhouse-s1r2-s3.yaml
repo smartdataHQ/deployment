@@ -1,12 +1,13 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "ch-data"
+  name: "chouse"
 spec:
   troubleshoot: "yes"
   defaults:
     templates:
         podTemplate: clickhouse-pod
+        serviceTemplate: chi-service-template
   configuration:
     users:
       default/password_sha256_hex: "2b02a9cfa819b25e5e08c19c86ab89c58da3a958b003bed64f118160872a7bf3"
@@ -15,20 +16,19 @@ spec:
         <clickhouse>
           <storage_configuration>
             <disks>
-              <s3>              
+              <s3>
                 <type>s3</type>
                 <endpoint>https://chs3data.s3.eu-west-1.amazonaws.com/ctx-s3/</endpoint>
                 <region>eu-west-1</region>
                 <access_key_id from_env="AWS_ACCESS_KEY_ID"/>
                 <secret_access_key from_env="AWS_SECRET_ACCESS_KEY"/>
                 <metadata_path>/var/lib/clickhouse/disks/s3/</metadata_path>
-              </s3>
-              <s3_cache>
-                <type>cache</type>
-                <disk>s3</disk>
-                <path>/var/lib/clickhouse/disks/s3_cache/</path>
-                <max_size>300Gi</max_size>
-              </s3_cache>
+                <cache_enabled>true</cache_enabled>
+                <data_cache_enabled>true</data_cache_enabled>
+                <enable_filesystem_cache>true</enable_filesystem_cache>
+                <max_cache_size>300Gi</max_cache_size>
+                <cache_path>/var/lib/clickhouse/disks/s3/cache/</cache_path>
+              </s3>        
             </disks>
             <policies>
                 <s3_main>
@@ -71,13 +71,13 @@ spec:
           volumes:
             - name: local-path
               hostPath:
-                path: /data/clickhouse/persistence
+                path: /data/clickhouse/persistence/
                 type: DirectoryOrCreate
           containers:
             - name: clickhouse-pod
               image: clickhouse/clickhouse-server:23.10.5
               volumeMounts:
-                - mountPath: /var/lib/clickhouse
+                - mountPath: /var/lib/clickhouse/chs3
                   name: local-path
               env:
                 - name: AWS_ACCESS_KEY_ID
@@ -90,3 +90,14 @@ spec:
                     secretKeyRef:
                       name: clickhouse
                       key: secret_access_key
+    serviceTemplates:
+      - name: chi-service-template
+        generateName: "clickhouse-{chi}"
+        spec:
+          ports:
+            - name: http
+              port: 8123
+            - name: tcp
+              port: 9000
+          type: LoadBalancer
+          externalTrafficPolicy: Cluster
