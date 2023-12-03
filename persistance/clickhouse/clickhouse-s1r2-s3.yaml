@@ -1,7 +1,7 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "chouse"
+  name: "chdb"
 spec:
   troubleshoot: "yes"
   defaults:
@@ -16,7 +16,7 @@ spec:
         <clickhouse>
           <storage_configuration>
             <disks>
-              <s3>
+              <default>
                 <type>s3</type>
                 <endpoint>https://chs3data.s3.eu-west-1.amazonaws.com/ctx-s3/</endpoint>
                 <region>eu-west-1</region>
@@ -26,19 +26,10 @@ spec:
                 <cache_enabled>true</cache_enabled>
                 <data_cache_enabled>true</data_cache_enabled>
                 <enable_filesystem_cache>true</enable_filesystem_cache>
-                <max_cache_size>300Gi</max_cache_size>
+                <max_cache_size>50Gi</max_cache_size>
                 <cache_path>/var/lib/clickhouse/disks/s3/cache/</cache_path>
-              </s3>        
+              </default>        
             </disks>
-            <policies>
-                <s3_main>
-                    <volumes>
-                        <main>
-                            <disk>s3</disk>
-                        </main>
-                    </volumes>
-                </s3_main>
-            </policies>        
           </storage_configuration>        
         </clickhouse>
     clusters:
