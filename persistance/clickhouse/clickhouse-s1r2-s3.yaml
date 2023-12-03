@@ -101,7 +101,7 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: clickhouse
-                      key: password
+                      key: admin-password
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
