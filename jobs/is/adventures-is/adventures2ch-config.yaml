@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: adventures2ch-config
+data:
+  bytewax.run.sh: |
+    bash nohup python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/adventures/ &
