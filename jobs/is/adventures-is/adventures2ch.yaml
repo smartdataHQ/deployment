@@ -20,7 +20,7 @@ spec:
       - name: WRITE_KEY
         value: 'xZN8!E6d4aXns2ty'
       - name: RECOVERY_DIR
-        value: '/pipedrive/syn2ch'
+        value: '/pipedrive/aa2ch'
       - name: RECOVERY_INIT
         value: 'python -m bytewax.recovery /pipedrive/aa2ch/ 2'
       - name: DB_PATH
