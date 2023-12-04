@@ -51,11 +51,17 @@ spec:
     volumeMounts:
       - mountPath: /pipedrive
         name: pipedrive
+      - name: config-volume
+        mountPath: /bytewax.run.sh
+        subPath: bytewax.run.sh
     envFrom:
         - configMapRef:
             name: adventures2ch-config
 
   volumes:
+  - name: config-volume
+    configMap:
+      name: adventures2ch-config
   - hostPath:
       path: /data/pipedrive
     name: pipedrive
