@@ -22,7 +22,7 @@ spec:
         # The container name to execute pods
         - name: postgresdb
           # pull postgresimage from docker hub
-          image: postgres:11.7
+          image: postgres:11.7-alpine
           ports:
             # Assign ports to expose container
             - containerPort: 5432
