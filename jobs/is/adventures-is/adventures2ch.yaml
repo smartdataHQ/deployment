@@ -51,7 +51,7 @@ spec:
     volumeMounts:
       - mountPath: /pipedrive
         name: pipedrive
-      - mountPath: /bytewax.run.sh
+      - mountPath: /pipelines/bytewax.run.sh
         name: config-volume
         subPath: bytewax.run.sh
     envFrom:
