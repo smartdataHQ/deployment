@@ -15,7 +15,7 @@ data:
   SUPPORT_EMAIL: 'support@snjallgogn.is'
   INLINE_RUNTIME_CHUNK: 'true'
   DB_USER: 'postgres'
-  DB_HOST: 'postgresql-postgresql-ha-pgpool.default'
+  DB_HOST: 'postgresql-postgresql-ha-postgresql-headless.default'
   DB_CLIENT: 'pg'
   DB_NAME: 'ssp'
   DB_PORT: '5432'

@@ -14,7 +14,7 @@ data:
   REDIS_LOCAL: 'true'
 
   ## Postgres
-  POSTGRES_HOST: 'postgresql-postgresql-ha-pgpool.default'
+  POSTGRES_HOST: 'postgresql-postgresql-ha-postgresql-headless.default'
   POSTGRES_PORT: '5432'
   POSTGRES_DB: 'ssp'
   POSTGRES_USER: 'postgres'

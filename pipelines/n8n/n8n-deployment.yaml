@@ -31,7 +31,7 @@ spec:
             - name: DB_TYPE
               value: postgresdb
             - name: DB_POSTGRESDB_HOST
-              value: postgresql-postgresql-ha-pgpool.default
+              value: postgresql-postgresql-ha-postgresql-headless.default
             - name: DB_POSTGRESDB_PORT
               value: "5432"
             - name: DB_POSTGRESDB_DATABASE
