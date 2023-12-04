@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     service: postgres
-  name: ha-postgresql-0
+  name: postgresql-pvc
 spec:
   accessModes:
     - ReadWriteOnce
