@@ -18,7 +18,7 @@ spec:
       - name: TABLE
         value: 'semantic.sem_events'
       - name: WRITE_KEY
-        value: 'xZN8!E6d4aXns2ty'
+        value: 'bZB6!E2d4bz4s8ty'
       - name: RECOVERY_DIR
         value: '/pipedrive/aa2ch'
       - name: RECOVERY_INIT
