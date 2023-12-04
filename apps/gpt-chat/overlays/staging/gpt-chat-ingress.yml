@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: gpt-chat
+  name: gpt-chat-web
 spec:
   rules:
     - host: chat.contextsuite.com
@@ -9,7 +9,7 @@ spec:
         paths:
           - backend:
               service:
-                name: gpt-chat
+                name: gpt-chat-web
                 port:
                   number: 3000
             path: /

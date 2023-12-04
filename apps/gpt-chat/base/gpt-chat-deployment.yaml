@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gpt-chat
+  name: gpt-chat-web
 spec:
   selector:
     matchLabels:
-      app: gpt-chat
+      app: gpt-chat-web
       tier: web
   template:
     metadata:
       labels:
-        app: gpt-chat
+        app: gpt-chat-web
         tier: web
     spec:
       containers:
@@ -37,14 +37,14 @@ spec:
             timeoutSeconds: 2
           envFrom:
             - configMapRef:
-                name: gpt-chat-config
+                name: gpt-chat-web-config
       imagePullSecrets:
         - name: dockerlock
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: gpt-chat
+  name: gpt-chat-web
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
