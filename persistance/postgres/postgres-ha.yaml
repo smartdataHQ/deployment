@@ -111,6 +111,6 @@ spec:
         name: postgres-ha-pvc
 
   volumes:
-    - name: postgres-ha-pvc
+    - name: postgresql-ha-postgresql-0
       persistentVolumeClaim:
-        claimName: postgres-ha-pvc
+        claimName: postgresql-ha-postgresql-0
