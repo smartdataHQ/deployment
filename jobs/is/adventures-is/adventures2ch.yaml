@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: syn2ch
-    image: quicklookup/ctxpipe:a91b834
+    image: quicklookup/ctxpipe:5544b68
     env:
       - name: TIMEOUT
         value: '60'
@@ -22,7 +22,7 @@ spec:
       - name: RECOVERY_DIR
         value: '/pipedrive/syn2ch'
       - name: RECOVERY_INIT
-        value: 'python -m bytewax.recovery /pipedrive/syn2ch/ 2'
+        value: 'python -m bytewax.recovery /pipedrive/aa2ch/ 2'
       - name: DB_PATH
         value: '/pipedrive/databases'
       - name: CLICKHOUSE_HOST

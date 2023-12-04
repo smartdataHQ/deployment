@@ -5,4 +5,4 @@ metadata:
 data:
   bytewax.run.sh: |
     #!/bin/sh
-    nohup python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/adventures/ &
+    nohup python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/ &
