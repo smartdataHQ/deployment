@@ -108,9 +108,9 @@ spec:
           value: '1'
     volumeMounts:
       - mountPath: /bitnami/postgresql
-        name: postgres-ha-pvc
+        name: ha-postgresql-0
 
   volumes:
-    - name: postgresql-ha-postgresql-0
+    - name: ha-postgresql-0
       persistentVolumeClaim:
-        claimName: postgresql-ha-postgresql-0
+        claimName: ha-postgresql-0
