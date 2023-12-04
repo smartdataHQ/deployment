@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: adventures2ch
+  name: aa2ch
 spec:
   containers:
   - name: syn2ch
@@ -51,8 +51,8 @@ spec:
     volumeMounts:
       - mountPath: /pipedrive
         name: pipedrive
-      - name: config-volume
-        mountPath: /bytewax.run.sh
+      - mountPath: /bytewax.run.sh
+        name: config-volume
         subPath: bytewax.run.sh
     envFrom:
         - configMapRef:
@@ -65,5 +65,6 @@ spec:
   - hostPath:
       path: /data/pipedrive
     name: pipedrive
+
   imagePullSecrets:
     - name: dockerlock
