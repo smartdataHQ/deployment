@@ -3,10 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     service: postgres
-  name: postgres-ha-pvc
+  name: postgresql-ha-postgresql-0
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   resources:
     requests:
       storage: 64Gi
