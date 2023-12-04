@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: base-config
+data:
+  ENV: 'prod'
+  KAFKA_HOST: 'kafka.default'
+  KAFKA_PORT: '9092'
+  REDIS_HOST: 'redis-master.default'
+  REDIS_PORT: '6379'
+  REDIS_DB: '0'
+  REDIS_LOCAL: 'true'
+  POSTGRES_PORT: '5432'
+  POSTGRES_DB: 'ssp'
+  POSTGRES_USER: 'postgres'
+  POSTGRES_HOST: 'postgresql-postgresql-ha-postgresql-headless.default'
+  DB_PATH: '/pipedrive/databases'
+  RAW_PATH: '/pipedrive/raw'
+  TIMEOUT: '60'
+  KAFKA_BATCH_SIZE: '5000'
+  BATCH_SIZE: '10000'
+  SNAPSHOT_INTERVAL: '8640'
+  CLICKHOUSE_PORT: '8123'
+  CLICKHOUSE_DB: 'semantic'
+  CLICKHOUSE_USER: 'default'

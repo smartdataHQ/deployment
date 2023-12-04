@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: syn-is-config
+data:
+  TABLE: 'semantic.sem_events'
+  WRITE_KEY: 'xZN8!E6d4aXns2ty'
+  RECOVERY_DIR: '/pipedrive/syn2ch'
+  RECOVERY_INIT: 'python -m bytewax.recovery /pipedrive/syn2ch/ 2'
+  SYN_IS_SNOWFLAKE_ACCOUNT: 'rg83886.eu-west-1'
+  SYN_IS_SNOWFLAKE_USER: 'stefan'
+  bytewax.run.sh: |
+    #!/bin/sh
+    nohup python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("xZN8!E6d4aXns2ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/ &
+    

@@ -5,34 +5,13 @@ metadata:
 spec:
   containers:
   - name: syn2ch
-    image: quicklookup/ctxpipe:a91b834
+    image: quicklookup/ctxpipe:5544b68
+    envFrom:
+      - configMapRef:
+          name: base-config
+      - configMapRef:
+          name: syn-is-config
     env:
-      - name: TIMEOUT
-        value: '60'
-      - name: KAFKA_BATCH_SIZE
-        value: '5000'
-      - name: BATCH_SIZE
-        value: '10000'
-      - name: SNAPSHOT_INTERVAL
-        value: '8640'
-      - name: TABLE
-        value: 'semantic.sem_events'
-      - name: WRITE_KEY
-        value: 'xZN8!E6d4aXns2ty'
-      - name: RECOVERY_DIR
-        value: '/pipedrive/syn2ch'
-      - name: RECOVERY_INIT
-        value: 'python -m bytewax.recovery /pipedrive/syn2ch/ 2'
-      - name: DB_PATH
-        value: '/pipedrive/databases'
-      - name: CLICKHOUSE_HOST
-        value: 192.168.50.159
-      - name: CLICKHOUSE_PORT
-        value: '8123'
-      - name: CLICKHOUSE_DB
-        value: 'semantic'
-      - name: CLICKHOUSE_USER
-        value: 'default'
       - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
@@ -51,7 +30,15 @@ spec:
     volumeMounts:
       - mountPath: /pipedrive
         name: pipedrive
+      - mountPath: /pipelines/bytewax.run.sh
+        name: config-volume
+        subPath: bytewax.run.sh
+
   volumes:
+  - name: config-volume
+    configMap:
+      name: syn-is-config
+      defaultMode: 0555
   - hostPath:
       path: /data/pipedrive
     name: pipedrive
