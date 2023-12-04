@@ -4,7 +4,7 @@ metadata:
   name: aa2ch
 spec:
   containers:
-  - name: syn2ch
+  - name: aa2ch
     image: quicklookup/ctxpipe:5544b68
     env:
       - name: TIMEOUT
