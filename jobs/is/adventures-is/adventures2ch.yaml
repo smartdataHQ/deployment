@@ -62,7 +62,7 @@ spec:
   - name: config-volume
     configMap:
       name: adventures2ch-config
-      # defaultMode: 0555
+      defaultMode: 0555
   - hostPath:
       path: /data/pipedrive
     name: pipedrive
