@@ -1,0 +1,116 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app.kubernetes.io/component: postgresql
+    app.kubernetes.io/instance: postgresql
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: postgresql-ha
+    helm.sh/chart: postgresql-ha-11.7.9
+    role: data
+  name: postgresql-postgresql-ha-postgresql
+  namespace: default
+  resourceVersion: '136426623'
+  uid: c6070d93-4e8a-4b6a-8ad7-27af22d399a1
+spec:
+  containers:
+  - name: postgres
+    image: docker.io/bitnami/postgresql-repmgr:15.3.0-debian-11-r16
+    env:
+        - name: BITNAMI_DEBUG
+          value: 'false'
+        - name: POSTGRESQL_VOLUME_DIR
+          value: /bitnami/postgresql
+        - name: PGDATA
+          value: /bitnami/postgresql/data
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: postgresql-postgresql-ha-postgresql
+        - name: POSTGRES_DB
+          value: postgres
+        - name: POSTGRESQL_LOG_HOSTNAME
+          value: 'true'
+        - name: POSTGRESQL_LOG_CONNECTIONS
+          value: 'false'
+        - name: POSTGRESQL_LOG_DISCONNECTIONS
+          value: 'false'
+        - name: POSTGRESQL_PGAUDIT_LOG_CATALOG
+          value: 'off'
+        - name: POSTGRESQL_CLIENT_MIN_MESSAGES
+          value: error
+        - name: POSTGRESQL_SHARED_PRELOAD_LIBRARIES
+          value: pgaudit, repmgr
+        - name: POSTGRESQL_MAX_CONNECTIONS
+          value: '1000'
+        - name: POSTGRESQL_ENABLE_TLS
+          value: 'no'
+        - name: POSTGRESQL_PORT_NUMBER
+          value: '5432'
+        - name: REPMGR_PORT_NUMBER
+          value: '5432'
+        - name: REPMGR_PRIMARY_PORT
+          value: '5432'
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: REPMGR_UPGRADE_EXTENSION
+          value: 'no'
+        - name: REPMGR_PGHBA_TRUST_ALL
+          value: 'no'
+        - name: REPMGR_MOUNTED_CONF_DIR
+          value: /bitnami/repmgr/conf
+        - name: REPMGR_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: REPMGR_PARTNER_NODES
+          value: >-
+            postgresql-postgresql-ha-postgresql-0.postgresql-postgresql-ha-postgresql-headless.$(REPMGR_NAMESPACE).svc.cluster.local,postgresql-postgresql-ha-postgresql-1.postgresql-postgresql-ha-postgresql-headless.$(REPMGR_NAMESPACE).svc.cluster.local,postgresql-postgresql-ha-postgresql-2.postgresql-postgresql-ha-postgresql-headless.$(REPMGR_NAMESPACE).svc.cluster.local,
+        - name: REPMGR_PRIMARY_HOST
+          value: >-
+            postgresql-postgresql-ha-postgresql-0.postgresql-postgresql-ha-postgresql-headless.$(REPMGR_NAMESPACE).svc.cluster.local
+        - name: REPMGR_NODE_NAME
+          value: $(MY_POD_NAME)
+        - name: REPMGR_NODE_NETWORK_NAME
+          value: >-
+            $(MY_POD_NAME).postgresql-postgresql-ha-postgresql-headless.$(REPMGR_NAMESPACE).svc.cluster.local
+        - name: REPMGR_NODE_TYPE
+          value: data
+        - name: REPMGR_LOG_LEVEL
+          value: NOTICE
+        - name: REPMGR_CONNECT_TIMEOUT
+          value: '5'
+        - name: REPMGR_RECONNECT_ATTEMPTS
+          value: '2'
+        - name: REPMGR_RECONNECT_INTERVAL
+          value: '3'
+        - name: REPMGR_USERNAME
+          value: repmgr
+        - name: REPMGR_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: repmgr-password
+              name: postgresql-postgresql-ha-postgresql
+        - name: REPMGR_DATABASE
+          value: repmgr
+        - name: REPMGR_FENCE_OLD_PRIMARY
+          value: 'no'
+        - name: REPMGR_CHILD_NODES_CHECK_INTERVAL
+          value: '5'
+        - name: REPMGR_CHILD_NODES_CONNECTED_MIN_COUNT
+          value: '1'
+    volumeMounts:
+      - mountPath: /bitnami/postgresql
+        name: postgres-ha-pvc
+
+  volumes:
+    - name: postgres-ha-pvc
+      persistentVolumeClaim:
+        claimName: postgres-ha-pvc

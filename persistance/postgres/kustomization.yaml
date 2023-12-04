@@ -1,0 +1,3 @@
+resources:
+  - postgres-ha.yaml
+  - postgres-ha-pvc.yaml
