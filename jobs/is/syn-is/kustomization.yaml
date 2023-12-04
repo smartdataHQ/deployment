@@ -1,4 +1,3 @@
 resources:
   - syn2ch.yaml
-  - ../../base-config.yaml
-  - config.yaml
+  - syn-is-config.yaml
