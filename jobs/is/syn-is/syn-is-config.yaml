@@ -13,3 +13,26 @@ data:
     #!/bin/sh
     nohup python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("xZN8!E6d4aXns2ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/ &
     
+    
+    
+
+  CLICKHOUSE_HOST: 'clickhouse.default'
+  CLICKHOUSE_PORT: '8123'
+  CLICKHOUSE_DB: 'semantic'
+  CLICKHOUSE_USER: 'default'
+
+  KAFKA_HOST: 'kafka.default'
+  KAFKA_PORT: '9092'
+
+  REDIS_HOST: 'redis-master.default'
+  REDIS_PORT: '6379'
+  REDIS_DB: '0'
+  REDIS_LOCAL: 'true'
+
+  POSTGRES_PORT: '5432'
+  POSTGRES_DB: 'ssp'
+  POSTGRES_USER: 'postgres'
+  POSTGRES_HOST: 'postgresql-postgresql-ha-postgresql-headless.default'
+
+  DB_PATH: '/pipedrive/databases'
+  RAW_PATH: '/pipedrive/raw'
