@@ -9,7 +9,7 @@ spec:
       port:
         number: 5678
   rules:
-    - host: app.contextsuite.com
+    - host: n8n.contextsuite.com
       http:
         paths:
           - backend:
