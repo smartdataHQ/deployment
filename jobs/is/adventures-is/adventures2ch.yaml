@@ -5,10 +5,11 @@ metadata:
 spec:
   containers:
   - name: aa2ch
-    image: quicklookup/ctxpipe:5544b68
+    image: quicklookup/ctxpipe:68cdb8c
+    envFrom:
+      - configMapRef:
+          name: adventures2ch-config
     env:
-      - name: RECOVERY_INIT
-        value: 'python -m bytewax.recovery /pipedrive/aa2ch/ 2'
       - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
@@ -25,9 +26,7 @@ spec:
       - mountPath: /pipelines/bytewax.run.sh
         name: config-volume
         subPath: bytewax.run.sh
-    envFrom:
-        - configMapRef:
-            name: adventures2ch-config
+
 
   volumes:
   - name: config-volume
@@ -37,6 +36,5 @@ spec:
   - hostPath:
       path: /data/pipedrive
     name: pipedrive
-
   imagePullSecrets:
     - name: dockerlock

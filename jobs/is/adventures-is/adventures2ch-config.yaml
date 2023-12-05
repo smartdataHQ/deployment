@@ -7,9 +7,11 @@ data:
   WRITE_KEY: 'xZN8!bZB6!E2d4bz4s8ty'
   RECOVERY_DIR: '/pipedrive/aa2ch'
   RECOVERY_INIT: 'python -m bytewax.recovery /pipedrive/aa2ch/ 2'
+
+
   bytewax.run.sh: |
     #!/bin/sh
-    python -m python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/
+    python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/
   
 
   CLICKHOUSE_HOST: '192.168.50.159'
