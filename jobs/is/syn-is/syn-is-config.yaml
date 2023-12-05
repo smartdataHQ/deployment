@@ -13,8 +13,6 @@ data:
     #!/bin/sh
     nohup python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("xZN8!E6d4aXns2ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/ &
     
-    
-    
 
   CLICKHOUSE_HOST: '192.168.50.159'
   # CLICKHOUSE_HOST: 'clickhouse.default'
