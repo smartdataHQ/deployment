@@ -2,9 +2,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    service: n8n-claim0
-  name: n8n-claim0
-  namespace: ingress
+    service: n8n-claim
+  name: n8n-claim
 spec:
   accessModes:
     - ReadWriteOnce
