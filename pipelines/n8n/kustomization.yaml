@@ -2,3 +2,4 @@ resources:
   - n8n-deployment.yaml
   - n8n-service.yaml
   - n8n-pvc.yaml
+  - n8n-ingress.yml
