@@ -35,3 +35,4 @@ data:
 
   DB_PATH: '/pipedrive/databases'
   RAW_PATH: '/pipedrive/raw'
+  
