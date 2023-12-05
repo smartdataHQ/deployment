@@ -28,6 +28,11 @@ spec:
             - -c
             - sleep 5; n8n start
           env:
+            - name: N8N_ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: n8n
+                  key: N8N_ENCRYPTION_KEY
             - name: DB_TYPE
               value: postgresdb
             - name: DB_POSTGRESDB_HOST
