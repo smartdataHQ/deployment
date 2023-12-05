@@ -8,8 +8,6 @@ spec:
     image: quicklookup/ctxpipe:7905119
     envFrom:
       - configMapRef:
-          name: base-config
-      - configMapRef:
           name: syn-is-config
     env:
       - name: POSTGRES_PASSWORD
