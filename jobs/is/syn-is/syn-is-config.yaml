@@ -16,7 +16,8 @@ data:
     
     
 
-  CLICKHOUSE_HOST: 'clickhouse.default'
+  CLICKHOUSE_HOST: '192.168.50.159'
+  # CLICKHOUSE_HOST: 'clickhouse.default'
   CLICKHOUSE_PORT: '8123'
   CLICKHOUSE_DB: 'semantic'
   CLICKHOUSE_USER: 'default'
