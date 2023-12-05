@@ -3,6 +3,33 @@ kind: ConfigMap
 metadata:
   name: adventures2ch-config
 data:
+  TABLE: 'semantic.sem_events'
+  WRITE_KEY: 'xZN8!bZB6!E2d4bz4s8ty'
+  RECOVERY_DIR: '/pipedrive/aa2ch'
+  RECOVERY_INIT: 'python -m bytewax.recovery /pipedrive/aa2ch/ 2'
   bytewax.run.sh: |
     #!/bin/sh
-    nohup python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/ &
+    python -m python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/
+  
+
+  CLICKHOUSE_HOST: '192.168.50.159'
+  # CLICKHOUSE_HOST: 'clickhouse.default'
+  CLICKHOUSE_PORT: '8123'
+  CLICKHOUSE_DB: 'semantic'
+  CLICKHOUSE_USER: 'default'
+
+  KAFKA_HOST: 'kafka.default'
+  KAFKA_PORT: '9092'
+
+  REDIS_HOST: 'redis-master.default'
+  REDIS_PORT: '6379'
+  REDIS_DB: '0'
+  REDIS_LOCAL: 'true'
+
+  POSTGRES_PORT: '5432'
+  POSTGRES_DB: 'ssp'
+  POSTGRES_USER: 'postgres'
+  POSTGRES_HOST: 'postgresql-postgresql-ha-postgresql-headless.default'
+
+  DB_PATH: '/pipedrive/databases'
+  RAW_PATH: '/pipedrive/raw'

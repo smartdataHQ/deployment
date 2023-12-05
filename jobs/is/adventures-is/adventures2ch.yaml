@@ -7,32 +7,8 @@ spec:
   - name: aa2ch
     image: quicklookup/ctxpipe:5544b68
     env:
-      - name: TIMEOUT
-        value: '60'
-      - name: KAFKA_BATCH_SIZE
-        value: '5000'
-      - name: BATCH_SIZE
-        value: '10000'
-      - name: SNAPSHOT_INTERVAL
-        value: '8640'
-      - name: TABLE
-        value: 'semantic.sem_events'
-      - name: WRITE_KEY
-        value: 'bZB6!E2d4bz4s8ty'
-      - name: RECOVERY_DIR
-        value: '/pipedrive/aa2ch'
       - name: RECOVERY_INIT
         value: 'python -m bytewax.recovery /pipedrive/aa2ch/ 2'
-      - name: DB_PATH
-        value: '/pipedrive/databases'
-      - name: CLICKHOUSE_HOST
-        value: 192.168.50.159
-      - name: CLICKHOUSE_PORT
-        value: '8123'
-      - name: CLICKHOUSE_DB
-        value: 'semantic'
-      - name: CLICKHOUSE_USER
-        value: 'default'
       - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
@@ -43,11 +19,6 @@ spec:
           secretKeyRef:
             name: clickhouse
             key: nexus-password
-      - name: SYN_IS_SNOWFLAKE_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: snowflake
-            key: SYN_IS_SNOWFLAKE_PASSWORD
     volumeMounts:
       - mountPath: /pipedrive
         name: pipedrive
