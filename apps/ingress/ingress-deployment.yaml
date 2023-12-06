@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ingress
-        image: quicklookup/ingress:v1.0.13
+        image: quicklookup/ingress:v1.0.14
         resources:
           requests:
             cpu: 100m
