@@ -5,6 +5,7 @@ metadata:
     service: ingress-pvc
   name: ingress-pvc
 spec:
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
