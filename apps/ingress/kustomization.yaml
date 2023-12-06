@@ -3,3 +3,4 @@ resources:
   - ingress-config.yaml
   - ingress-service.yaml
   - ingress-ingress.yaml
+  - ingress-pvc.yaml

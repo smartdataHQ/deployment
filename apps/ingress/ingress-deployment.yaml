@@ -51,7 +51,13 @@ spec:
         envFrom:
           - configMapRef:
               name: ingress-config
-
+        volumeMounts:
+            - mountPath: /home/node/.n8n
+              name: ingress-pvc
+      volumes:
+        - name: ingress-pvc
+          persistentVolumeClaim:
+            claimName: ingress-pvc
       imagePullSecrets:
         - name: dockerlock
 
