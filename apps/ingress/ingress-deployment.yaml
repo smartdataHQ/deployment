@@ -32,7 +32,7 @@ spec:
             port: 8080
             httpHeaders:
               - name: Accept
-                value: application/json
+                value: 'application/json'
           initialDelaySeconds: 16
           periodSeconds: 5
         livenessProbe:
@@ -41,7 +41,7 @@ spec:
             port: 8080
             httpHeaders:
               - name: Accept
-                value: application/json
+                value: 'application/json'
           initialDelaySeconds: 3
           periodSeconds: 3
         restartPolicy: Never
