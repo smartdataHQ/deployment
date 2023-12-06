@@ -52,7 +52,7 @@ spec:
           - configMapRef:
               name: ingress-config
         volumeMounts:
-            - mountPath: /home/node/.n8n
+            - mountPath: /tmp
               name: ingress-pvc
       volumes:
         - name: ingress-pvc
