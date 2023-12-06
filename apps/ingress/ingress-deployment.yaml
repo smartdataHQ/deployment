@@ -22,20 +22,15 @@ spec:
             cpu: 100m
             memory: 100Mi
         ports:
-        - containerPort: 8088
+        - containerPort: 8080
         livenessProbe:
           httpGet:
-            port: 8088
-            path: /api/status/alive
-          initialDelaySeconds: 10
-          periodSeconds: 30
-        readinessProbe:
-          httpGet:
-            port: 8088
-            path: /api/status/ready
+            path: /actuator/health
+            port: 8080
           initialDelaySeconds: 5
-          periodSeconds: 5
-          timeoutSeconds: 1
+          periodSeconds: 10
+          failureThreshold: 2
+        restartPolicy: OnFailure
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
