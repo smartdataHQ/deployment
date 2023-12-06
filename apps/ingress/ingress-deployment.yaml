@@ -27,21 +27,17 @@ spec:
         - containerPort: 2222
           name: sftp
         readinessProbe:
-          httpGet:
-            path: /actuator/health/readiness
-            port: 8080
-            httpHeaders:
-              - name: Accept
-                value: 'application/json'
+          exec:
+            command:
+              - wget
+              - /actuator/health/readiness?writekey=xZN8!E6d4aXns2ty
           initialDelaySeconds: 16
           periodSeconds: 5
         livenessProbe:
-          httpGet:
-            path: /actuator/health/liveness
-            port: 8080
-            httpHeaders:
-              - name: Accept
-                value: 'application/json'
+          exec:
+            command:
+              - wget
+              - /actuator/health/readiness?writekey=xZN8!E6d4aXns2ty
           initialDelaySeconds: 3
           periodSeconds: 3
         restartPolicy: Never
