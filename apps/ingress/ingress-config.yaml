@@ -4,7 +4,8 @@ metadata:
   name: ingress-config
 data:
   ## Kafka
-  KAFKA_HOST: 'kafka.default:9092'
+  KAFKA_URI: 'kafka.default:9092'
+  KAFKA_HOST: 'kafka.default'
   KAFKA_PORT: '9092'
 
   ## Redis
