@@ -28,3 +28,5 @@ data:
 
   S3_REGION: 'ams3'
   S3_ENDPOINT: 'https://cxs.ingression.ams3.digitaloceanspaces.com'
+
+  SPRING_PROFILES_ACTIVE: 'prod'
