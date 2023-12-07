@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ingress
-        image: quicklookup/ingress:v1.0.20
+        image: quicklookup/ingress:v1.0.21
         resources:
           requests:
             cpu: 100m
@@ -30,13 +30,13 @@ spec:
           httpGet:
             path: /actuator/health/readiness
             port: 8080
-          initialDelaySeconds: 16
-          periodSeconds: 5
+          initialDelaySeconds: 3
+          periodSeconds: 3
         livenessProbe:
           httpGet:
             path: /actuator/health/liveness
             port: 8080
-          initialDelaySeconds: 12
+          initialDelaySeconds: 7
           periodSeconds: 3
         restartPolicy: Never
         env:
