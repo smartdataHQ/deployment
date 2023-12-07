@@ -85,5 +85,5 @@ spec:
     kind: Deployment
     name: ingress
   maxReplicas: 6
-  minReplicas: 2
+  minReplicas: 3
   targetCPUUtilizationPercentage: 60
