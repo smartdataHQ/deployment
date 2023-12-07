@@ -30,12 +30,23 @@ spec:
           httpGet:
             path: /actuator/health/readiness
             port: 8080
+            httpHeaders:
+              - name: Content-Type
+                value: application/json
+              - name: Accept
+                value: application/json
           initialDelaySeconds: 3
           periodSeconds: 3
         livenessProbe:
           httpGet:
             path: /actuator/health/liveness
             port: 8080
+            httpHeaders:
+              - name: Content-Type
+                value: application/json
+              - name: Accept
+                value: application/json
+
           initialDelaySeconds: 7
           periodSeconds: 3
         restartPolicy: Never
