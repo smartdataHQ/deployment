@@ -63,13 +63,6 @@ spec:
         envFrom:
           - configMapRef:
               name: ingress-config
-        volumeMounts:
-            - mountPath: /tmp
-              name: ingress-pvc
-      volumes:
-        - name: ingress-pvc
-          persistentVolumeClaim:
-            claimName: ingress-pvc
       imagePullSecrets:
         - name: dockerlock
 
