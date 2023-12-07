@@ -31,9 +31,9 @@ spec:
             path: /actuator/health/readiness
             port: 8080
             httpHeaders:
-              - name: Content-Type
+              - name: content-type
                 value: application/json
-              - name: Accept
+              - name: accept
                 value: application/json
           initialDelaySeconds: 3
           periodSeconds: 3
@@ -42,9 +42,9 @@ spec:
             path: /actuator/health/liveness
             port: 8080
             httpHeaders:
-              - name: Content-Type
+              - name: content-type
                 value: application/json
-              - name: Accept
+              - name: accept
                 value: application/json
 
           initialDelaySeconds: 7
