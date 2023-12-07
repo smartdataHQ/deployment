@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ingress
-        image: quicklookup/ingress:v1.0.31
+        image: quicklookup/ingress:v1.0.32
         resources:
           requests:
             cpu: 100m
@@ -28,25 +28,22 @@ spec:
           name: sftp
         readinessProbe:
           httpGet:
-            path: /actuator/health/readiness
+            path: /readiness
             port: 8080
+            scheme: HTTP
             httpHeaders:
-              - name: content-type
-                value: application/json
-              - name: accept
-                value: application/json
+              - name: writekey
+                value: xZN8!E6d4aXns2ty
           initialDelaySeconds: 3
           periodSeconds: 3
         livenessProbe:
           httpGet:
-            path: /actuator/health/liveness
+            path: /liveness
             port: 8080
+            scheme: HTTP
             httpHeaders:
-              - name: content-type
-                value: application/json
-              - name: accept
-                value: application/json
-
+              - name: writekey
+                value: xZN8!E6d4aXns2ty
           initialDelaySeconds: 7
           periodSeconds: 3
         restartPolicy: Never
