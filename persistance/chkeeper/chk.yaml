@@ -124,7 +124,7 @@ spec:
               - key: keeper_config.xml
                 path: keeper_config.xml
       containers:
-        - name: clickhouse-keeper
+        - name: clickhouse-keeper:23.11.1.2711-alpine
           imagePullPolicy: IfNotPresent
           image: "clickhouse/clickhouse-keeper:23.8.8.20-alpine"
           resources:
