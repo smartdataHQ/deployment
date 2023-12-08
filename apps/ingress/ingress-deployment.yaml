@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ingress
-        image: quicklookup/ingress:v1.0.33
+        image: quicklookup/ingress:v1.0.34
         resources:
           requests:
             cpu: 100m
@@ -71,8 +71,15 @@ spec:
         envFrom:
           - configMapRef:
               name: ingress-config
+        volumeMounts:
+          - mountPath: /tmp
+            name: sftp
       imagePullSecrets:
         - name: dockerlock
+      volumes:
+        - hostPath:
+            path: /data/sftp
+          name: sftp
 
 ---
 apiVersion: autoscaling/v1
