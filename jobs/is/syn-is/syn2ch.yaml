@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: syn2ch
+  name: syn2ch-pipe
 spec:
   containers:
   - name: syn2ch
