@@ -7,6 +7,8 @@ metadata:
     tier: api
 spec:
   type: LoadBalancer
+  externalIPs:
+    - 192.168.50.125
   ports:
     - port: 8080
       name: http
