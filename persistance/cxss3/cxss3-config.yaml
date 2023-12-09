@@ -69,7 +69,7 @@ data:
         </storage_configuration>
     </clickhouse>
   config.xml: |-
-    <clickhouse replace="true">
+    <clickhouse>
         <logger>
             <level>debug</level>
             <console>true</console>
