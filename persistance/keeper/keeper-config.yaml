@@ -7,7 +7,7 @@ data:
   keeper_config.xml: |
     <clickhouse>
       <logger>
-          <level>information</level>
+          <level>debug</level>
           <log>/var/lib/clickhouse-keeper/logs/clickhouse-keeper.log</log>
           <errorlog>/var/lib/clickhouse-keeper/logs/clickhouse-keeper.err.log</errorlog>
           <size>1000M</size>
@@ -32,6 +32,7 @@ data:
             <id>0</id>
             <hostname>Keeper-0</hostname>
             <port>9444</port>
+              <can_become_leader>true</can_become_leader>
           </server>
           <server>
             <id>1</id>
