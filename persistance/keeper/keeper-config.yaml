@@ -7,7 +7,7 @@ data:
   keeper_config.xml: |
     <clickhouse>
       <logger>
-          <level>warn</level>
+          <level>trace</level>
           <log>/var/lib/clickhouse/logs/clickhouse-keeper.log</log>
           <errorlog>/var/lib/clickhouse/logs/clickhouse-keeper.err.log</errorlog>
           <size>1000M</size>
