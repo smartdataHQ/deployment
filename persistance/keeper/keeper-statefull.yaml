@@ -51,9 +51,9 @@ spec:
         - containerPort: 9181
         restartPolicy: Never
         command: [ "/bin/bash", "-c", "--" ]
-        args: [ "while true; do sleep 30; done;" ]
+        args: [ "IFS=- read -r var1 var2 <<< $HOSTNAME | sed 's/<server_id>1<\/server_id>/<server_id>'$var2'<\/server_id>/g' /etc/clickhouse-keeper/keeper_config.template > /etc/clickhouse-keeper/keeper_config.xml | /entrypoint.sh" ]
         volumeMounts:
-          - mountPath: /etc/clickhouse-keeper/keeper_config.xml
+          - mountPath: /etc/clickhouse-keeper/keeper_config.template
             name: config-volume
             subPath: keeper_config.xml
           - name: keeper-data

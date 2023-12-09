@@ -19,7 +19,7 @@ data:
       <core_path>/var/lib/clickhouse-keeper/cores</core_path>        
       <keeper_server>
         <tcp_port>2181</tcp_port>
-        <server_id>1</server_id>
+        <server_id>{instance_id}</server_id>
         <!--log_storage_path>/var/lib/clickhouse-keeper/logs</log_storage_path-->
         <snapshot_storage_path>/var/lib/clickhouse-keeper/coordination/snapshots</snapshot_storage_path>    
         <coordination_settings>

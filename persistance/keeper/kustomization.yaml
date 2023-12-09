@@ -3,4 +3,4 @@ resources:
   - keeper-service.yaml
   - keeper-config.yaml
   # - ch-lb.yaml
-  # sed -i -e 's/<server_id>1<\/server_id>/<server_id>2<\/server_id>/g' /etc/clickhouse-keeper/keeper_config.xml
+  # sed -'s/<server_id>1<\/server_id>/<server_id>2<\/server_id>/g' /etc/clickhouse-keeper/keeper_config.xml | tee /etc/clickhouse-keeper/keeper_config.xml2
