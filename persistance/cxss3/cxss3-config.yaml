@@ -53,6 +53,18 @@ data:
                 <allowed_path>/backups/</allowed_path>
             </backups>
             <policies>
+                <parquet>
+                    <volumes>
+                        <parquet>
+                            <disk>default
+                            </disk>
+                            <max_data_part_size_bytes>50000000000</max_data_part_size_bytes>
+                        </parquet>
+                        <s3cached>
+                            <disk>cache</disk>
+                        </s3cached>
+                    </volumes>
+                </parquet>
                 <s3tiered>
                     <volumes>
                         <default>
@@ -119,15 +131,15 @@ data:
         </remote_servers>
         <zookeeper>
             <node>
-                <host>keeper-0.default</host>
+                <host>keeper-0</host>
                 <port>9181</port>
             </node>
             <node>
-                <host>keeper-1.default</host>
+                <host>keeper-1</host>
                 <port>9181</port>
             </node>
             <node>
-                <host>keeper-2.default</host>
+                <host>keeper-2</host>
                 <port>9181</port>
             </node>
         </zookeeper>

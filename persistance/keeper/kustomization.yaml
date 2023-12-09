@@ -4,3 +4,4 @@ resources:
   - keeper-config.yaml
   # - ch-lb.yaml
   # sed -'s/<server_id>1<\/server_id>/<server_id>2<\/server_id>/g' /etc/clickhouse-keeper/keeper_config.xml | tee /etc/clickhouse-keeper/keeper_config.xml2
+  # echo "ruok" | nc localhost 2181 ; echo
