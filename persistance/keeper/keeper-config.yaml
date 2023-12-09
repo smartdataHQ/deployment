@@ -31,19 +31,19 @@ data:
         <raft_configuration>
           <server>
             <id>1</id>
-            <hostname>Keeper-0</hostname>
+            <hostname>keeper-0</hostname>
             <port>9444</port>
               <can_become_leader>true</can_become_leader>
           </server>
           <server>
             <id>2</id>
-            <hostname>Keeper-1</hostname>
+            <hostname>keeper-1</hostname>
             <port>9444</port>
             <can_become_leader>true</can_become_leader>
           </server>
           <server>
             <id>3</id>
-            <hostname>Keeper-2</hostname>
+            <hostname>keeper-2</hostname>
             <port>9444</port>
             <can_become_leader>true</can_become_leader>
           </server>
