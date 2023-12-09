@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: keeper
+  labels:
+    app: keeper
+
+spec:
+  serviceName: keeper
+  selector:
+    matchLabels:
+      app: keeper
+      tier: persistence
+  replicas: 3
+  updateStrategy:
+    type: RollingUpdate
+  podManagementPolicy: OrderedReady
+  template:
+    metadata:
+      labels:
+        app: keeper
+        tier: persistence
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - keeper
+              topologyKey: "kubernetes.io/hostname"
+      volumes:
+        - name: keeper-config
+          configMap:
+            name: keeper-config
+            items:
+              - key: keeper_config.xml
+                path: keeper_config.xml
+        - name: keeper-data
+          hostPath:
+            path: /data/keeper-data
+      containers:
+      - name: keeper
+        image: clickhouse/clickhouse-keeper:23.11.1-alpine
+        ports:
+        - containerPort: 9000
+        - containerPort: 8123
+        - containerPort: 9181
+        restartPolicy: Never
+      imagePullSecrets:
+        - name: dockerlock
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: keeper
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: keeper
+  maxReplicas: 6
+  minReplicas: 3
+  targetCPUUtilizationPercentage: 60

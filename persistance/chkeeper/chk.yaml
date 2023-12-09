@@ -142,7 +142,7 @@ spec:
             - name: clickhouse-keeper-settings
               mountPath: /etc/clickhouse-keeper/
             - name: keeper-data
-              mountPath: /data/clickhouse/keeper
+              mountPath: /var/lib/clickhouse-keeper
           env:
             - name: SERVERS
               value: "3"

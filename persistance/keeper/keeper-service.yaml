@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: keeper
+  labels:
+    app: keeper
+    tier: persistence
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9000
+    - port: 8123
+    - port: 9181
+  selector:
+    app: keeper
+    tier: persistence

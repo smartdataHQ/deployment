@@ -1,0 +1,5 @@
+resources:
+  - keeper-statefull.yaml
+  - keeper-service.yaml
+  - keeper-config.yaml
+  # - ch-lb.yaml
