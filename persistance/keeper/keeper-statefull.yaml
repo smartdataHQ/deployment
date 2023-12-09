@@ -49,8 +49,7 @@ spec:
         - containerPort: 8123
         - containerPort: 9181
         restartPolicy: Never
-        command:
-          - sh -c echo $HOSTNAME
+        command: ["/bin/sh", "-c", "echo $HOSTNAME"]
         volumeMounts:
           - mountPath: /etc/clickhouse-keeper/keeper_config.xml
             name: config-volume
