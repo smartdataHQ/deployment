@@ -53,10 +53,7 @@ spec:
           postStart:
             exec:
               command:
-              - sh
-              - printf
-              - %s
-              - $(</etc/clickhouse-keeper/keeper_config.xml)
+              - "sh printf %s $(</etc/clickhouse-keeper/keeper_config.xml)"
         volumeMounts:
           - mountPath: /etc/clickhouse-keeper/keeper_config.xml
             name: config-volume
