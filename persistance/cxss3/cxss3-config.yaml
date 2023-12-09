@@ -84,6 +84,7 @@ data:
         <http_port>8123</http_port>
         <tcp_port>9000</tcp_port>
         <interserver_http_port>9009</interserver_http_port>
+        <!--interserver_http_host>cxss3.contextsuite.com</interserver_http_host-->
         <users>
             <default>
                 <password_sha256_hex>2b02a9cfa819b25e5e08c19c86ab89c58da3a958b003bed64f118160872a7bf3</password_sha256_hex>
@@ -100,8 +101,7 @@ data:
         <remote_servers>
             <default>
                 <shard>
-                    <internal_replication>true
-                    </internal_replication>
+                    <internal_replication>true</internal_replication>
                     <replica>
                         <host>cxss3-0</host>
                         <port>9000</port>
