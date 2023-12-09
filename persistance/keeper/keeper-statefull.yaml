@@ -53,8 +53,7 @@ spec:
           postStart:
             exec:
               command:
-              - /bin/sh
-              - -c
+              - sh
               - printf
               - %s
               - $(</etc/clickhouse-keeper/keeper_config.xml)
