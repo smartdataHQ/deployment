@@ -49,8 +49,8 @@ spec:
         - containerPort: 8123
         - containerPort: 9181
         restartPolicy: Never
-        command: [ "/bin/bash", "-c", "--" ]
-        args: [ "while true; do sleep 30; done;" ]
+        command: [ "/bin/bash", "-c"]
+        args: [ "IFS=- read -r var1 PODNR <<< $HOSTNAME ; echo $var2 ; declare -x PODNR=$var2 ; /entrypoint.sh" ]
         volumeMounts:
           - mountPath: /etc/clickhouse-keeper/keeper_config.xml
             name: config-volume
