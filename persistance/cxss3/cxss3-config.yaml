@@ -135,8 +135,16 @@ data:
         </remote_servers>
         <zookeeper>
             <node>
-                <host>keeper</host>
-                <port>9181</port>
+                <host>keeper-0.keeper.default.svc.cluster.local</host>
+                <port>2181</port>
+            </node>
+            <node>
+                <host>keeper-1.keeper.default.svc.cluster.local</host>
+                <port>2181</port>
+            </node>
+            <node>
+                <host>keeper-2.keeper.default.svc.cluster.local</host>
+                <port>2181</port>
             </node>
         </zookeeper>
     </clickhouse>

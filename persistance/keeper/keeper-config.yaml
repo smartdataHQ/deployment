@@ -31,7 +31,7 @@ data:
         <raft_configuration>
           <server>
             <id>0</id>
-            <hostname>keeper-0</hostname>
+            <hostname>keeper-0.keeper.default.svc.cluster.local</hostname>
             <port>9234</port>
             <can_become_leader>true</can_become_leader>
             <start_as_follower>true</start_as_follower>
@@ -39,7 +39,7 @@ data:
           </server>
           <server>
             <id>1</id>
-            <hostname>keeper-1</hostname>
+            <hostname>keeper-1.keeper.default.svc.cluster.local</hostname>
             <port>9234</port>
             <can_become_leader>true</can_become_leader>
             <start_as_follower>true</start_as_follower>
@@ -47,7 +47,7 @@ data:
           </server>
           <server>
             <id>2</id>
-            <hostname>keeper-2</hostname>
+            <hostname>keeper-2.keeper.default.svc.cluster.local</hostname>
             <port>9234</port>
             <can_become_leader>true</can_become_leader>
             <start_as_follower>false</start_as_follower>
