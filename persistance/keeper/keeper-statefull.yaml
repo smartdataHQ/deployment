@@ -51,10 +51,8 @@ spec:
         restartPolicy: Never
         lifecycle:
           postStart:
-            - exec:
-                command: ["echo", "$HOSTNAME"]
-            - exec:
-                command: ["printf", "%s", "$(</etc/clickhouse-keeper/keeper_config.xml)"]
+            exec:
+              command: ["printf", "%s", "$(</etc/clickhouse-keeper/keeper_config.xml)"]
         volumeMounts:
           - mountPath: /etc/clickhouse-keeper/keeper_config.xml
             name: config-volume
