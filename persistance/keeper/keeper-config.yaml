@@ -19,7 +19,7 @@ data:
       <core_path>/var/lib/clickhouse-keeper/cores</core_path>        
       <keeper_server>
         <tcp_port>2181</tcp_port>
-        <server_id>${SERVER_ID}</server_id>
+        <server_id>{{ $podIndex }}</server_id>
         <!--log_storage_path>/var/lib/clickhouse-keeper/logs</log_storage_path-->
         <snapshot_storage_path>/var/lib/clickhouse-keeper/coordination/snapshots</snapshot_storage_path>    
         <coordination_settings>
@@ -30,19 +30,19 @@ data:
         </coordination_settings>        
         <raft_configuration>
           <server>
-            <id>0</id>
+            <id>1</id>
             <hostname>Keeper-0</hostname>
             <port>9444</port>
               <can_become_leader>true</can_become_leader>
           </server>
           <server>
-            <id>1</id>
+            <id>2</id>
             <hostname>Keeper-1</hostname>
             <port>9444</port>
             <can_become_leader>true</can_become_leader>
           </server>
           <server>
-            <id>2</id>
+            <id>3</id>
             <hostname>Keeper-2</hostname>
             <port>9444</port>
             <can_become_leader>true</can_become_leader>
