@@ -18,7 +18,7 @@ data:
       <path>/var/lib/clickhouse-keeper/</path>
       <core_path>/var/lib/clickhouse-keeper/cores</core_path>        
       <keeper_server>
-        <tcp_port>9181</tcp_port>
+        <tcp_port>2181</tcp_port>
         <server_id from_env="PODNR"></server_id>
         <!--log_storage_path>/var/lib/clickhouse-keeper/logs</log_storage_path-->
         <snapshot_storage_path>/var/lib/clickhouse-keeper/coordination/snapshots</snapshot_storage_path>    
