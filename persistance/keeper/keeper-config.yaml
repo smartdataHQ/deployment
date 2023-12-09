@@ -50,3 +50,8 @@ data:
         </raft_configuration>
       </keeper_server>
     </clickhouse>    
+  entrypoint.sh: |
+    #!/bin/sh
+    IFS=- read -r var1 var2 <<< $HOSTNAME | sed 's/<server_id>1<\/server_id>/<server_id>'$var2'<\/server_id>/g' /etc/clickhouse-keeper/keeper_config.template > /etc/clickhouse-keeper/keeper_config.xml 
+    /entrypoint.sh
+    
