@@ -30,20 +30,20 @@ data:
         </coordination_settings>        
         <raft_configuration>
           <server>
-            <id>1</id>
-            <hostname>keeper-0.default.svc.cluster.local</hostname>
+            <id>0</id>
+            <hostname>keeper-0</hostname>
             <port>9444</port>
               <can_become_leader>true</can_become_leader>
           </server>
           <server>
-            <id>2</id>
-            <hostname>keeper-1.default.svc.cluster.local</hostname>
+            <id>1</id>
+            <hostname>keeper-1</hostname>
             <port>9444</port>
             <can_become_leader>true</can_become_leader>
           </server>
           <server>
-            <id>3</id>
-            <hostname>keeper-2.default.svc.cluster.local</hostname>
+            <id>2</id>
+            <hostname>keeper-2</hostname>
             <port>9444</port>
             <can_become_leader>true</can_become_leader>
           </server>
