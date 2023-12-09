@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cxss3
+  labels:
+    app: cxss3
+
+spec:
+  serviceName: cxss3
+  selector:
+    matchLabels:
+      app: cxss3
+      tier: persistence
+  replicas: 3
+  updateStrategy:
+    type: RollingUpdate
+  podManagementPolicy: OrderedReady
+  template:
+    metadata:
+      labels:
+        app: cxss3
+        tier: persistence
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - cxss3
+              topologyKey: "kubernetes.io/hostname"
+      volumes:
+        - name: storage-config
+          configMap:
+            name: cxss3-config
+            items:
+              - key: storage_config.xml
+                path: storage_config.xml
+        - name: server-config
+          configMap:
+            name: cxss3-config
+            items:
+              - key: config.xml
+                path: config.xml
+        - name: cxss3-data
+          hostPath:
+            path: /data/clickhouse/cxss3
+      containers:
+      - name: cxss3
+        image: clickhouse/clickhouse-server:23.11.1-alpine
+        ports:
+        - containerPort: 9000
+        - containerPort: 8123
+        restartPolicy: Never
+        env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: clickhouse
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: clickhouse
+                  key: secret_access_key
+        volumeMounts:
+          - name: storage-config
+            mountPath: /etc/clickhouse-server/config.d/storage.xml
+          - name: server-config
+            mountPath: /etc/clickhouse-server/config.d/config.xml
+          - name: cxss3-data
+            mountPath: /var/lib/clickhouse
+
+      imagePullSecrets:
+        - name: dockerlock

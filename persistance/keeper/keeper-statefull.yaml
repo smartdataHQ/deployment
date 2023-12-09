@@ -57,17 +57,3 @@ spec:
 
       imagePullSecrets:
         - name: dockerlock
-
----
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: keeper
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: StatefulSet
-    name: keeper
-  maxReplicas: 6
-  minReplicas: 3
-  targetCPUUtilizationPercentage: 60

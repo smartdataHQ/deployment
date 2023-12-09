@@ -1,0 +1,5 @@
+resources:
+  - cxss3-statefull.yaml
+  - cxss3-service.yaml
+  - cxss3-config.yaml
+  # - ch-lb.yaml
