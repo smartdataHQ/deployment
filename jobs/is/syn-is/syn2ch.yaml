@@ -4,7 +4,7 @@ metadata:
   name: syn2ch-pipe
 spec:
   containers:
-  - name: syn2ch
+  - name: syn2ch-pipe
     image: quicklookup/ctxpipe:8312456
     envFrom:
       - configMapRef:
