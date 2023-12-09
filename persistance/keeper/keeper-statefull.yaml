@@ -52,7 +52,7 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ["printf", "%s", "$(</etc/clickhouse-keeper/keeper_config.xml)"]
+              command: ["/bin/sh", "-c", "printf", "%s", "$(</etc/clickhouse-keeper/keeper_config.xml)"]
         volumeMounts:
           - mountPath: /etc/clickhouse-keeper/keeper_config.xml
             name: config-volume
