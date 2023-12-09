@@ -55,14 +55,11 @@ spec:
         - containerPort: 9181
         restartPolicy: Never
         command: [ "/bin/bash", "-c", "--" ]
-        args: [ "while true; do sleep 30; done;" ]
+        args: [ "IFS=- read -r var1 PODNR <<< $HOSTNAME | /entrypoint.sh" ]
         volumeMounts:
-          - mountPath: /etc/clickhouse-keeper/keeper_config.template
+          - mountPath: /etc/clickhouse-keeper/keeper_config.xml
             name: config-volume
             subPath: keeper_config.xml
-          - mountPath: /entrypoint.sh
-            name: config-volume
-            subPath: entrypoint.sh
           - name: keeper-data
             mountPath: /var/lib/clickhouse-keeper
           - name: keeper-logs
