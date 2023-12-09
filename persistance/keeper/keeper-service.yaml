@@ -10,10 +10,8 @@ spec:
   ports:
     - port: 9234
       name: raft
-      nodePort: 9234
     - port: 9181
       name: zookeeper
-      nodePort: 9181
   selector:
     app: keeper
     tier: persistence
