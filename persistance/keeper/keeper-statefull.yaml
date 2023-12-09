@@ -51,7 +51,7 @@ spec:
         restartPolicy: Never
         volumeMounts:
           - name: keeper-config
-            mountPath: /etc/clickhouse-keeper/keeper_config.xml
+            mountPath: /etc/clickhouse-keeper
             subPath: keeper_config.xml
           - name: keeper-data
             mountPath: /var/lib/clickhouse-keeper
