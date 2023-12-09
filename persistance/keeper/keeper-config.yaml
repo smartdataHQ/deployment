@@ -14,7 +14,8 @@ data:
           <!--count>10</count-->
           <console>1</console>
       </logger>        
-      <listen_host>::1</listen_host>
+      <!--listen_host>::1</listen_host-->
+      <listen_host>::</listen_host>
       <path>/var/lib/clickhouse-keeper/</path>
       <core_path>/var/lib/clickhouse-keeper/cores</core_path>        
       <keeper_server>
@@ -25,7 +26,7 @@ data:
         <coordination_settings>
           <operation_timeout_ms>10000</operation_timeout_ms>
           <session_timeout_ms>30000</session_timeout_ms>
-          <raft_logs_level>debug</raft_logs_level>
+          <raft_logs_level>warning</raft_logs_level>
           <rotate_log_storage_interval>10000</rotate_log_storage_interval>
         </coordination_settings>        
         <raft_configuration>
