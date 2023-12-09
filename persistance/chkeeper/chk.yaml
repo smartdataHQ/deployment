@@ -123,6 +123,10 @@ spec:
             items:
               - key: keeper_config.xml
                 path: keeper_config.xml
+        - name: keeper-data
+          hostPath:
+            path: /data/keeper-data
+
       containers:
         - name: clickhouse-keeper
           imagePullPolicy: IfNotPresent
@@ -137,7 +141,7 @@ spec:
           volumeMounts:
             - name: clickhouse-keeper-settings
               mountPath: /etc/clickhouse-keeper/
-            - name: clickhouse-keeper-datadir-volume
+            - name: keeper-data
               mountPath: /var/lib/clickhouse-keeper
           env:
             - name: SERVERS
@@ -176,6 +180,7 @@ spec:
               else
                 clickhouse-keeper --config-file=/etc/clickhouse-keeper/keeper_config.xml
               fi
+          # echo "<server><id>${i}</id><hostname>$NAME-$((i-1)).${DOMAIN}</hostname><port>${RAFT_PORT}</port></server>"
           livenessProbe:
             exec:
               command:
@@ -187,12 +192,3 @@ spec:
           ports:
             - containerPort: 7000
               name: prometheus
-  volumeClaimTemplates:
-    - metadata:
-        name: clickhouse-keeper-datadir-volume
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 25Gi
