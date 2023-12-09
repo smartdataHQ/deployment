@@ -7,7 +7,7 @@ data:
   keeper_config.xml: |
     <clickhouse>
       <logger>
-          <level>trace</level>
+          <level>information</level>
           <log>/var/lib/clickhouse/logs/clickhouse-keeper.log</log>
           <errorlog>/var/lib/clickhouse/logs/clickhouse-keeper.err.log</errorlog>
           <size>1000M</size>
@@ -19,7 +19,7 @@ data:
       <keeper_server>
         <tcp_port>2181</tcp_port>
         <server_id>${SERVER_ID}</server_id>
-        <log_storage_path>/var/lib/clickhouse/coordination/log</log_storage_path>
+        <log_storage_path>/var/lib/clickhouse/logs</log_storage_path>
         <snapshot_storage_path>/var/lib/clickhouse/coordination/snapshots</snapshot_storage_path>    
         <coordination_settings>
           <operation_timeout_ms>10000</operation_timeout_ms>
