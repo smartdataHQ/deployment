@@ -27,11 +27,13 @@ data:
             <id>1</id>
             <hostname>Keeper-1</hostname>
             <port>9234</port>
+            <can_become_leader>true</can_become_leader>
           </server>
           <server>
             <id>2</id>
             <hostname>Keeper-2</hostname>
             <port>9234</port>
+            <can_become_leader>true</can_become_leader>
           </server>
         </raft_configuration>
       </keeper_server>

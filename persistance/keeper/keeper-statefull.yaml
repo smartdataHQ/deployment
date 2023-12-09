@@ -51,7 +51,7 @@ spec:
             name: config-volume
             subPath: keeper_config.xml
           - name: keeper-data
-            mountPath: /var/lib/clickhouse-keeper
+            mountPath: /var/lib/clickhouse
 
       imagePullSecrets:
         - name: dockerlock

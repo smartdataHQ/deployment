@@ -70,6 +70,12 @@ data:
     </clickhouse>
   config.xml: |-
     <clickhouse>
+        <logger>
+            <level>debug</level>
+            <console>true</console>
+            <log remove="remove"/>
+            <errorlog remove="remove"/>
+        </logger>
         <query_log>
             <database>system</database>
             <table>query_log</table>
@@ -95,6 +101,7 @@ data:
         <remote_servers>
             <default>
                 <shard>
+                    <internal_replication>true</internal_replication>
                     <replica>
                         <host>cxss3-0</host>
                         <port>9000</port>
