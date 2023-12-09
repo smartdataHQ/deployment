@@ -85,8 +85,9 @@ data:
         <logger>
             <level>debug</level>
             <console>true</console>
-            <log remove="remove"/>
-            <errorlog remove="remove"/>
+            <!--log remove="remove"/-->
+            <!--errorlog remove="remove"/-->
+            <console>1</console>
         </logger>
         <query_log>
             <database>system</database>
@@ -103,6 +104,9 @@ data:
             </default>
         </users>
         <user_directories>
+            <users_xml>
+                <path>users.xml</path>
+            </users_xml>
             <local_directory>
                 <path>/var/lib/clickhouse/access/</path>
             </local_directory>
