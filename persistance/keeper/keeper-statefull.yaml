@@ -40,7 +40,7 @@ spec:
                 path: keeper_config.xml
         - name: keeper-data
           hostPath:
-            path: /data/keeper-data
+            path: /data/clickhouse/keeper
       containers:
       - name: keeper
         image: clickhouse/clickhouse-keeper:23.11.1-alpine
@@ -49,6 +49,12 @@ spec:
         - containerPort: 8123
         - containerPort: 9181
         restartPolicy: Never
+        volumeMounts:
+          - name: keeper-config
+            mountPath: /etc/clickhouse-keeper/
+          - name: keeper-data
+            mountPath: /var/lib/clickhouse-keeper
+
       imagePullSecrets:
         - name: dockerlock
 
