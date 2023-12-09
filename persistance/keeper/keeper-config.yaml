@@ -19,7 +19,7 @@ data:
       <core_path>/var/lib/clickhouse-keeper/cores</core_path>        
       <keeper_server>
         <tcp_port>2181</tcp_port>
-        <server_id>{instance_id}</server_id>
+        <server_id>pod_nr</server_id>
         <!--log_storage_path>/var/lib/clickhouse-keeper/logs</log_storage_path-->
         <snapshot_storage_path>/var/lib/clickhouse-keeper/coordination/snapshots</snapshot_storage_path>    
         <coordination_settings>
@@ -52,6 +52,35 @@ data:
     </clickhouse>    
   entrypoint.sh: |
     #!/bin/sh
-    IFS=- read -r var1 var2 <<< $HOSTNAME | sed 's/<server_id>1<\/server_id>/<server_id>'$var2'<\/server_id>/g' /etc/clickhouse-keeper/keeper_config.template > /etc/clickhouse-keeper/keeper_config.xml 
-    /entrypoint.sh
+    IFS=- read -r var1 var2 <<< $HOSTNAME | sed 's/pod_nr/'$var2'/g' /etc/clickhouse-keeper/keeper_config.template > /etc/clickhouse-keeper/keeper_config.xml 
+    set +x
+    set -eo pipefail
+    shopt -s nullglob
+    
+    DO_CHOWN=1
+    if [ "${CLICKHOUSE_DO_NOT_CHOWN:-0}" = "1" ]; then
+      DO_CHOWN=0
+    fi
+    
+    CLICKHOUSE_UID="${CLICKHOUSE_UID:-"$(id -u clickhouse)"}"
+    CLICKHOUSE_GID="${CLICKHOUSE_GID:-"$(id -g clickhouse)"}"
+    
+    # support --user
+    if [ "$(id -u)" = "0" ]; then
+      USER=$CLICKHOUSE_UID
+      GROUP=$CLICKHOUSE_GID
+      if command -v gosu &> /dev/null; then
+        gosu="gosu $USER:$GROUP"
+      elif command -v su-exec &> /dev/null; then
+        gosu="su-exec $USER:$GROUP"
+      else
+        echo "No gosu/su-exec detected!"
+        exit 1
+      fi
+    else
+      USER="$(id -u)"
+      GROUP="$(id -g)"
+      gosu=""
+      DO_CHOWN=0
+    fi
     

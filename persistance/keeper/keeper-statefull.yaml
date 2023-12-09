@@ -36,6 +36,10 @@ spec:
           configMap:
             name: keeper-config
             defaultMode: 0666
+        - name: config-volume2
+          configMap:
+            name: keeper-config
+            defaultMode: 0777
         - name: keeper-data
           hostPath:
             path: /data/clickhouse/keeper
@@ -56,6 +60,9 @@ spec:
           - mountPath: /etc/clickhouse-keeper/keeper_config.template
             name: config-volume
             subPath: keeper_config.xml
+          - mountPath: /entrypoint.sh
+            name: config-volume
+            subPath: entrypoint.sh
           - name: keeper-data
             mountPath: /var/lib/clickhouse-keeper
           - name: keeper-logs
