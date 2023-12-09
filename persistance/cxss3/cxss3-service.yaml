@@ -9,7 +9,11 @@ spec:
   type: ClusterIP
   ports:
     - port: 9000
+      name: tcp
+    - port: 9009
+      name: internal
     - port: 8123
+      name: http
   selector:
     app: cxss3
     tier: persistence

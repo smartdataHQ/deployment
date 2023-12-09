@@ -9,8 +9,11 @@ spec:
   type: ClusterIP
   ports:
     - port: 9000
+      name: tcp
     - port: 8123
+      name: http
     - port: 9181
+      name: zookeeper
   selector:
     app: keeper
     tier: persistence
