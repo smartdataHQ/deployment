@@ -136,15 +136,15 @@ data:
         <zookeeper>
             <node>
                 <host>keeper-0.keeper.default.svc.cluster.local</host>
-                <port>2181</port>
+                <port>9181</port>
             </node>
             <node>
                 <host>keeper-1.keeper.default.svc.cluster.local</host>
-                <port>2181</port>
+                <port>9181</port>
             </node>
             <node>
                 <host>keeper-2.keeper.default.svc.cluster.local</host>
-                <port>2181</port>
+                <port>9181</port>
             </node>
         </zookeeper>
     </clickhouse>
