@@ -69,7 +69,7 @@ spec:
           - name: storage-config
             mountPath: /etc/clickhouse-server/config.d/storage.xml
           - name: server-config
-            mountPath: /etc/clickhouse-server/config.d/config.xml
+            mountPath: /etc/clickhouse-server/config.xml
           - name: cxss3-data
             mountPath: /var/lib/clickhouse
 
