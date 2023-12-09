@@ -8,19 +8,19 @@ data:
     <clickhouse>
       <logger>
           <level>warn</level>
-          <log>/var/lib/clickhouse-keeper/logs/clickhouse-keeper.log</log>
-          <errorlog>/var/lib/clickhouse-keeper/logs/clickhouse-keeper.err.log</errorlog>
+          <log>/var/lib/clickhouse/logs/clickhouse-keeper.log</log>
+          <errorlog>/var/lib/clickhouse/logs/clickhouse-keeper.err.log</errorlog>
           <size>1000M</size>
           <count>10</count>
       </logger>        
       <listen_host>::1</listen_host>
-      <path>/var/lib/clickhouse-keeper/</path>
-      <core_path>/var/lib/clickhouse-keeper/cores</core_path>        
+      <path>/var/lib/clickhouse/</path>
+      <core_path>/var/lib/clickhouse/cores</core_path>        
       <keeper_server>
         <tcp_port>2181</tcp_port>
         <server_id>${SERVER_ID}</server_id>
-        <log_storage_path>/var/lib/clickhouse-keeper/coordination/log</log_storage_path>
-        <snapshot_storage_path>/var/lib/clickhouse-keeper/coordination/snapshots</snapshot_storage_path>    
+        <log_storage_path>/var/lib/clickhouse/coordination/log</log_storage_path>
+        <snapshot_storage_path>/var/lib/clickhouse/coordination/snapshots</snapshot_storage_path>    
         <coordination_settings>
           <operation_timeout_ms>10000</operation_timeout_ms>
           <session_timeout_ms>30000</session_timeout_ms>
