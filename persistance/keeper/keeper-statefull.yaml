@@ -50,9 +50,7 @@ spec:
         - containerPort: 9181
         restartPolicy: Never
         command:
-          - /bin/bash
-          - |
-            echo "running below scripts"
+          - echo $HOSTNAME
         volumeMounts:
           - mountPath: /etc/clickhouse-keeper/keeper_config.xml
             name: config-volume
