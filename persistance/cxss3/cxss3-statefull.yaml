@@ -67,10 +67,10 @@ spec:
                   key: secret_access_key
         volumeMounts:
           - name: storage-config
-            mountPath: /etc/clickhouse-server/config.d/storage.xml
+            mountPath: /etc/clickhouse-server/
             subPath: storage_config.xml
           - name: server-config
-            mountPath: /etc/clickhouse-server/config.xml
+            mountPath: /etc/clickhouse-server/
             subPath: config.xml
           - name: cxss3-data
             mountPath: /var/lib/clickhouse
