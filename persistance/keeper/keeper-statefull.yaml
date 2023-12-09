@@ -35,7 +35,7 @@ spec:
         - name: config-volume
           configMap:
             name: keeper-config
-            defaultMode: 0555
+            defaultMode: 0666
         - name: keeper-data
           hostPath:
             path: /data/clickhouse/keeper
