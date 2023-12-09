@@ -52,6 +52,7 @@ spec:
         volumeMounts:
           - name: keeper-config
             mountPath: /etc/clickhouse-keeper/keeper_config.xml
+            subPath: keeper_config.xml
           - name: keeper-data
             mountPath: /var/lib/clickhouse-keeper
 
