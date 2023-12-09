@@ -32,18 +32,9 @@ spec:
                       - cxss3
               topologyKey: "kubernetes.io/hostname"
       volumes:
-        - name: storage-config
+        - name: config-volume
           configMap:
             name: cxss3-config
-            items:
-              - key: storage_config.xml
-                path: storage_config.xml
-        - name: server-config
-          configMap:
-            name: cxss3-config
-            items:
-              - key: config.xml
-                path: config.xml
         - name: cxss3-data
           hostPath:
             path: /data/clickhouse/cxss3
@@ -66,12 +57,12 @@ spec:
                   name: clickhouse
                   key: secret_access_key
         volumeMounts:
-          - name: storage-config
-            mountPath: /etc/clickhouse-server/
+          - mountPath: /etc/clickhouse-server/storage_config.xml
             subPath: storage_config.xml
-          - name: server-config
-            mountPath: /etc/clickhouse-server/
+            name: config-volume
+          - mountPath: /etc/clickhouse-server/config.xml
             subPath: config.xml
+            name: config-volume
           - name: cxss3-data
             mountPath: /var/lib/clickhouse
 
