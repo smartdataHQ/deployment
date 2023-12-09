@@ -38,6 +38,9 @@ spec:
         - name: keeper-data
           hostPath:
             path: /data/clickhouse/keeper
+        - name: keeper-logs
+          hostPath:
+            path: /data/clickhouse/keeper/logs
       containers:
       - name: keeper
         image: clickhouse/clickhouse-keeper:23.11.1-alpine
@@ -52,6 +55,8 @@ spec:
             subPath: keeper_config.xml
           - name: keeper-data
             mountPath: /var/lib/clickhouse-keeper
+          - name: keeper-logs
+            mountPath: /var/log
 
       imagePullSecrets:
         - name: dockerlock
