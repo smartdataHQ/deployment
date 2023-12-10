@@ -107,15 +107,15 @@ data:
                 <shard>
                     <internal_replication>true</internal_replication>
                     <replica>
-                        <host>cxss3-0</host>
+                        <host>cxss3-0.cxss3.default.svc.cluster.local</host>
                         <port>9000</port>
                     </replica>
                     <replica>
-                        <host>cxss3-1</host>
+                        <host>cxss3-1.cxss3.default.svc.cluster.local</host>
                         <port>9000</port>
                     </replica>
                     <replica>
-                        <host>cxss3-2</host>
+                        <host>cxss3-2.cxss3.default.svc.cluster.local</host>
                         <port>9000</port>
                     </replica>
                 </shard>
