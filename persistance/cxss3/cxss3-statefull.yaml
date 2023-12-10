@@ -57,7 +57,7 @@ spec:
                   name: clickhouse
                   key: secret_access_key
         volumeMounts:
-          - mountPath: /etc/clickhouse-server/storage_config.xml
+          - mountPath: /etc/clickhouse-server/config.d/storage_config.xml
             subPath: storage_config.xml
             name: config-volume
           - mountPath: /etc/clickhouse-server/config.xml
