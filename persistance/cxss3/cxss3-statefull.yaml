@@ -65,6 +65,9 @@ spec:
             name: config-volume
           - name: cxss3-data
             mountPath: /var/lib/clickhouse
-
+      dnsPolicy: ClusterFirstWithHostNet
+      dnsConfig:
+        searches:
+          - cxss3.default.svc.cluster.local
       imagePullSecrets:
         - name: dockerlock
