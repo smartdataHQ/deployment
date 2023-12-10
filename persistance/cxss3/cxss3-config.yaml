@@ -114,11 +114,16 @@ data:
         <distributed_ddl>
             <path>/clickhouse/task_queue/ddl</path>
         </distributed_ddl>
+        <macros>
+            <cluster>default</cluster>
+            <shard>1</shard>
+            <replica from_env="HOSTNAME"/>
+        </macros>        
+        <default_replica_path>/clickhouse/tables/{shard}/{database}/{table}</default_replica_path>
+        <default_replica_name>{replica}</default_replica_name>
         <remote_servers>
             <default>
                 <shard>
-                    <default_replica_path>/clickhouse/tables/{shard}/{database}/{table}</default_replica_path>
-                    <default_replica_name>{replica}</default_replica_name>
                     <internal_replication>true</internal_replication>
                     <replica>
                         <host>cxss3-0</host>
