@@ -64,7 +64,7 @@ data:
   config.xml: |-
     <clickhouse>
         <logger>
-            <level>debug</level>
+            <level>warning</level>
             <console>true</console>
             <!--log remove="remove"/-->
             <!--errorlog remove="remove"/-->
