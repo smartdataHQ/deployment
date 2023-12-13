@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: aa2ch
-    image: quicklookup/ctxpipe:8989e29
+    image: quicklookup/ctxpipe:ab4bc41
     envFrom:
       - configMapRef:
           name: adventures2ch-config
