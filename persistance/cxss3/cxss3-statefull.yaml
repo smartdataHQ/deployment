@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cxss3
+  labels:
+    app: cxss3
+
+spec:
+  serviceName: cxss3
+  selector:
+    matchLabels:
+      app: cxss3
+      tier: persistence
+  replicas: 3
+  updateStrategy:
+    type: RollingUpdate
+  podManagementPolicy: OrderedReady
+  template:
+    metadata:
+      labels:
+        app: cxss3
+        tier: persistence
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - cxss3
+              topologyKey: "kubernetes.io/hostname"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: cxss3-config
+        - name: cxss3-data
+          hostPath:
+            path: /data/clickhouse/cxss3
+      containers:
+      - name: cxss3
+        image: clickhouse/clickhouse-server:23.11.1-alpine
+        ports:
+        - containerPort: 9000
+        - containerPort: 8123
+        restartPolicy: Never
+        env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: clickhouse
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: clickhouse
+                  key: secret_access_key
+        volumeMounts:
+          - mountPath: /etc/clickhouse-server/config.d/storage_config.xml
+            subPath: storage_config.xml
+            name: config-volume
+          - mountPath: /etc/clickhouse-server/config.xml
+            subPath: config.xml
+            name: config-volume
+          - name: cxss3-data
+            mountPath: /var/lib/clickhouse
+      dnsPolicy: ClusterFirstWithHostNet
+      dnsConfig:
+        searches:
+          - cxss3.default.svc.cluster.local
+      imagePullSecrets:
+        - name: dockerlock

@@ -11,7 +11,7 @@ data:
 
   bytewax.run.sh: |
     #!/bin/sh
-    python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_batch_size=1000, timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/
+    python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_topics=["se2-adventures-is"], kafka_batch_size=1000, from_date="2023-12-13T09:30:00", timeout=60, table="semantic.sem_events")' -s 8640 -r /pipedrive/aa2ch/
   
 
   CLICKHOUSE_HOST: '192.168.50.159'

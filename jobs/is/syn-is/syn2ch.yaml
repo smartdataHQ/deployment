@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: syn2ch
+  name: syn2ch-pipe
 spec:
   containers:
-  - name: syn2ch
-    image: quicklookup/ctxpipe:68cdb8c
+  - name: syn2ch-pipe
+    image: quicklookup/ctxpipe:8312456
     envFrom:
       - configMapRef:
           name: syn-is-config
