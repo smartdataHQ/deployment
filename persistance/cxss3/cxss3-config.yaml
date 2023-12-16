@@ -21,6 +21,8 @@ data:
                     <access_key_id from_env="AWS_ACCESS_KEY_ID"/>
                     <secret_access_key from_env="AWS_SECRET_ACCESS_KEY"/>
                     <cache_enabled>true</cache_enabled>
+                    <data_cache_enabled>true</data_cache_enabled>
+                    <cache_path>/var/lib/clickhouse/disks/s3-cache/</cache_path>
                 </s3>
                 <s3_cache>
                     <type>cache</type>
