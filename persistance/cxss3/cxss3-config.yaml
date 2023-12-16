@@ -56,9 +56,6 @@ data:
                         <main>
                             <disk>s3</disk>
                         </main>
-                        <s3cached>
-                            <disk>s3_cache</disk>
-                        </s3cached>
                     </volumes>
                 </s3_main>
             </policies>
