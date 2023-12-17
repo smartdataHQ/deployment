@@ -54,11 +54,8 @@ data:
                 <s3_main>
                     <volumes>
                         <main>
-                            <disk>s3</disk>
-                        </main>
-                        <s3cached>
                             <disk>s3_cache</disk>
-                        </s3cached>
+                        </main>
                     </volumes>
                 </s3_main>
             </policies>
@@ -67,7 +64,7 @@ data:
   config.xml: |-
     <clickhouse>
         <logger>
-            <level>warning</level>
+            <level>information</level>
             <console>true</console>
             <!--log remove="remove"/-->
             <!--errorlog remove="remove"/-->
