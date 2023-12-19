@@ -31,7 +31,7 @@ spec:
       - mountPath: /pipelines/bytewax.run.sh
         name: config-volume
         subPath: bytewax.run.sh
-    imagePullPolicy: IfNotPresent
+    imagePullPolicy: Always
     restartPolicy: Always
   volumes:
   - name: config-volume
