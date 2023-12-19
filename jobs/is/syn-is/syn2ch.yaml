@@ -5,11 +5,13 @@ metadata:
 spec:
   containers:
   - name: syn2ch-pipe
-    image: quicklookup/ctxpipe:8312456
+    image: quicklookup/ctxpipe:4c40cc0
     envFrom:
       - configMapRef:
           name: syn-is-config
     env:
+      - name: KEEP_CONTAINER_ALIVE
+        value: "false"
       - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
@@ -31,7 +33,8 @@ spec:
       - mountPath: /pipelines/bytewax.run.sh
         name: config-volume
         subPath: bytewax.run.sh
-
+    imagePullPolicy: IfNotPresent
+    restartPolicy: Always
   volumes:
   - name: config-volume
     configMap:
