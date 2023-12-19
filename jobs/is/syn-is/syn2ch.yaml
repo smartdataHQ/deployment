@@ -10,8 +10,6 @@ spec:
       - configMapRef:
           name: syn-is-config
     env:
-      - name: KEEP_CONTAINER_ALIVE
-        value: "false"
       - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
