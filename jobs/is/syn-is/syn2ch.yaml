@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: syn2ch-pipe
-    image: quicklookup/ctxpipe:b53cb57
+    image: quicklookup/ctxpipe:6873ebd
 
     envFrom:
       - configMapRef:
@@ -20,7 +20,7 @@ spec:
         valueFrom:
           secretKeyRef:
             name: clickhouse
-            key: nexus-password
+            key: cxss3-password
       - name: SYN_IS_SNOWFLAKE_PASSWORD
         valueFrom:
           secretKeyRef:
