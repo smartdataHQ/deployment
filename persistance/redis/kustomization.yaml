@@ -1,0 +1,4 @@
+resources:
+  - redis-stateful.yaml
+  - redis-service.yaml
+  - redis-config.yaml
