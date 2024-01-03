@@ -27,5 +27,3 @@ spec:
         envFrom:
           - configMapRef:
               name: kadeck-config
-      imagePullSecrets:
-        - name: dockerlock
