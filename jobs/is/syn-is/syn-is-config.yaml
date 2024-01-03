@@ -11,7 +11,7 @@ data:
   SYN_IS_SNOWFLAKE_USER: 'stefan'
   bytewax.run.sh: |
     #!/bin/sh
-    python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("xZN8!E6d4aXns2ty", batch_size=10000, kafka_batch_size=5000, timeout=15, table="cst.semantic_events_new", from_date="2024-01-02 21:00:00")'
+    python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("xZN8!E6d4aXns2ty", batch_size=10000, kafka_batch_size=5000, timeout=15, table="cst.semantic_events_new", from_date="2024-01-03 15:00:00")'
 
   # CLICKHOUSE_HOST: '192.168.50.159'
   CLICKHOUSE_HOST: 'cxss3.default'
