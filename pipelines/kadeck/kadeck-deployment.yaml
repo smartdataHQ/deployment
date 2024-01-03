@@ -14,13 +14,6 @@ spec:
       labels:
         app: kadeck
     spec:
-      initContainers:
-        - name: volume-permissions
-          image: busybox:1.36
-          command: ["sh", "-c", "chown 1000:1000 /data"]
-          volumeMounts:
-            - name: n8n-claim
-              mountPath: /data
       containers:
         - env:
             - name: xeotek_kadeck_free
