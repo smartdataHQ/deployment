@@ -4,4 +4,5 @@ metadata:
   name: kadeck-config
 data:
   xeotek_kadeck_free: 'stefan@snjallgogn.is'
+  xeotek_kadeck_port: '80'
   KAFKA_URI: 'kafka.default:9092'
