@@ -4,7 +4,6 @@ metadata:
   name: kadec
   labels:
     app: kadec
-    tier: pipelines
 spec:
   type: ClusterIP
   ports:
@@ -12,4 +11,3 @@ spec:
       name: http
   selector:
     app: kadec
-    tier: pipelines
