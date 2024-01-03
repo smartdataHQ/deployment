@@ -1,3 +1,5 @@
 resources:
   - kadeck-deployment.yaml
+  - kadeck-config.yaml
   - kadeck-service.yaml
+  - kadeck-ingress.yaml

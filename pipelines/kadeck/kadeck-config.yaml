@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kadeck-config
+data:
+  xeotek_kadeck_free: 'stefan@snjallgogn.is'
+  KAFKA_URI: 'kafka.default:9092'
