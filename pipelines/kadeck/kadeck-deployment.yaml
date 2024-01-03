@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Node Port
 metadata:
   name: kadeck
 spec:
@@ -7,12 +7,14 @@ spec:
   selector:
     matchLabels:
       app: kadeck
+      tier: pipelines
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         app: kadeck
+        tier: pipelines
     spec:
       containers:
         - env:
