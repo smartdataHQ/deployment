@@ -11,7 +11,7 @@ spec:
     matchLabels:
       app: cxss3
       tier: persistence
-  replicas: 3
+  replicas: 4
   updateStrategy:
     type: RollingUpdate
   podManagementPolicy: OrderedReady
