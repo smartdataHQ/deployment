@@ -118,10 +118,10 @@ data:
                         <host>cxss3-2</host>
                         <port>9000</port>
                     </replica>
-                    <replica>
+                    <!--replica>
                         <host>cxss3-3</host>
                         <port>9000</port>
-                    </replica>
+                    </replica-->
                 </shard>
             </default>
         </remote_servers>
