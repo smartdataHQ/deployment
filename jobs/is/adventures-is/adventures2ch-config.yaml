@@ -12,7 +12,7 @@ data:
 
   bytewax.run.sh: |
     #!/bin/sh
-    python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_topics=["se2-adventures-is"], kafka_batch_size=1000, from_date="2024-01-08T12:00:00", timeout=60, table="semantic.sem_events")'  
+    python -m bytewax.run -p1 'pipelines/flows/json_kafka_ingress:get_flow("bZB6!E2d4bz4s8ty", batch_size=1000, kafka_topics=["se2-adventures-is"], kafka_batch_size=1000, from_date="2024-01-02 13:49:19", timeout=60, table="semantic.sem_events")'  
 
   CLICKHOUSE_HOST: 'cxss3.default'
   CLICKHOUSE_PORT: '8123'
