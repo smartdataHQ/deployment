@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/gpt-api:352ad12 
+          image: quicklookup/gpt-api:f36aacf
           resources:
             requests:
               cpu: 200m
@@ -76,6 +76,11 @@ spec:
                 secretKeyRef:
                   name: llm
                   key: FRESHCHAT_API_TOKEN
+            - name: EVENTS_SERVER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: llm
+                  key: EVENTS_SERVER_KEY
           envFrom:
             - configMapRef:
                 name: gpt-api-config
