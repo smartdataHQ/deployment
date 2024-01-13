@@ -23,3 +23,14 @@ spec:
         envFrom:
           - configMapRef:
               name: kadeck-config
+        env:
+          - name: xeotekKadeckDbUsername
+            valueFrom:
+              secretKeyRef:
+                name: kadeck
+                key: Username
+          - name: xeotekKadeckDbPassword
+            valueFrom:
+              secretKeyRef:
+                name: kadeck
+                key: Password
