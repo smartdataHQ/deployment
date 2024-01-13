@@ -5,4 +5,5 @@ metadata:
 data:
   xeotek_kadeck_free: 'stefan@snjallgogn.is'
   xeotek_kadeck_port: '80'
-  KAFKA_URI: 'kafka.default:9092'
+  xeotek_kadeck_db_url: 'postgresql://postgresql-postgresql-ha-postgresql-headless.default:5432/kodeck'
+
