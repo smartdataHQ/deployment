@@ -8,7 +8,7 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
           - matchExpressions:
-              - key: "pipeline"
+              - key: "pipelines"
                 operator: In
                 values:
                   - "true"
