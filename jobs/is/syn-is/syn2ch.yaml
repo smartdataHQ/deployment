@@ -3,6 +3,15 @@ kind: Pod
 metadata:
   name: syn2ch-pipe
 spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: "pipeline"
+                operator: In
+                values:
+                  - "true"
   containers:
   - name: syn2ch-pipe
     image: quicklookup/ctxpipe:92c7e17
