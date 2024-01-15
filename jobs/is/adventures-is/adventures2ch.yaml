@@ -19,14 +19,15 @@ spec:
         valueFrom:
           secretKeyRef:
             name: clickhouse
-            key: nexus-password
+            key: cxss3-password
     volumeMounts:
       - mountPath: /pipedrive
         name: pipedrive
       - mountPath: /pipelines/bytewax.run.sh
         name: config-volume
         subPath: bytewax.run.sh
-
+    imagePullPolicy: Always
+    restartPolicy: Always
   volumes:
   - name: config-volume
     configMap:
