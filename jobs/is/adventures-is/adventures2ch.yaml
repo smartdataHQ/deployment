@@ -14,7 +14,7 @@ spec:
                   - "true"
   containers:
   - name: aa2ch
-    image: quicklookup/ctxpipe:dbe41b8
+    image: quicklookup/ctxpipe:794f903
     envFrom:
       - configMapRef:
           name: adventures2ch-config
