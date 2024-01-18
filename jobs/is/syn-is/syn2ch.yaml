@@ -14,7 +14,7 @@ spec:
                   - "true"
   containers:
   - name: syn2ch-pipe
-    image: quicklookup/ctxpipe:92c7e17
+    image: quicklookup/ctxpipe:3fbb472
     envFrom:
       - configMapRef:
           name: syn-is-config
