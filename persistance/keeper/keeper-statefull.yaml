@@ -60,6 +60,3 @@ spec:
             mountPath: /var/lib/clickhouse-keeper
           - name: keeper-logs
             mountPath: /var/log
-
-      imagePullSecrets:
-        - name: dockerlock
