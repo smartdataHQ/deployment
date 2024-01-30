@@ -48,7 +48,7 @@ spec:
             path: /data/clickhouse/cxss3
       containers:
       - name: cxss3
-        image: clickhouse/clickhouse-server:23.12.2-alpine
+        image: clickhouse/clickhouse-server:23.3.11.5-alpine
         ports:
         - containerPort: 9000
         - containerPort: 8123
