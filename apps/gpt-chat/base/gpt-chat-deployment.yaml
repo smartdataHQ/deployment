@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/gpt-chat:8ae5210
+          image: quicklookup/gpt-chat:ec4b7f8
           resources:
             requests:
               cpu: 200m
