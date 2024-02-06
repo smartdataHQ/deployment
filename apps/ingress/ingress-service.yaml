@@ -7,6 +7,7 @@ metadata:
     tier: api
 spec:
   type: LoadBalancer
+  sessionAffinity: ClientIP
   externalIPs:
     - 192.168.50.125
   ports:
