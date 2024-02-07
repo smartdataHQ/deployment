@@ -28,6 +28,10 @@ data:
                     <path>/var/lib/clickhouse/disks/s3-cache/</path>
                     <max_size>300Gi</max_size>
                 </s3_cache>
+                <backups>
+                    <type>local</type>
+                    <path>/backups/</path>
+                </backups>                
             </disks>
             <backups>
                 <allowed_disk>backups</allowed_disk>
