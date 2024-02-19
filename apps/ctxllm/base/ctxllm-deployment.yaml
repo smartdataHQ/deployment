@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/ctxllm:69f5623
+          image: quicklookup/ctxllm:e7af9a8
           resources:
             requests:
               cpu: 200m
@@ -36,7 +36,7 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
           env:
-          - name: AZURE_OPENAI_API_KEY_gpt_3_5_turbo
+          - name: AZURE_OPENAI_API_KEY
             valueFrom:
               secretKeyRef:
                 name: llm
@@ -46,6 +46,11 @@ spec:
               secretKeyRef:
                 name: llm
                 key: AZURE_OPENAI_API_KEY_gpt_4
+          - name: BOKUN_PROD_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: BOKUN_PROD_API_KEY
           envFrom:
             - configMapRef:
                 name: ctxllm-config
