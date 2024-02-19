@@ -46,6 +46,11 @@ spec:
               secretKeyRef:
                 name: llm
                 key: AZURE_OPENAI_API_KEY_gpt_4
+          - name: OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: llm
+                key: OPENAI_API_KEY
           - name: BOKUN_PROD_API_KEY
             valueFrom:
               secretKeyRef:
