@@ -30,7 +30,7 @@ data:
                 </s3_cache>
                 <backups>
                     <type>local</type>
-                    <path>/backups/</path>
+                    <path>/mnt/nas/cxss3/</path>
                 </backups>                
             </disks>
             <backups>
@@ -89,6 +89,7 @@ data:
                 <password_sha256_hex>2b02a9cfa819b25e5e08c19c86ab89c58da3a958b003bed64f118160872a7bf3</password_sha256_hex>
             </default>
         </users>
+        <allow_suspicious_low_cardinality_types>1</allow_suspicious_low_cardinality_types>        
         <user_directories>
             <users_xml>
                 <path>users.xml</path>
