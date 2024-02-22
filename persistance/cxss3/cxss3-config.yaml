@@ -35,7 +35,7 @@ data:
             </disks>
             <backups>
                 <allowed_disk>backups</allowed_disk>
-                <allowed_path>/backups/</allowed_path>
+                <allowed_path>/mnt/nas/cxss3/</allowed_path>
             </backups>
             <policies>
                 <local>
