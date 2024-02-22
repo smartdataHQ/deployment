@@ -33,10 +33,6 @@ data:
                     <path>/mnt/nas/cxss3/</path>
                 </backups>                
             </disks>
-            <backups>
-                <allowed_disk>backups</allowed_disk>
-                <allowed_path>/mnt/nas/cxss3/</allowed_path>
-            </backups>
             <policies>
                 <local>
                     <volumes>
@@ -89,7 +85,11 @@ data:
                 <password_sha256_hex>2b02a9cfa819b25e5e08c19c86ab89c58da3a958b003bed64f118160872a7bf3</password_sha256_hex>
                 <allow_suspicious_low_cardinality_types>1</allow_suspicious_low_cardinality_types>
             </default>
-        </users>                
+        </users>
+        <backups>
+            <allowed_disk>backups</allowed_disk>
+            <allowed_path>/mnt/nas/cxss3/</allowed_path>
+        </backups>
         <user_directories>
             <users_xml>
                 <path>users.xml</path>
