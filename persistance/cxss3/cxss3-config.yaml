@@ -87,9 +87,9 @@ data:
         <users>
             <default>
                 <password_sha256_hex>2b02a9cfa819b25e5e08c19c86ab89c58da3a958b003bed64f118160872a7bf3</password_sha256_hex>
+                <allow_suspicious_low_cardinality_types>1</allow_suspicious_low_cardinality_types>
             </default>
-        </users>
-        <allow_suspicious_low_cardinality_types>1</allow_suspicious_low_cardinality_types>        
+        </users>                
         <user_directories>
             <users_xml>
                 <path>users.xml</path>
