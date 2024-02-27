@@ -46,9 +46,6 @@ spec:
         - name: cxss3-data
           hostPath:
             path: /data/clickhouse/cxss3
-        - name: nas
-          hostPath:
-            path: /mnt/nas/cxss3
       containers:
       - name: cxss3
         image: clickhouse/clickhouse-server:23.11.4-alpine
@@ -76,8 +73,6 @@ spec:
             name: config-volume
           - name: cxss3-data
             mountPath: /var/lib/clickhouse
-          - name: nas
-            mountPath: /nas
       dnsPolicy: ClusterFirstWithHostNet
       dnsConfig:
         searches:
