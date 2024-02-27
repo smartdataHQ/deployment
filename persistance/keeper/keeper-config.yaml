@@ -8,20 +8,14 @@ data:
     <clickhouse>
       <logger>
           <level>warning</level>
-          <!--log>/var/lib/clickhouse-keeper/logs/clickhouse-keeper.log</log-->
-          <!--errorlog>/var/lib/clickhouse-keeper/logs/clickhouse-keeper.err.log</errorlog-->
-          <!--size>1000M</size-->
-          <!--count>10</count-->
           <console>1</console>
       </logger>        
-      <!--listen_host>::1</listen_host-->
       <listen_host>::</listen_host>
       <path>/var/lib/clickhouse-keeper/</path>
       <core_path>/var/lib/clickhouse-keeper/cores</core_path>        
       <keeper_server>
         <tcp_port>9181</tcp_port>
         <server_id from_env="PODNR"></server_id>
-        <!--log_storage_path>/var/lib/clickhouse-keeper/logs</log_storage_path-->
         <snapshot_storage_path>/var/lib/clickhouse-keeper/coordination/snapshots</snapshot_storage_path>    
         <coordination_settings>
           <operation_timeout_ms>10000</operation_timeout_ms>
