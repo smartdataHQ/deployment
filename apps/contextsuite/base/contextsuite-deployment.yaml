@@ -159,5 +159,5 @@ spec:
     kind: Deployment
     name: contextsuite
   maxReplicas: 4
-  minReplicas: 2
+  minReplicas: 3
   targetCPUUtilizationPercentage: 60
