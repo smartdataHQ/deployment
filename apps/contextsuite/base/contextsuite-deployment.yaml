@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/contextsuite:9be17f6
+          image: quicklookup/contextsuite:cb6fe75
           resources:
             requests:
               cpu: 200m
@@ -159,5 +159,5 @@ spec:
     kind: Deployment
     name: contextsuite
   maxReplicas: 4
-  minReplicas: 2
+  minReplicas: 1
   targetCPUUtilizationPercentage: 60

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: quicklookup/contextapi:e6d6e07
+          image: quicklookup/contextapi:1eb412e
           resources:
             requests:
               cpu: 200m
@@ -80,5 +80,5 @@ spec:
     kind: Deployment
     name: contextapi
   maxReplicas: 4
-  minReplicas: 2
+  minReplicas: 1
   targetCPUUtilizationPercentage: 60
