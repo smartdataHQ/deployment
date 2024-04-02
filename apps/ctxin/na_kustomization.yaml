@@ -1,4 +1,0 @@
-bases:
-  - ctxin-deployment.yaml
-  - ctxin-config.yaml
-  - ctxin-service.yaml
