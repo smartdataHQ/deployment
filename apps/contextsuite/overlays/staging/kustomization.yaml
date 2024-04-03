@@ -1,8 +1,0 @@
-bases:
-  - ../../base
-
-resources:
-  - contextsuite-config.yaml
-  - contextsuite-ingress.yml
-  - contextsuite-pvc.yaml
-# - contextsuite-cert.yaml

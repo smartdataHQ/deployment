@@ -1,6 +1,0 @@
-bases:
-  - ../../base
-
-resources:
-  - ssp-config.yaml
-  - ssp-ingress.yml

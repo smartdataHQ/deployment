@@ -1,5 +1,0 @@
-resources:
-  - ingress-deployment.yaml
-  - ingress-config.yaml
-  - ingress-service.yaml
-  - ingress-ingress.yaml
